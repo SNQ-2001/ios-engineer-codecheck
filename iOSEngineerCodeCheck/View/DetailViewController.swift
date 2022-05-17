@@ -19,10 +19,9 @@ class DetailViewController: UIViewController {
     @IBOutlet var wathcersLabel: UILabel!
     @IBOutlet var forkLabel: UILabel!
     @IBOutlet var issueLabel: UILabel!
-
-
+    
     var viewController: ViewController!
-        
+
     override func viewDidLoad() {
         super.viewDidLoad()
         

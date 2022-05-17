@@ -12,7 +12,7 @@ import Foundation
 struct SearchRepositories: Codable {
     let total_count: Int
     let incomplete_results: Bool
-    let items: [Item]
+    var items: [Item]
 }
 
 // MARK: - Item
