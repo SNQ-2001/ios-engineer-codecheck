@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import PKHUD
 
 class ViewController: UITableViewController {
 
@@ -20,11 +21,15 @@ class ViewController: UITableViewController {
         uiSearchBar.placeholder = "GitHubのリポジトリを検索できるよー"
         uiSearchBar.delegate = self
         initViewModel()
+
+        PKHUD.sharedHUD.contentView = PKHUDProgressView()
+
     }
 
     private func initViewModel() {
         viewModel.reloadHandler = { [weak self] in
             DispatchQueue.main.async {
+                PKHUD.sharedHUD.hide(true)
                 self?.tableView.reloadData()
             }
         }
@@ -94,18 +99,21 @@ extension ViewController: UISearchBarDelegate {
 
     // 検索キータップ時に呼び出される
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-
+        PKHUD.sharedHUD.show()
         view.endEditing(true) // 遷移から戻る時に強制的に上にスクロールするバグを修正
 
         guard let searchBarText = searchBar.text else { return }
 
         if searchBarText.count != 0 {
             self.viewModel.getRepositories(searchBarText: searchBarText) {
+                PKHUD.sharedHUD.hide(true)
                 self.viewModel.alert(self, title: "エラー", message: "リポジトリが見つかりません。")
             } missAlert: {
+                PKHUD.sharedHUD.hide(true)
                 self.viewModel.alert(self, title: "エラー", message: "リポジトリの取得に失敗しました。")
             }
         } else {
+            PKHUD.sharedHUD.hide(true)
             self.viewModel.alert(self, title: "エラー", message: "入力されていません。")
         }
 
