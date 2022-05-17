@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UITableViewController, UISearchBarDelegate {
 
     @IBOutlet weak var SchBr: UISearchBar!
     
-    var repo: [[String: Any]]=[]
+    var repo: SearchRepositories = SearchRepositories(total_count: 0, incomplete_results: false, items: [])
     
     var task: URLSessionTask?
     var word: String!
@@ -41,19 +42,20 @@ class ViewController: UITableViewController, UISearchBarDelegate {
         word = searchBar.text!
         
         if word.count != 0 {
-            url = "https://api.github.com/search/repositories?q=\(word!)"
-            task = URLSession.shared.dataTask(with: URL(string: url)!) { (data, res, err) in
-                if let obj = try! JSONSerialization.jsonObject(with: data!) as? [String: Any] {
-                    if let items = obj["items"] as? [[String: Any]] {
-                    self.repo = items
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
+            // MARK: 通信はAlamofireを使用
+            AF.request("https://api.github.com/search/repositories?q=\(word!)", method: .get).responseData { response in
+                do {
+                    guard let data = response.data else { return }
+                    // MARK: 辞書パース から 構造体パースに変換
+                    let repositories = try JSONDecoder().decode(SearchRepositories.self, from: data)
+                    self.repo = repositories
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
                     }
+                } catch {
+                    print(error.localizedDescription)
                 }
             }
-        // これ呼ばなきゃリストが更新されません
-        task?.resume()
         }
         
     }
@@ -68,15 +70,15 @@ class ViewController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repo.count
+        return repo.items.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
-        let rp = repo[indexPath.row]
-        cell.textLabel?.text = rp["full_name"] as? String ?? ""
-        cell.detailTextLabel?.text = rp["language"] as? String ?? ""
+        let rp = repo.items[indexPath.row]
+        cell.textLabel?.text = rp.full_name
+        cell.detailTextLabel?.text = rp.language ?? "No Language"
         cell.tag = indexPath.row
         return cell
         
