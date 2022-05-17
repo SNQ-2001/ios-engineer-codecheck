@@ -15,13 +15,11 @@ class ViewController: UITableViewController {
     
     var repo: SearchRepositories = SearchRepositories(total_count: 0, incomplete_results: false, items: [])
 
-    var word: String!
     var idx: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        SchBr.text = "GitHubのリポジトリを検索できるよー"
+        SchBr.placeholder = "GitHubのリポジトリを検索できるよー"
         SchBr.delegate = self
     }
 
@@ -64,27 +62,16 @@ class ViewController: UITableViewController {
 
 
 extension ViewController: UISearchBarDelegate {
-
-    // フォーカスが当たる際に呼び出される
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        // ↓こうすれば初期のテキストを消せる
-        searchBar.text = ""
-        return true
-    }
-
-    // テキストが変化したときに呼び出される
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-
-    }
-
     // 検索キータップ時に呼び出される
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 
-        word = searchBar.text!
+        view.endEditing(true) // 遷移から戻る時に強制的に上にスクロールするバグを修正
+
+        guard let word = searchBar.text else { return }
 
         if word.count != 0 {
             // MARK: 通信はAlamofireを使用
-            AF.request("https://api.github.com/search/repositories?q=\(word!)", method: .get).responseData { response in
+            AF.request("https://api.github.com/search/repositories?q=\(word)", method: .get).responseData { response in
                 do {
                     guard let data = response.data else { return }
                     // MARK: 辞書パース から 構造体パースに変換
