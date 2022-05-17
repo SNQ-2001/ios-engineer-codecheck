@@ -11,6 +11,7 @@
 		1C589A5A2833D8DE00E19FF3 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C589A592833D8DE00E19FF3 /* Color+.swift */; };
 		1C589A5D2833E05100E19FF3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C589A5C2833E05100E19FF3 /* ViewModel.swift */; };
 		1C589A622834246F00E19FF3 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C589A612834246F00E19FF3 /* RepositoryTableViewCell.swift */; };
+		1C589A642834358900E19FF3 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C589A632834358900E19FF3 /* UILabel+.swift */; };
 		73E5FD7C23FFA5871801E867 /* Pods_iOSEngineerCodeCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 804E7B50D189420AA3ACD4FC /* Pods_iOSEngineerCodeCheck.framework */; };
 		BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */; };
 		BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945DE244DC5E80012785A /* AppDelegate.swift */; };
@@ -49,6 +50,7 @@
 		1C589A592833D8DE00E19FF3 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		1C589A5C2833E05100E19FF3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		1C589A612834246F00E19FF3 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
+		1C589A632834358900E19FF3 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		2D93C820053CB9600DD82C79 /* Pods_iOSEngineerCodeCheckTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSEngineerCodeCheckTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E732FC83A728287EE145C00 /* Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests.release.xcconfig"; path = "Target Support Files/Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests/Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6B7E954536DF99945D0A3BD7 /* Pods-iOSEngineerCodeCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSEngineerCodeCheck.release.xcconfig"; path = "Target Support Files/Pods-iOSEngineerCodeCheck/Pods-iOSEngineerCodeCheck.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				1C589A592833D8DE00E19FF3 /* Color+.swift */,
+				1C589A632834358900E19FF3 /* UILabel+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C589A642834358900E19FF3 /* UILabel+.swift in Sources */,
 				1C54D3C428339EB800AA5023 /* SearchRepositoriesModel.swift in Sources */,
 				1C589A5A2833D8DE00E19FF3 /* Color+.swift in Sources */,
 				BFD945E3244DC5E80012785A /* ViewController.swift in Sources */,

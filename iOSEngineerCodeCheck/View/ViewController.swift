@@ -75,7 +75,7 @@ extension ViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Repository", for: indexPath) as! RepositoryTableViewCell
         let rp = self.viewModel.repo.items[indexPath.row]
 
-        cell.setCell(avatarUrl: rp.owner.avatar_url, loginText: rp.owner.login, nameText: rp.name)
+        cell.setCell(avatarUrl: rp.owner.avatar_url, login: rp.owner.login, name: rp.name, language: rp.language ?? "No Language")
 
         cell.tag = indexPath.row
 

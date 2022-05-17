@@ -15,7 +15,9 @@ class RepositoryTableViewCell: UITableViewCell {
     @IBOutlet var nameLabel: UILabel!
 
     @IBOutlet var loginLabel: UILabel!
-    
+
+    @IBOutlet var languageLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -24,13 +26,19 @@ class RepositoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    func setCell(avatarUrl: String, loginText: String, nameText: String) {
+    func setCell(avatarUrl: String, login: String, name: String, language: String) {
+
         avatarImage.af.setImage(
             withURL: URL(string: avatarUrl)!,
             placeholderImage: UIImage(named: "placeholder")!,
             imageTransition: .crossDissolve(0.5)
         )
-        loginLabel.text = loginText
-        nameLabel.text = nameText
+
+        loginLabel.text = login
+
+        nameLabel.text = name
+
+        languageLabel.text = language
+        languageLabel.backgroundColor = UIColor(language: language)
     }
 }
