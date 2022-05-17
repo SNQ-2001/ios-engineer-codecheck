@@ -48,6 +48,7 @@ class ViewController: UITableViewController {
         cell.textLabel?.text = rp.full_name
         cell.detailTextLabel?.text = rp.language ?? "No Language"
         cell.tag = indexPath.row
+        
         return cell
         
     }
