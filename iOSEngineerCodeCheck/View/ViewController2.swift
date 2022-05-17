@@ -33,6 +33,7 @@ class ViewController2: UIViewController {
         WchsLbl.text = "\(repo.watchers_count) watchers"
         FrksLbl.text = "\(repo.forks_count) forks"
         IsssLbl.text = "\(repo.open_issues_count) open issues"
+
         getImage()
         
     }

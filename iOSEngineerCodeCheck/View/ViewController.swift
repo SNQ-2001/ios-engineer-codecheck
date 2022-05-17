@@ -9,15 +9,13 @@
 import UIKit
 import Alamofire
 
-class ViewController: UITableViewController, UISearchBarDelegate {
+class ViewController: UITableViewController {
 
     @IBOutlet weak var SchBr: UISearchBar!
     
     var repo: SearchRepositories = SearchRepositories(total_count: 0, incomplete_results: false, items: [])
-    
-    var task: URLSessionTask?
+
     var word: String!
-    var url: String!
     var idx: Int!
     
     override func viewDidLoad() {
@@ -26,21 +24,64 @@ class ViewController: UITableViewController, UISearchBarDelegate {
         SchBr.text = "GitHubのリポジトリを検索できるよー"
         SchBr.delegate = self
     }
+
+    // 画面遷移
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "Detail"{
+            let dtl = segue.destination as! ViewController2
+            dtl.vc1 = self
+        }
+        
+    }
+
+    // セルの個数を計算
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return repo.items.count
+    }
+
+    // セルの生成
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = UITableViewCell()
+        let rp = repo.items[indexPath.row]
+        cell.textLabel?.text = rp.full_name
+        cell.detailTextLabel?.text = rp.language ?? "No Language"
+        cell.tag = indexPath.row
+        return cell
+        
+    }
+
+    // セルのタップ時に呼び出される
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        idx = indexPath.row
+        performSegue(withIdentifier: "Detail", sender: self)
+        
+    }
     
+}
+
+
+extension ViewController: UISearchBarDelegate {
+
+    // フォーカスが当たる際に呼び出される
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         // ↓こうすれば初期のテキストを消せる
         searchBar.text = ""
         return true
     }
-    
+
+    // テキストが変化したときに呼び出される
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        task?.cancel()
+
     }
-    
+
+    // 検索キータップ時に呼び出される
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+
         word = searchBar.text!
-        
+
         if word.count != 0 {
             // MARK: 通信はAlamofireを使用
             AF.request("https://api.github.com/search/repositories?q=\(word!)", method: .get).responseData { response in
@@ -57,38 +98,6 @@ class ViewController: UITableViewController, UISearchBarDelegate {
                 }
             }
         }
-        
+
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "Detail"{
-            let dtl = segue.destination as! ViewController2
-            dtl.vc1 = self
-        }
-        
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repo.items.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = UITableViewCell()
-        let rp = repo.items[indexPath.row]
-        cell.textLabel?.text = rp.full_name
-        cell.detailTextLabel?.text = rp.language ?? "No Language"
-        cell.tag = indexPath.row
-        return cell
-        
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // 画面遷移時に呼ばれる
-        idx = indexPath.row
-        performSegue(withIdentifier: "Detail", sender: self)
-        
-    }
-    
 }
