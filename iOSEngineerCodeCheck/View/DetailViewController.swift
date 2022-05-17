@@ -25,7 +25,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let repo = viewController.repo.items[viewController.cellIndex]
+        let repo = viewController.viewModel.repo.items[viewController.viewModel.cellIndex]
         
         languageLabel.text = repo.language ?? "No Language"
         starLabel.text = "\(repo.stargazers_count) stars"
@@ -39,7 +39,7 @@ class DetailViewController: UIViewController {
     
     func getImage() {
         
-        let repo = viewController.repo.items[viewController.cellIndex]
+        let repo = viewController.viewModel.repo.items[viewController.viewModel.cellIndex]
         
         titleLabel.text = repo.full_name
 
