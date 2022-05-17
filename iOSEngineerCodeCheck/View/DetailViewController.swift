@@ -48,7 +48,7 @@ class DetailViewController: UIViewController {
         /// 表示アニメーションの設定
         self.imageView.af.setImage(
             withURL: URL(string: repo.owner.avatar_url)!,
-            placeholderImage: UIImage(named: "identicon")!,
+            placeholderImage: UIImage(named: "placeholder")!,
             imageTransition: .crossDissolve(0.5)
         )
     }

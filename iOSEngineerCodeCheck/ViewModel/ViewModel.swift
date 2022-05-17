@@ -45,4 +45,8 @@ class ViewModel: NSObject {
         }
     }
 
+    func resetSearchRepositories() {
+        self.repo = SearchRepositories(total_count: 0, incomplete_results: false, items: [])
+    }
+
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 import PKHUD
 
 class ViewController: UITableViewController {
@@ -61,13 +62,21 @@ extension ViewController {
 
     }
 
+    // Cellの高さを計算
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 65
+    }
+
     // セルの生成
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell = UITableViewCell()
+        tableView.separatorInset = .zero
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Repository", for: indexPath) as! RepositoryTableViewCell
         let rp = self.viewModel.repo.items[indexPath.row]
-        cell.textLabel?.text = rp.full_name
-        cell.detailTextLabel?.text = rp.language ?? "No Language"
+
+        cell.setCell(avatarUrl: rp.owner.avatar_url, loginText: rp.owner.login, nameText: rp.name)
+
         cell.tag = indexPath.row
 
         return cell
@@ -91,7 +100,7 @@ extension ViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
 
         if !self.viewModel.repo.items.isEmpty {
-            self.viewModel.repo = SearchRepositories(total_count: 0, incomplete_results: false, items: [])
+            viewModel.resetSearchRepositories()
         }
         return true
 
