@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class ViewController2: UIViewController {
     
@@ -44,13 +45,14 @@ class ViewController2: UIViewController {
         
         TtlLbl.text = repo.full_name
 
-        URLSession.shared.dataTask(with: URL(string: repo.owner.avatar_url)!) { (data, res, err) in
-            let img = UIImage(data: data!)!
-            DispatchQueue.main.async {
-                self.ImgView.image = img
-            }
-        }.resume()
-        
+        // MARK: AlamofireImageに変更
+        /// プレイスホルダー画像の設定
+        /// 表示アニメーションの設定
+        self.ImgView.af.setImage(
+            withURL: URL(string: repo.owner.avatar_url)!,
+            placeholderImage: UIImage(named: "identicon")!,
+            imageTransition: .crossDissolve(0.5)
+        )
     }
     
 }
