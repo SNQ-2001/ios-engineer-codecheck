@@ -11,31 +11,33 @@ import Alamofire
 
 class ViewController: UITableViewController {
 
-    @IBOutlet weak var SchBr: UISearchBar!
-    
+    @IBOutlet var uiSearchBar: UISearchBar!
+
     var repo: SearchRepositories = SearchRepositories(total_count: 0, incomplete_results: false, items: [])
 
-    var idx: Int!
+    var cellIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        SchBr.placeholder = "GitHubのリポジトリを検索できるよー"
-        SchBr.delegate = self
+        uiSearchBar.placeholder = "GitHubのリポジトリを検索できるよー"
+        uiSearchBar.delegate = self
     }
 
     // 画面遷移
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "Detail"{
-            let dtl = segue.destination as! ViewController2
-            dtl.vc1 = self
+        if segue.identifier == "Detail" {
+            let detailViewController = segue.destination as! DetailViewController
+            detailViewController.viewController = self
         }
         
     }
 
     // セルの個数を計算
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+
         return repo.items.count
+        
     }
 
     // セルの生成
@@ -53,7 +55,7 @@ class ViewController: UITableViewController {
     // セルのタップ時に呼び出される
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        idx = indexPath.row
+        cellIndex = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)
         
     }
