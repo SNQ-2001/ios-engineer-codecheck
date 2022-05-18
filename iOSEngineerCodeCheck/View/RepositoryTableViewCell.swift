@@ -10,13 +10,13 @@ import UIKit
 
 class RepositoryTableViewCell: UITableViewCell {
 
-    @IBOutlet var avatarImage: UIImageView!
+    @IBOutlet weak var avatarImage: UIImageView!
 
-    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
 
-    @IBOutlet var loginLabel: UILabel!
+    @IBOutlet weak var loginLabel: UILabel!
 
-    @IBOutlet var languageLabel: UILabel!
+    @IBOutlet weak var languageLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

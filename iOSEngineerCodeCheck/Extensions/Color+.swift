@@ -9,6 +9,16 @@
 import UIKit
 
 extension UIColor {
+    var gradient: UIColor {
+        if let components = self.cgColor.components {
+            return UIColor(red: components[0] + 0.3, green: components[1] + 0.3, blue: components[2] + 0.3, alpha: 0.7)
+        } else {
+            return UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        }
+    }
+}
+
+extension UIColor {
     convenience init(language: String) {
         switch language {
         case "1C Enterprise":

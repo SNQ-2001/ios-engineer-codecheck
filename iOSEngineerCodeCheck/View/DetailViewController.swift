@@ -11,21 +11,23 @@ import AlamofireImage
 
 class DetailViewController: UIViewController {
 
-    @IBOutlet var imageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
 
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var languageLabel: UILabel!
-    @IBOutlet var starLabel: UILabel!
-    @IBOutlet var wathcersLabel: UILabel!
-    @IBOutlet var forkLabel: UILabel!
-    @IBOutlet var issueLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet weak var starLabel: UILabel!
+    @IBOutlet weak var wathcersLabel: UILabel!
+    @IBOutlet weak var forkLabel: UILabel!
+    @IBOutlet weak var issueLabel: UILabel!
     
     var viewController: ViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         let repo = viewController.viewModel.repo.items[viewController.viewModel.cellIndex]
+        
+        createGradient(repo: repo)
         
         languageLabel.text = repo.language ?? "No Language"
         starLabel.text = "\(repo.stargazers_count) stars"
@@ -35,6 +37,16 @@ class DetailViewController: UIViewController {
 
         getImage()
         
+    }
+
+    func createGradient(repo: Item) {
+        let topColor = UIColor(language: repo.language ?? "No Language")
+        let bottomColor = UIColor(language: repo.language ?? "No Language").gradient
+        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
+        let gradientLayer: CAGradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientColors
+        gradientLayer.frame = self.view.bounds
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     func getImage() {

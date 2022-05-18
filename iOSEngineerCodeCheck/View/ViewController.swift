@@ -13,7 +13,7 @@ import PKHUD
 
 class ViewController: UITableViewController {
 
-    @IBOutlet var uiSearchBar: UISearchBar!
+    @IBOutlet weak var uiSearchBar: UISearchBar!
 
     let icon: UIImageView = {
         let imageView = UIImageView()
