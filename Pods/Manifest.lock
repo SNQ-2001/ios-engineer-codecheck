@@ -3,23 +3,27 @@ PODS:
   - AlamofireImage (4.2.0):
     - Alamofire (~> 5.4)
   - LicensePlist (3.22.0)
+  - PKHUD (5.3.0)
 
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage (~> 4.1)
   - LicensePlist
+  - PKHUD (~> 5.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - AlamofireImage
     - LicensePlist
+    - PKHUD
 
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
   AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
   LicensePlist: be4f67fadceeba970ed2f13e198592a4f420d2be
+  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
 
-PODFILE CHECKSUM: ada59a097bc7e35206a25f7a504b3953ef36d1cb
+PODFILE CHECKSUM: 71e76233745fb1ab3b6869b013d74df61ef38236
 
 COCOAPODS: 1.11.2

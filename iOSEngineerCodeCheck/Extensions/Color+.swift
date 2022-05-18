@@ -9,6 +9,16 @@
 import UIKit
 
 extension UIColor {
+    var gradient: UIColor {
+        if let components = self.cgColor.components {
+            return UIColor(red: components[0] + 0.3, green: components[1] + 0.3, blue: components[2] + 0.3, alpha: 0.7)
+        } else {
+            return UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        }
+    }
+}
+
+extension UIColor {
     convenience init(language: String) {
         switch language {
         case "1C Enterprise":
@@ -20,7 +30,7 @@ extension UIColor {
         case "ABAP CDS":
             self.init(red: 0.3333333333333333, green: 0.3686274509803922, blue: 0.1450980392156863, alpha: 1.0)
         case "ABNF":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "AGS Script":
             self.init(red: 0.7254901960784313, green: 0.8509803921568627, blue: 1.0, alpha: 1.0)
         case "AIDL":
@@ -36,9 +46,9 @@ extension UIColor {
         case "APL":
             self.init(red: 0.35294117647058826, green: 0.5058823529411764, blue: 0.39215686274509803, alpha: 1.0)
         case "ASL":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "ASN.1":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "ASP.NET":
             self.init(red: 0.5803921568627451, green: 0.0, blue: 1.0, alpha: 1.0)
         case "ATS":
@@ -100,7 +110,7 @@ extension UIColor {
         case "Beef":
             self.init(red: 0.6470588235294118, green: 0.1843137254901961, blue: 0.3058823529411765, alpha: 1.0)
         case "Befunge":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "BibTeX":
             self.init(red: 0.4666666666666667, green: 0.5333333333333333, blue: 0.6, alpha: 1.0)
         case "Bicep":
@@ -134,19 +144,19 @@ extension UIColor {
         case "C++":
             self.init(red: 0.9529411764705882, green: 0.29411764705882354, blue: 0.49019607843137253, alpha: 1.0)
         case "C-ObjDump":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "C2hs Haskell":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "CIL":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "CLIPS":
             self.init(red: 0.0, green: 0.6392156862745098, blue: 0.0, alpha: 1.0)
         case "CMake":
             self.init(red: 0.8549019607843137, green: 0.20392156862745098, blue: 0.20392156862745098, alpha: 1.0)
         case "COBOL":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "CODEOWNERS":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "COLLADA":
             self.init(red: 0.9450980392156862, green: 0.6431372549019608, blue: 0.16862745098039217, alpha: 1.0)
         case "CSON":
@@ -164,13 +174,13 @@ extension UIColor {
         case "Cap'n Proto":
             self.init(red: 0.7686274509803922, green: 0.15294117647058825, blue: 0.15294117647058825, alpha: 1.0)
         case "CartoCSS":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Ceylon":
             self.init(red: 0.8745098039215686, green: 0.6470588235294118, blue: 0.20784313725490197, alpha: 1.0)
         case "Chapel":
             self.init(red: 0.5529411764705883, green: 0.7764705882352941, blue: 0.24705882352941178, alpha: 1.0)
         case "Charity":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "ChucK":
             self.init(red: 0.24705882352941178, green: 0.5019607843137255, blue: 0.0, alpha: 1.0)
         case "Cirru":
@@ -190,7 +200,7 @@ extension UIColor {
         case "Cloud Firestore Security Rules":
             self.init(red: 1.0, green: 0.6274509803921569, blue: 0.0, alpha: 1.0)
         case "CoNLL-U":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "CodeQL":
             self.init(red: 0.0784313725490196, green: 0.058823529411764705, blue: 0.27450980392156865, alpha: 1.0)
         case "CoffeeScript":
@@ -206,13 +216,13 @@ extension UIColor {
         case "Component Pascal":
             self.init(red: 0.6901960784313725, green: 0.807843137254902, blue: 0.3058823529411765, alpha: 1.0)
         case "Cool":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Coq":
             self.init(red: 0.8156862745098039, green: 0.7137254901960784, blue: 0.5490196078431373, alpha: 1.0)
         case "Cpp-ObjDump":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Creole":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Crystal":
             self.init(red: 0.0, green: 0.00392156862745098, blue: 0.0, alpha: 1.0)
         case "Csound":
@@ -224,23 +234,23 @@ extension UIColor {
         case "Cuda":
             self.init(red: 0.22745098039215686, green: 0.3058823529411765, blue: 0.22745098039215686, alpha: 1.0)
         case "Cue Sheet":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Cycript":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Cython":
             self.init(red: 0.996078431372549, green: 0.8745098039215686, blue: 0.3568627450980392, alpha: 1.0)
         case "D":
             self.init(red: 0.7294117647058823, green: 0.34901960784313724, blue: 0.3686274509803922, alpha: 1.0)
         case "D-ObjDump":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "DIGITAL Command Language":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "DM":
             self.init(red: 0.26666666666666666, green: 0.4470588235294118, blue: 0.396078431372549, alpha: 1.0)
         case "DNS Zone":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "DTrace":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Dafny":
             self.init(red: 1.0, green: 0.9254901960784314, blue: 0.1450980392156863, alpha: 1.0)
         case "Darcs Patch":
@@ -252,7 +262,7 @@ extension UIColor {
         case "Dhall":
             self.init(red: 0.8745098039215686, green: 0.6862745098039216, blue: 1.0, alpha: 1.0)
         case "Diff":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "DirectX 3D File":
             self.init(red: 0.6666666666666666, green: 0.807843137254902, blue: 0.3764705882352941, alpha: 1.0)
         case "Dockerfile":
@@ -264,9 +274,9 @@ extension UIColor {
         case "E":
             self.init(red: 0.8, green: 0.807843137254902, blue: 0.20784313725490197, alpha: 1.0)
         case "E-mail":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "EBNF":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "ECL":
             self.init(red: 0.5411764705882353, green: 0.07058823529411765, blue: 0.403921568627451, alpha: 1.0)
         case "ECLiPSe":
@@ -276,7 +286,7 @@ extension UIColor {
         case "EQ":
             self.init(red: 0.6549019607843137, green: 0.5254901960784314, blue: 0.28627450980392155, alpha: 1.0)
         case "Eagle":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Easybuild":
             self.init(red: 0.023529411764705882, green: 0.5803921568627451, blue: 0.023529411764705882, alpha: 1.0)
         case "Ecere Projects":
@@ -284,7 +294,7 @@ extension UIColor {
         case "EditorConfig":
             self.init(red: 1.0, green: 0.9450980392156862, blue: 0.9490196078431372, alpha: 1.0)
         case "Edje Data Collection":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Eiffel":
             self.init(red: 0.30196078431372547, green: 0.4117647058823529, blue: 0.4666666666666667, alpha: 1.0)
         case "Elixir":
@@ -318,11 +328,11 @@ extension UIColor {
         case "Filebench WML":
             self.init(red: 0.9647058823529412, green: 0.7254901960784313, blue: 0.0, alpha: 1.0)
         case "Filterscript":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Fluent":
             self.init(red: 1.0, green: 0.8, blue: 0.2, alpha: 1.0)
         case "Formatted":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Forth":
             self.init(red: 0.20392156862745098, green: 0.09019607843137255, blue: 0.03137254901960784, alpha: 1.0)
         case "Fortran":
@@ -348,7 +358,7 @@ extension UIColor {
         case "GCC Machine Description":
             self.init(red: 1.0, green: 0.8117647058823529, blue: 0.6705882352941176, alpha: 1.0)
         case "GDB":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "GDScript":
             self.init(red: 0.20784313725490197, green: 0.3333333333333333, blue: 0.4392156862745098, alpha: 1.0)
         case "GEDCOM":
@@ -356,7 +366,7 @@ extension UIColor {
         case "GLSL":
             self.init(red: 0.33725490196078434, green: 0.5254901960784314, blue: 0.6470588235294118, alpha: 1.0)
         case "GN":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Game Maker Language":
             self.init(red: 0.44313725490196076, green: 0.7058823529411765, blue: 0.09019607843137255, alpha: 1.0)
         case "Gemfile.lock":
@@ -372,7 +382,7 @@ extension UIColor {
         case "Gerber Image":
             self.init(red: 0.8235294117647058, green: 0.043137254901960784, blue: 0.0, alpha: 1.0)
         case "Gettext Catalog":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Gherkin":
             self.init(red: 0.3568627450980392, green: 0.12549019607843137, blue: 0.38823529411764707, alpha: 1.0)
         case "Git Attributes":
@@ -382,7 +392,7 @@ extension UIColor {
         case "Glyph":
             self.init(red: 0.7568627450980392, green: 0.6745098039215687, blue: 0.4980392156862745, alpha: 1.0)
         case "Glyph Bitmap Distribution Format":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Gnuplot":
             self.init(red: 0.9411764705882353, green: 0.6627450980392157, blue: 0.9411764705882353, alpha: 1.0)
         case "Go":
@@ -402,7 +412,7 @@ extension UIColor {
         case "Grammatical Framework":
             self.init(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
         case "Graph Modeling Language":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "GraphQL":
             self.init(red: 0.8823529411764706, green: 0.0, blue: 0.596078431372549, alpha: 1.0)
         case "Graphviz (DOT)":
@@ -414,7 +424,7 @@ extension UIColor {
         case "HAProxy":
             self.init(red: 0.06274509803921569, green: 0.42745098039215684, blue: 0.6627450980392157, alpha: 1.0)
         case "HCL":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "HLSL":
             self.init(red: 0.6666666666666666, green: 0.807843137254902, blue: 0.3764705882352941, alpha: 1.0)
         case "HTML":
@@ -452,7 +462,7 @@ extension UIColor {
         case "Hy":
             self.init(red: 0.4666666666666667, green: 0.5647058823529412, blue: 0.6980392156862745, alpha: 1.0)
         case "HyPhy":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "IDL":
             self.init(red: 0.6392156862745098, green: 0.3215686274509804, blue: 0.1843137254901961, alpha: 1.0)
         case "IGOR Pro":
@@ -460,7 +470,7 @@ extension UIColor {
         case "INI":
             self.init(red: 0.8196078431372549, green: 0.8588235294117647, blue: 0.8784313725490196, alpha: 1.0)
         case "IRC log":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Idris":
             self.init(red: 0.7019607843137254, green: 0.0, blue: 0.0, alpha: 1.0)
         case "Ignore List":
@@ -468,7 +478,7 @@ extension UIColor {
         case "ImageJ Macro":
             self.init(red: 0.6, green: 0.6666666666666666, blue: 1.0, alpha: 1.0)
         case "Inform 7":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Inno Setup":
             self.init(red: 0.14901960784313725, green: 0.29411764705882354, blue: 0.6, alpha: 1.0)
         case "Io":
@@ -536,11 +546,11 @@ extension UIColor {
         case "KiCad Schematic":
             self.init(red: 0.1843137254901961, green: 0.2901960784313726, blue: 0.6705882352941176, alpha: 1.0)
         case "Kit":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Kotlin":
             self.init(red: 0.6627450980392157, green: 0.4823529411764706, blue: 1.0, alpha: 1.0)
         case "Kusto":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "LFE":
             self.init(red: 0.2980392156862745, green: 0.18823529411764706, blue: 0.13725490196078433, alpha: 1.0)
         case "LLVM":
@@ -550,7 +560,7 @@ extension UIColor {
         case "LSL":
             self.init(red: 0.23921568627450981, green: 0.6, blue: 0.4392156862745098, alpha: 1.0)
         case "LTspice Symbol":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "LabVIEW":
             self.init(red: 0.996078431372549, green: 0.8705882352941177, blue: 0.023529411764705882, alpha: 1.0)
         case "Lark":
@@ -560,7 +570,7 @@ extension UIColor {
         case "Latte":
             self.init(red: 0.9490196078431372, green: 0.6470588235294118, blue: 0.25882352941176473, alpha: 1.0)
         case "Lean":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Less":
             self.init(red: 0.11372549019607843, green: 0.21176470588235294, blue: 0.36470588235294116, alpha: 1.0)
         case "Lex":
@@ -568,11 +578,11 @@ extension UIColor {
         case "LilyPond":
             self.init(red: 0.611764705882353, green: 0.8, blue: 0.48627450980392156, alpha: 1.0)
         case "Limbo":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Linker Script":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Linux Kernel Module":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Liquid":
             self.init(red: 0.403921568627451, green: 0.7215686274509804, blue: 0.8705882352941177, alpha: 1.0)
         case "Literate Agda":
@@ -584,21 +594,21 @@ extension UIColor {
         case "LiveScript":
             self.init(red: 0.28627450980392155, green: 0.596078431372549, blue: 0.5254901960784314, alpha: 1.0)
         case "Logos":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Logtalk":
             self.init(red: 0.1607843137254902, green: 0.3568627450980392, blue: 0.6039215686274509, alpha: 1.0)
         case "LookML":
             self.init(red: 0.396078431372549, green: 0.16862745098039217, blue: 0.5058823529411764, alpha: 1.0)
         case "LoomScript":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Lua":
             self.init(red: 0.0, green: 0.0, blue: 0.5019607843137255, alpha: 1.0)
         case "M":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "M4":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "M4Sugar":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "MATLAB":
             self.init(red: 0.8823529411764706, green: 0.403921568627451, blue: 0.21568627450980393, alpha: 1.0)
         case "MAXScript":
@@ -612,7 +622,7 @@ extension UIColor {
         case "MTML":
             self.init(red: 0.7176470588235294, green: 0.8823529411764706, blue: 0.9568627450980393, alpha: 1.0)
         case "MUF":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Macaulay2":
             self.init(red: 0.8470588235294118, green: 1.0, blue: 1.0, alpha: 1.0)
         case "Makefile":
@@ -628,7 +638,7 @@ extension UIColor {
         case "Mathematica":
             self.init(red: 0.8666666666666667, green: 0.06666666666666667, blue: 0.0, alpha: 1.0)
         case "Maven POM":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Max":
             self.init(red: 0.7686274509803922, green: 0.6549019607843137, blue: 0.611764705882353, alpha: 1.0)
         case "Mercury":
@@ -638,11 +648,11 @@ extension UIColor {
         case "Metal":
             self.init(red: 0.5607843137254902, green: 0.0784313725490196, blue: 0.9137254901960784, alpha: 1.0)
         case "Microsoft Developer Studio Project":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Microsoft Visual Studio Solution":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "MiniD":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Mirah":
             self.init(red: 0.7803921568627451, green: 0.6627450980392157, blue: 0.2196078431372549, alpha: 1.0)
         case "Modelica":
@@ -652,33 +662,33 @@ extension UIColor {
         case "Modula-3":
             self.init(red: 0.13333333333333333, green: 0.2, blue: 0.5333333333333333, alpha: 1.0)
         case "Module Management System":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Monkey":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Moocode":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "MoonScript":
             self.init(red: 1.0, green: 0.27058823529411763, blue: 0.5215686274509804, alpha: 1.0)
         case "Motorola 68K Assembly":
             self.init(red: 0.0, green: 0.36470588235294116, blue: 0.6666666666666666, alpha: 1.0)
         case "Muse":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Mustache":
             self.init(red: 0.4470588235294118, green: 0.29411764705882354, blue: 0.23137254901960785, alpha: 1.0)
         case "Myghty":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "NASL":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "NCL":
             self.init(red: 0.1568627450980392, green: 0.2627450980392157, blue: 0.12156862745098039, alpha: 1.0)
         case "NEON":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "NL":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "NPM Config":
             self.init(red: 0.796078431372549, green: 0.2196078431372549, blue: 0.21568627450980393, alpha: 1.0)
         case "NSIS":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "NWScript":
             self.init(red: 0.06666666666666667, green: 0.08235294117647059, blue: 0.13333333333333333, alpha: 1.0)
         case "Nearley":
@@ -700,7 +710,7 @@ extension UIColor {
         case "Nim":
             self.init(red: 1.0, green: 0.7607843137254902, blue: 0.0, alpha: 1.0)
         case "Ninja":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Nit":
             self.init(red: 0.0, green: 0.6, blue: 0.09019607843137255, alpha: 1.0)
         case "Nix":
@@ -714,9 +724,9 @@ extension UIColor {
         case "OCaml":
             self.init(red: 0.23137254901960785, green: 0.8823529411764706, blue: 0.2, alpha: 1.0)
         case "ObjDump":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Object Data Instance Notation":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "ObjectScript":
             self.init(red: 0.25882352941176473, green: 0.2823529411764706, blue: 0.5764705882352941, alpha: 1.0)
         case "Objective-C":
@@ -730,7 +740,7 @@ extension UIColor {
         case "Omgrofl":
             self.init(red: 0.792156862745098, green: 0.7333333333333333, blue: 1.0, alpha: 1.0)
         case "Opa":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Opal":
             self.init(red: 0.9686274509803922, green: 0.9294117647058824, blue: 0.8784313725490196, alpha: 1.0)
         case "Open Policy Agent":
@@ -742,17 +752,17 @@ extension UIColor {
         case "OpenQASM":
             self.init(red: 0.6666666666666666, green: 0.4392156862745098, blue: 1.0, alpha: 1.0)
         case "OpenRC runscript":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "OpenSCAD":
             self.init(red: 0.8980392156862745, green: 0.803921568627451, blue: 0.27058823529411763, alpha: 1.0)
         case "OpenStep Property List":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "OpenType Feature File":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Org":
             self.init(red: 0.4666666666666667, green: 0.6666666666666666, blue: 0.6, alpha: 1.0)
         case "Ox":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Oxygene":
             self.init(red: 0.803921568627451, green: 0.8156862745098039, blue: 0.8901960784313725, alpha: 1.0)
         case "Oz":
@@ -776,9 +786,9 @@ extension UIColor {
         case "Parrot":
             self.init(red: 0.9529411764705882, green: 0.792156862745098, blue: 0.0392156862745098, alpha: 1.0)
         case "Parrot Assembly":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Parrot Internal Representation":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Pascal":
             self.init(red: 0.8901960784313725, green: 0.9450980392156862, blue: 0.44313725490196076, alpha: 1.0)
         case "Pawn":
@@ -788,9 +798,9 @@ extension UIColor {
         case "Perl":
             self.init(red: 0.00784313725490196, green: 0.596078431372549, blue: 0.7647058823529411, alpha: 1.0)
         case "Pic":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Pickle":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "PicoLisp":
             self.init(red: 0.3764705882352941, green: 0.403921568627451, blue: 0.6862745098039216, alpha: 1.0)
         case "PigLatin":
@@ -798,15 +808,15 @@ extension UIColor {
         case "Pike":
             self.init(red: 0.0, green: 0.3254901960784314, blue: 0.5647058823529412, alpha: 1.0)
         case "PlantUML":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Pod":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Pod 6":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "PogoScript":
             self.init(red: 0.8470588235294118, green: 0.0, blue: 0.4549019607843137, alpha: 1.0)
         case "Pony":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "PostCSS":
             self.init(red: 0.8627450980392157, green: 0.22745098039215686, blue: 0.047058823529411764, alpha: 1.0)
         case "PostScript":
@@ -820,21 +830,21 @@ extension UIColor {
         case "Processing":
             self.init(red: 0.0, green: 0.5882352941176471, blue: 0.8470588235294118, alpha: 1.0)
         case "Proguard":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Prolog":
             self.init(red: 0.4549019607843137, green: 0.1568627450980392, blue: 0.23529411764705882, alpha: 1.0)
         case "Propeller Spin":
             self.init(red: 0.4980392156862745, green: 0.6352941176470588, blue: 0.6549019607843137, alpha: 1.0)
         case "Protocol Buffer":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Public Key":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Pug":
             self.init(red: 0.6588235294117647, green: 0.39215686274509803, blue: 0.32941176470588235, alpha: 1.0)
         case "Puppet":
             self.init(red: 0.18823529411764706, green: 0.16862745098039217, blue: 0.42745098039215684, alpha: 1.0)
         case "Pure Data":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "PureBasic":
             self.init(red: 0.35294117647058826, green: 0.4117647058823529, blue: 0.5254901960784314, alpha: 1.0)
         case "PureScript":
@@ -850,7 +860,7 @@ extension UIColor {
         case "QML":
             self.init(red: 0.26666666666666666, green: 0.6470588235294118, blue: 0.10980392156862745, alpha: 1.0)
         case "QMake":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Qt Script":
             self.init(red: 0.0, green: 0.7215686274509804, blue: 0.2549019607843137, alpha: 1.0)
         case "Quake":
@@ -862,15 +872,15 @@ extension UIColor {
         case "RDoc":
             self.init(red: 0.4392156862745098, green: 0.08235294117647059, blue: 0.08627450980392157, alpha: 1.0)
         case "REALbasic":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "REXX":
             self.init(red: 0.8509803921568627, green: 0.054901960784313725, blue: 0.03529411764705882, alpha: 1.0)
         case "RMarkdown":
             self.init(red: 0.09803921568627451, green: 0.5490196078431373, blue: 0.9058823529411765, alpha: 1.0)
         case "RPC":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "RPM Spec":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "RUNOFF":
             self.init(red: 0.4, green: 0.35294117647058826, blue: 0.3058823529411765, alpha: 1.0)
         case "Racket":
@@ -882,11 +892,11 @@ extension UIColor {
         case "Rascal":
             self.init(red: 1.0, green: 0.9803921568627451, blue: 0.6274509803921569, alpha: 1.0)
         case "Raw token data":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "ReScript":
             self.init(red: 0.9294117647058824, green: 0.3137254901960784, blue: 0.3176470588235294, alpha: 1.0)
         case "Readline Config":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Reason":
             self.init(red: 1.0, green: 0.34509803921568627, blue: 0.2784313725490196, alpha: 1.0)
         case "Rebol":
@@ -896,17 +906,17 @@ extension UIColor {
         case "Red":
             self.init(red: 0.9607843137254902, green: 0.0, blue: 0.0, alpha: 1.0)
         case "Redcode":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Redirect Rules":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Regular Expression":
             self.init(red: 0.0, green: 0.6039215686274509, blue: 0.0, alpha: 1.0)
         case "Ren'Py":
             self.init(red: 1.0, green: 0.4980392156862745, blue: 0.4980392156862745, alpha: 1.0)
         case "RenderScript":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Rich Text Format":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Ring":
             self.init(red: 0.17647058823529413, green: 0.32941176470588235, blue: 0.796078431372549, alpha: 1.0)
         case "Riot":
@@ -928,9 +938,9 @@ extension UIColor {
         case "SCSS":
             self.init(red: 0.7764705882352941, green: 0.3254901960784314, blue: 0.5490196078431373, alpha: 1.0)
         case "SELinux Policy":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "SMT":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "SPARQL":
             self.init(red: 0.047058823529411764, green: 0.27058823529411763, blue: 0.592156862745098, alpha: 1.0)
         case "SQF":
@@ -942,15 +952,15 @@ extension UIColor {
         case "SRecode Template":
             self.init(red: 0.20392156862745098, green: 0.5411764705882353, blue: 0.20392156862745098, alpha: 1.0)
         case "SSH Config":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "STON":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "SVG":
             self.init(red: 1.0, green: 0.6, blue: 0.0, alpha: 1.0)
         case "SWIG":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Sage":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "SaltStack":
             self.init(red: 0.39215686274509803, green: 0.39215686274509803, blue: 0.39215686274509803, alpha: 1.0)
         case "Sass":
@@ -970,11 +980,11 @@ extension UIColor {
         case "Shell":
             self.init(red: 0.5372549019607843, green: 0.8784313725490196, blue: 0.3176470588235294, alpha: 1.0)
         case "ShellSession":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Shen":
             self.init(red: 0.07058823529411765, green: 0.058823529411764705, blue: 0.0784313725490196, alpha: 1.0)
         case "Sieve":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Singularity":
             self.init(red: 0.39215686274509803, green: 0.9019607843137255, blue: 0.6784313725490196, alpha: 1.0)
         case "Slash":
@@ -986,7 +996,7 @@ extension UIColor {
         case "SmPL":
             self.init(red: 0.788235294117647, green: 0.28627450980392155, blue: 0.28627450980392155, alpha: 1.0)
         case "Smali":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Smalltalk":
             self.init(red: 0.34901960784313724, green: 0.403921568627451, blue: 0.023529411764705882, alpha: 1.0)
         case "Smarty":
@@ -994,11 +1004,11 @@ extension UIColor {
         case "Solidity":
             self.init(red: 0.6666666666666666, green: 0.403921568627451, blue: 0.27450980392156865, alpha: 1.0)
         case "Soong":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "SourcePawn":
             self.init(red: 0.9647058823529412, green: 0.6196078431372549, blue: 0.11372549019607843, alpha: 1.0)
         case "Spline Font Database":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Squirrel":
             self.init(red: 0.5019607843137255, green: 0.0, blue: 0.0, alpha: 1.0)
         case "Stan":
@@ -1042,17 +1052,17 @@ extension UIColor {
         case "Tcl":
             self.init(red: 0.8941176470588236, green: 0.8, blue: 0.596078431372549, alpha: 1.0)
         case "Tcsh":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "TeX":
             self.init(red: 0.23921568627450981, green: 0.3803921568627451, blue: 0.09019607843137255, alpha: 1.0)
         case "Tea":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Terra":
             self.init(red: 0.0, green: 0.0, blue: 0.2980392156862745, alpha: 1.0)
         case "Texinfo":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Text":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "TextMate Properties":
             self.init(red: 0.8745098039215686, green: 0.4, blue: 0.8941176470588236, alpha: 1.0)
         case "Textile":
@@ -1062,11 +1072,11 @@ extension UIColor {
         case "Turing":
             self.init(red: 0.8117647058823529, green: 0.0784313725490196, blue: 0.16862745098039217, alpha: 1.0)
         case "Turtle":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Twig":
             self.init(red: 0.7568627450980392, green: 0.8156862745098039, blue: 0.14901960784313725, alpha: 1.0)
         case "Type Language":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "TypeScript":
             self.init(red: 0.16862745098039217, green: 0.4549019607843137, blue: 0.5372549019607843, alpha: 1.0)
         case "Unified Parallel C":
@@ -1074,7 +1084,7 @@ extension UIColor {
         case "Unity3D Asset":
             self.init(red: 0.13333333333333333, green: 0.17254901960784313, blue: 0.21568627450980393, alpha: 1.0)
         case "Unix Assembly":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Uno":
             self.init(red: 0.6, green: 0.2, blue: 0.8, alpha: 1.0)
         case "UnrealScript":
@@ -1110,19 +1120,19 @@ extension UIColor {
         case "Vue":
             self.init(red: 0.2549019607843137, green: 0.7215686274509804, blue: 0.5137254901960784, alpha: 1.0)
         case "Wavefront Material":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Wavefront Object":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Web Ontology Language":
             self.init(red: 0.3568627450980392, green: 0.4392156862745098, blue: 0.7411764705882353, alpha: 1.0)
         case "WebAssembly":
             self.init(red: 0.01568627450980392, green: 0.07450980392156863, blue: 0.23137254901960785, alpha: 1.0)
         case "WebIDL":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "WebVTT":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Wget Config":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "Wikitext":
             self.init(red: 0.9882352941176471, green: 0.3411764705882353, blue: 0.3411764705882353, alpha: 1.0)
         case "Windows Registry Entries":
@@ -1132,29 +1142,29 @@ extension UIColor {
         case "World of Warcraft Addon Data":
             self.init(red: 0.9686274509803922, green: 0.8941176470588236, blue: 0.24705882352941178, alpha: 1.0)
         case "X BitMap":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "X Font Directory Index":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "X PixMap":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "X10":
             self.init(red: 0.29411764705882354, green: 0.4196078431372549, blue: 0.9372549019607843, alpha: 1.0)
         case "XC":
             self.init(red: 0.6, green: 0.8549019607843137, blue: 0.027450980392156862, alpha: 1.0)
         case "XCompose":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "XML":
             self.init(red: 0.0, green: 0.3764705882352941, blue: 0.6745098039215687, alpha: 1.0)
         case "XML Property List":
             self.init(red: 0.0, green: 0.3764705882352941, blue: 0.6745098039215687, alpha: 1.0)
         case "XPages":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "XProc":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "XQuery":
             self.init(red: 0.3215686274509804, green: 0.19607843137254902, blue: 0.9058823529411765, alpha: 1.0)
         case "XS":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "XSLT":
             self.init(red: 0.9215686274509803, green: 0.5490196078431373, blue: 0.9215686274509803, alpha: 1.0)
         case "Xojo":
@@ -1166,7 +1176,7 @@ extension UIColor {
         case "YAML":
             self.init(red: 0.796078431372549, green: 0.09019607843137255, blue: 0.11764705882352941, alpha: 1.0)
         case "YANG":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "YARA":
             self.init(red: 0.13333333333333333, green: 0.0, blue: 0.0, alpha: 1.0)
         case "YASnippet":
@@ -1178,7 +1188,7 @@ extension UIColor {
         case "ZIL":
             self.init(red: 0.8627450980392157, green: 0.4588235294117647, blue: 0.8980392156862745, alpha: 1.0)
         case "Zeek":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "ZenScript":
             self.init(red: 0.0, green: 0.7372549019607844, blue: 0.8196078431372549, alpha: 1.0)
         case "Zephir":
@@ -1188,15 +1198,15 @@ extension UIColor {
         case "Zimpl":
             self.init(red: 0.8392156862745098, green: 0.4666666666666667, blue: 0.06666666666666667, alpha: 1.0)
         case "cURL Config":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "desktop":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "dircolors":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "eC":
             self.init(red: 0.5686274509803921, green: 0.2235294117647059, blue: 0.3764705882352941, alpha: 1.0)
         case "edn":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "fish":
             self.init(red: 0.2901960784313726, green: 0.6823529411764706, blue: 0.2784313725490196, alpha: 1.0)
         case "jq":
@@ -1218,7 +1228,7 @@ extension UIColor {
         case "reStructuredText":
             self.init(red: 0.0784313725490196, green: 0.0784313725490196, blue: 0.0784313725490196, alpha: 1.0)
         case "robots.txt":
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         case "sed":
             self.init(red: 0.39215686274509803, green: 0.7254901960784313, blue: 0.4392156862745098, alpha: 1.0)
         case "wdl":
@@ -1228,7 +1238,7 @@ extension UIColor {
         case "xBase":
             self.init(red: 0.25098039215686274, green: 0.22745098039215686, blue: 0.25098039215686274, alpha: 1.0)
         default:
-            self.init(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         }
     }
 }
