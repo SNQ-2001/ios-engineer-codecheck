@@ -23,9 +23,10 @@ class DetailViewController: UIViewController {
 
     @IBOutlet var showProfileButton: UIButton!
 
-    @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet var repositoryNameLabel: UILabel!
+    @IBOutlet var repositoryDescriptionLabel: UILabel!
+
     @IBOutlet weak var starLabel: UILabel!
-    @IBOutlet weak var wathcersLabel: UILabel!
     @IBOutlet weak var forkLabel: UILabel!
     @IBOutlet weak var issueLabel: UILabel!
     
@@ -39,12 +40,13 @@ class DetailViewController: UIViewController {
         createGradient(repo: repo)
 
         showProfileButton.backgroundColor = UIColor(language: repo.language ?? "Nothing")
-        
-        languageLabel.text = "Language: \(repo.language ?? "Nothing")"
-        starLabel.text = "Stars: \(repo.stargazers_count)"
-        wathcersLabel.text = "Watchers: \(repo.watchers_count)"
-        forkLabel.text = "Forks: \(repo.forks_count)"
-        issueLabel.text = "Issues: \(repo.open_issues_count)"
+
+        repositoryNameLabel.text = repo.name
+        repositoryDescriptionLabel.text = repo.description
+
+        issueLabel.text = "\(repo.open_issues_count) issues"
+        starLabel.text = "\(repo.stargazers_count) stars"
+        forkLabel.text = "\(repo.forks_count) forks"
 
         getImage()
 
@@ -91,9 +93,9 @@ class DetailViewController: UIViewController {
             do {
                 guard let data = response.data else { return }
                 let accountInfo = try JSONDecoder().decode(AccountInfo.self, from: data)
-                self.nameLabel.fadeTransition(0.4)
-                self.loginLabel.fadeTransition(0.4)
-                self.bioLable.fadeTransition(0.4)
+                self.nameLabel.textTransition(0.4)
+                self.loginLabel.textTransition(0.6)
+                self.bioLable.textTransition(0.8)
                 self.nameLabel.text = accountInfo.name
                 self.loginLabel.text = accountInfo.login
                 self.bioLable.text = accountInfo.bio ?? ""
@@ -102,5 +104,4 @@ class DetailViewController: UIViewController {
             }
         }
     }
-    
 }
