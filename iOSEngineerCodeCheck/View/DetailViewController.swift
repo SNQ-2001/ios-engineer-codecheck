@@ -7,13 +7,22 @@
 //
 
 import UIKit
+import Alamofire
 import AlamofireImage
+import SafariServices
 
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
 
-    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet var nameLabel: UILabel!
+
+    @IBOutlet var loginLabel: UILabel!
+
+    @IBOutlet var bioLable: UILabel!
+
+    @IBOutlet var showProfileButton: UIButton!
+
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var starLabel: UILabel!
     @IBOutlet weak var wathcersLabel: UILabel!
@@ -28,32 +37,44 @@ class DetailViewController: UIViewController {
         let repo = viewController.viewModel.repo.items[viewController.viewModel.cellIndex]
         
         createGradient(repo: repo)
+
+        showProfileButton.backgroundColor = UIColor(language: repo.language ?? "Nothing")
         
-        languageLabel.text = repo.language ?? "No Language"
-        starLabel.text = "\(repo.stargazers_count) stars"
-        wathcersLabel.text = "\(repo.watchers_count) watchers"
-        forkLabel.text = "\(repo.forks_count) forks"
-        issueLabel.text = "\(repo.open_issues_count) open issues"
+        languageLabel.text = "Language: \(repo.language ?? "Nothing")"
+        starLabel.text = "Stars: \(repo.stargazers_count)"
+        wathcersLabel.text = "Watchers: \(repo.watchers_count)"
+        forkLabel.text = "Forks: \(repo.forks_count)"
+        issueLabel.text = "Issues: \(repo.open_issues_count)"
 
         getImage()
+
+        getAcountInfo()
         
     }
 
+
+    @IBAction func showProfile(_ sender: Any) {
+        let safariViewController = SFSafariViewController(url: NSURL(string: viewController.viewModel.repo.items[viewController.viewModel.cellIndex].owner.html_url)! as URL)
+        safariViewController.modalPresentationStyle = .overFullScreen
+        present(safariViewController, animated: true, completion: nil)
+    }
+
     func createGradient(repo: Item) {
-        let topColor = UIColor(language: repo.language ?? "No Language")
-        let bottomColor = UIColor(language: repo.language ?? "No Language").gradient
-        let gradientColors: [CGColor] = [topColor.cgColor, bottomColor.cgColor]
+        let topTrailingColor = UIColor(language: repo.language ?? "No Language")
+        let bottomLeadingColor = UIColor(language: repo.language ?? "No Language").gradient
+        let gradientColors: [CGColor] = [topTrailingColor.cgColor, bottomLeadingColor.cgColor]
+
         let gradientLayer: CAGradientLayer = CAGradientLayer()
         gradientLayer.colors = gradientColors
+        gradientLayer.startPoint = CGPoint.init(x: 1, y: 0)
+        gradientLayer.endPoint = CGPoint.init(x: 0, y:1)
         gradientLayer.frame = self.view.bounds
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     func getImage() {
-        
+
         let repo = viewController.viewModel.repo.items[viewController.viewModel.cellIndex]
-        
-        titleLabel.text = repo.full_name
 
         // MARK: AlamofireImageに変更
         /// プレイスホルダー画像の設定
@@ -63,6 +84,23 @@ class DetailViewController: UIViewController {
             placeholderImage: UIImage(named: "placeholder")!,
             imageTransition: .crossDissolve(0.5)
         )
+    }
+
+    func getAcountInfo() {
+        AF.request(viewController.viewModel.repo.items[viewController.viewModel.cellIndex].owner.url, method: .get).responseData { response in
+            do {
+                guard let data = response.data else { return }
+                let accountInfo = try JSONDecoder().decode(AccountInfo.self, from: data)
+                self.nameLabel.fadeTransition(0.4)
+                self.loginLabel.fadeTransition(0.4)
+                self.bioLable.fadeTransition(0.4)
+                self.nameLabel.text = accountInfo.name
+                self.loginLabel.text = accountInfo.login
+                self.bioLable.text = accountInfo.bio ?? ""
+            } catch {
+                print("エラー")
+            }
+        }
     }
     
 }

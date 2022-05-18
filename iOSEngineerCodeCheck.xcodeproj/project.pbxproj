@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C4573FD283512280088A5E1 /* AccountInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4573FC283512280088A5E1 /* AccountInfoModel.swift */; };
+		1C4573FF283516D10088A5E1 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4573FE283516D10088A5E1 /* UIView+.swift */; };
 		1C54D3C428339EB800AA5023 /* SearchRepositoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C54D3C328339EB800AA5023 /* SearchRepositoriesModel.swift */; };
 		1C589A5A2833D8DE00E19FF3 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C589A592833D8DE00E19FF3 /* Color+.swift */; };
 		1C589A5D2833E05100E19FF3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C589A5C2833E05100E19FF3 /* ViewModel.swift */; };
@@ -46,6 +48,8 @@
 /* Begin PBXFileReference section */
 		0748046C9D430E2AADA43613 /* Pods-iOSEngineerCodeCheckTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSEngineerCodeCheckTests.release.xcconfig"; path = "Target Support Files/Pods-iOSEngineerCodeCheckTests/Pods-iOSEngineerCodeCheckTests.release.xcconfig"; sourceTree = "<group>"; };
 		13B4032742389BD8945E4EB9 /* Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests/Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1C4573FC283512280088A5E1 /* AccountInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoModel.swift; sourceTree = "<group>"; };
+		1C4573FE283516D10088A5E1 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		1C54D3C328339EB800AA5023 /* SearchRepositoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesModel.swift; sourceTree = "<group>"; };
 		1C589A592833D8DE00E19FF3 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		1C589A5C2833E05100E19FF3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				1C54D3C328339EB800AA5023 /* SearchRepositoriesModel.swift */,
+				1C4573FC283512280088A5E1 /* AccountInfoModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -127,6 +132,7 @@
 			children = (
 				1C589A592833D8DE00E19FF3 /* Color+.swift */,
 				1C589A632834358900E19FF3 /* UILabel+.swift */,
+				1C4573FE283516D10088A5E1 /* UIView+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -458,6 +464,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C589A642834358900E19FF3 /* UILabel+.swift in Sources */,
+				1C4573FD283512280088A5E1 /* AccountInfoModel.swift in Sources */,
+				1C4573FF283516D10088A5E1 /* UIView+.swift in Sources */,
 				1C54D3C428339EB800AA5023 /* SearchRepositoriesModel.swift in Sources */,
 				1C589A5A2833D8DE00E19FF3 /* Color+.swift in Sources */,
 				BFD945E3244DC5E80012785A /* ViewController.swift in Sources */,
