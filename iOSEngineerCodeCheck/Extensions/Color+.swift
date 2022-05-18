@@ -1228,7 +1228,7 @@ extension UIColor {
         case "xBase":
             self.init(red: 0.25098039215686274, green: 0.22745098039215686, blue: 0.25098039215686274, alpha: 1.0)
         default:
-            self.init(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.2)
+            self.init(red: 0.754, green: 0.754, blue: 0.754, alpha: 1.0)
         }
     }
 }
