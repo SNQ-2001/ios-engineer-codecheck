@@ -15,22 +15,36 @@ class ViewController: UITableViewController {
 
     @IBOutlet var uiSearchBar: UISearchBar!
 
+    let icon: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "GitHubMark")
+        imageView.image = image
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.widthAnchor.constraint(equalToConstant: 30.0).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
+
+        return imageView
+    }()
+
     let viewModel = ViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        uiSearchBar.placeholder = "GitHubのリポジトリを検索できるよー"
-        uiSearchBar.delegate = self
-        initViewModel()
+        self.uiSearchBar.placeholder = "GitHubのリポジトリを検索できるよー"
+        self.uiSearchBar.delegate = self
+        self.initViewModel()
+
+        self.navigationItem.titleView = icon
 
         PKHUD.sharedHUD.contentView = PKHUDProgressView()
 
     }
 
     private func initViewModel() {
-        viewModel.reloadHandler = { [weak self] in
+        self.viewModel.reloadHandler = { [weak self] in
             DispatchQueue.main.async {
-                PKHUD.sharedHUD.hide(true)
+                self?.viewModel.hideLoading()
                 self?.tableView.reloadData()
             }
         }
@@ -108,21 +122,22 @@ extension ViewController: UISearchBarDelegate {
 
     // 検索キータップ時に呼び出される
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        PKHUD.sharedHUD.show()
+        self.viewModel.showLoading()
         view.endEditing(true) // 遷移から戻る時に強制的に上にスクロールするバグを修正
 
         guard let searchBarText = searchBar.text else { return }
 
         if searchBarText.count != 0 {
             self.viewModel.getRepositories(searchBarText: searchBarText) {
-                PKHUD.sharedHUD.hide(true)
+                self.viewModel.hideLoading()
                 self.viewModel.alert(self, title: "エラー", message: "リポジトリが見つかりません。")
             } missAlert: {
-                PKHUD.sharedHUD.hide(true)
+                self.viewModel.hideLoading()
+
                 self.viewModel.alert(self, title: "エラー", message: "リポジトリの取得に失敗しました。")
             }
         } else {
-            PKHUD.sharedHUD.hide(true)
+            self.viewModel.hideLoading()
             self.viewModel.alert(self, title: "エラー", message: "入力されていません。")
         }
 

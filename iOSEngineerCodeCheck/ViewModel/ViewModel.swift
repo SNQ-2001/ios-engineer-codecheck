@@ -7,6 +7,7 @@
 //
 
 import Alamofire
+import PKHUD
 
 class ViewModel: NSObject {
 
@@ -24,7 +25,9 @@ class ViewModel: NSObject {
         let alert = UIAlertController(title: title, message: message, preferredStyle:  .alert)
         let OK = UIAlertAction(title: "OK", style: .default) { (action: UIAlertAction!) -> Void in }
         alert.addAction(OK)
-        viewController.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+            viewController.present(alert, animated: true, completion: nil)
+        }
     }
 
     func getRepositories(searchBarText: String, emptyAlert: @escaping () -> Void, missAlert: @escaping () -> Void) {
@@ -47,6 +50,14 @@ class ViewModel: NSObject {
 
     func resetSearchRepositories() {
         self.repo = SearchRepositories(total_count: 0, incomplete_results: false, items: [])
+    }
+
+    func showLoading() {
+        PKHUD.sharedHUD.show()
+    }
+
+    func hideLoading() {
+        PKHUD.sharedHUD.hide(true)
     }
 
 }
