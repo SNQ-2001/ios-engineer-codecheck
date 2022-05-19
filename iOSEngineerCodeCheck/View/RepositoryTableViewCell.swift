@@ -12,11 +12,8 @@ import AlamofireImage
 class RepositoryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var avatarImage: UIImageView!
-
     @IBOutlet weak var nameLabel: UILabel!
-
     @IBOutlet weak var loginLabel: UILabel!
-
     @IBOutlet weak var languageLabel: UILabel!
 
     override func awakeFromNib() {
@@ -27,6 +24,7 @@ class RepositoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
+    // カスタムセルをセット
     func setCell(avatarUrl: String, login: String, name: String, language: String) {
 
         avatarImage.af.setImage(
@@ -34,12 +32,10 @@ class RepositoryTableViewCell: UITableViewCell {
             placeholderImage: UIImage(named: "placeholder")!,
             imageTransition: .crossDissolve(0.5)
         )
-
         loginLabel.text = login
-
         nameLabel.text = name
-
         languageLabel.text = language
         languageLabel.backgroundColor = UIColor(language: language)
+        
     }
 }

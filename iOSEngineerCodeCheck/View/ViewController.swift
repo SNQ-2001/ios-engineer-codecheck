@@ -31,12 +31,18 @@ class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.uiSearchBar.placeholder = "GitHubのリポジトリを検索できるよー"
-        self.uiSearchBar.delegate = self
+
+        // リロードハンドラー
         self.initViewModel()
 
+        // サーチバーの設定
+        self.uiSearchBar.delegate = self
+        self.uiSearchBar.placeholder = "GitHubのリポジトリを検索できるよー"
+
+        // ナビゲーションビューにアイコンの設定
         self.navigationItem.titleView = icon
 
+        // ローディングビューの設定
         PKHUD.sharedHUD.contentView = PKHUDProgressView()
 
     }
@@ -107,7 +113,7 @@ extension ViewController {
 // MARK: UISearchBar
 extension ViewController: UISearchBarDelegate {
 
-    // 入力に変更があった際に呼び出されるメソッド.
+    // 入力に変更があったらリセット
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
 
         if !self.viewModel.repo.items.isEmpty {
@@ -117,7 +123,7 @@ extension ViewController: UISearchBarDelegate {
 
     }
 
-    // 検索キータップ時に呼び出される
+    // 検索
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.viewModel.showLoading()
         view.endEditing(true) // 遷移から戻る時に強制的に上にスクロールするバグを修正

@@ -10,7 +10,6 @@ import UIKit
 import Charts
 import Alamofire
 import AlamofireImage
-import SafariServices
 
 class DetailViewController: UIViewController {
 
@@ -75,9 +74,11 @@ class DetailViewController: UIViewController {
         self.starLabel.text = "\(viewController.viewModel.calcNumericalValue(count: repo.stargazers_count)) stars"
         self.forkLabel.text = "\(viewController.viewModel.calcNumericalValue(count: repo.forks_count)) forks"
 
+        // Chartsの設定
+        chartView.delegate = self
 
         // 使用言語割合グラフを表示
-        self.createChart()
+        self.setChart()
         
     }
 
@@ -93,44 +94,21 @@ class DetailViewController: UIViewController {
 
 
 extension DetailViewController: ChartViewDelegate {
-    func getLanguages(completion: @escaping ([String], [Int]) -> Void) {
-        var languagesNameArray: [String] = []
-        var languagesValueArray: [Int] = []
-        AF.request(viewController.viewModel.repo.items[viewController.viewModel.cellIndex].languages_url, method: .get).responseData { response in
-            do {
-                guard let data = response.data else { return }
-                let languages = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Int]
-                guard let languagesDict = languages else { return }
-
-                let languagesSort = languagesDict.sorted { $0.1 > $1.1 } .map { $0 }
-
-                for language in languagesSort {
-                    languagesNameArray.append(language.key)
-                    languagesValueArray.append(language.value)
-                }
-                completion(languagesNameArray, languagesValueArray)
-            } catch {
-                print("エラー")
-                completion(languagesNameArray, languagesValueArray)
-            }
-        }
-    }
-    func createChart() {
-        chartView.delegate = self
-
+    func setChart() {
         chartView.drawEntryLabelsEnabled = false // グラフラのラベルを非表示
         chartView.chartDescription.enabled = false // グラフの説明文を非表示
-        chartView.holeColor = .clear // 中央の円の色
-        chartView.holeRadiusPercent = 0.58 //　中央のくり抜き円の大きさ
+        chartView.holeColor = .clear // 中央のくり抜き円の色
+        chartView.holeRadiusPercent = 0.58 // 中央のくり抜き円の大きさ
 
-        chartView.rotationEnabled = false
-        chartView.highlightPerTapEnabled = true
+        chartView.rotationEnabled = false // 回転無効化
+        chartView.highlightPerTapEnabled = false // タップを無効化
 
-
-        chartView.maxAngle = 180 // ハーフ円グラフ用
-        chartView.rotationAngle = 180 // Rotate to make the half on the upper side
+        // 半円用グラフ(これがないと円になる)
+        chartView.maxAngle = 180
+        chartView.rotationAngle = 180
         chartView.centerTextOffset = CGPoint(x: 0, y: -20)
 
+        // 凡例の設定
         let l = chartView.legend
         l.horizontalAlignment = .center
         l.verticalAlignment = .bottom
@@ -139,63 +117,44 @@ extension DetailViewController: ChartViewDelegate {
         l.xEntrySpace = 5
         l.yEntrySpace = 0
 
-        getLanguages() { (languagesNameArray, languagesValueArray)  in
-            self.setDataCount(languagesNameArray, languagesValueArray)
+        // 使用言語を取得
+        self.viewController.viewModel.getLanguages(
+            url: viewController.viewModel.repo.items[viewController.viewModel.cellIndex].languages_url
+        ) { (languagesNameArray, languagesValueArray)  in
+            self.setData(languagesNameArray, languagesValueArray)
         }
 
-        chartView.animate(xAxisDuration: 1.4, easingOption: .easeInOutCubic)
+        chartView.animate(xAxisDuration: 1.4, easingOption: .easeInOutCubic) // グラフに表示アニメーションを設定
     }
-    func setDataCount(_ languagesNameArray: [String], _ languagesValueArray: [Int]) {
 
-        let languagesValueSum = languagesValueArray.reduce(0, +) // 配列合計
+    func setData(_ languagesNameArray: [String], _ languagesValueArray: [Int]) {
 
-        var newLanguagesNameArray: [String] = []
-        var newLanguagesValueArray: [Double] = []
+        let languagesArray = self.viewController.viewModel.createLanguageArray(languagesNameArray: languagesNameArray, languagesValueArray: languagesValueArray)
 
-
-        for i in 0..<languagesValueArray.count {
-            let percent = floor((Double(languagesValueArray[i]) / Double(languagesValueSum)) * 1000) / 10
-            if percent >= 0.5 {
-                newLanguagesNameArray.append(languagesNameArray[i])
-                newLanguagesValueArray.append(percent)
-                print("\(languagesNameArray[i]): \(percent)%")
-            }
-        }
-
-        var newLanguagesValueSum: Double = 0 // 割合合計
-
-        for i in newLanguagesValueArray {
-            newLanguagesValueSum += i
-        }
-
-        if (100 - newLanguagesValueSum) != 0 {
-            newLanguagesNameArray.append("Other")
-            newLanguagesValueArray.append(round((100 - newLanguagesValueSum) * 100) / 100)
-            print("Other: \(floor((100 - newLanguagesValueSum) * 100) / 100)%")
-        }
-
-        let entries = (0..<newLanguagesNameArray.count).map { (i) -> PieChartDataEntry in
+        // PieChartデータを作成
+        let entries = (0..<languagesArray.0.count).map { (i) -> PieChartDataEntry in
             return PieChartDataEntry(
-                value: Double(newLanguagesValueArray[i % newLanguagesValueArray.count]),
-                label: newLanguagesNameArray[i % newLanguagesNameArray.count]
+                value: Double(languagesArray.1[i % languagesArray.1.count]),
+                label: languagesArray.0[i % languagesArray.0.count]
             )
         }
+
         let set = PieChartDataSet(entries: entries, label: "")
         set.sliceSpace = 0 // 項目間のスペースを0にする
-        set.selectionShift = 20 // 縮小(おそらくタップした時だけ0になる -> タップした項目が拡大)
+        set.selectionShift = 20 // 縮小
 
-        var colors: [UIColor] = []
-        for i in newLanguagesNameArray {
-            colors.append(UIColor(language: i))
-        }
+        // 使用言語割合グラフに適用する言語カラー配列を作成する
+        let colors = self.viewController.viewModel.createLanguageColorArray(languagesArray: languagesArray.0)
         set.colors = colors // グラフの色
 
         let data = PieChartData(dataSet: set)
-
         chartView.data = data
+
+        // 言語が多いとゴチャゴチャになるので値の非表示
         for set in chartView.data! {
-            set.drawValuesEnabled = !set.drawValuesEnabled // 言語が多いとゴチャゴチャになるので値の非表示
+            set.drawValuesEnabled = !set.drawValuesEnabled
         }
+
         chartView.viewTransition(0.4)
         chartView.setNeedsDisplay()
     }
