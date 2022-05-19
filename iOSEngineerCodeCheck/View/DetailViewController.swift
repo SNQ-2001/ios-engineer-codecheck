@@ -22,7 +22,8 @@ class DetailViewController: UIViewController {
 
     @IBOutlet var bioLable: UILabel!
 
-    @IBOutlet var showProfileButton: UIButton!
+    @IBOutlet var showAccountButton: UIButton!
+    @IBOutlet var showRepositoryButton: UIButton!
 
     @IBOutlet var repositoryNameLabel: UILabel!
     @IBOutlet var repositoryDescriptionLabel: UILabel!
@@ -42,14 +43,15 @@ class DetailViewController: UIViewController {
         
         createGradient(repo: repo)
 
-        showProfileButton.backgroundColor = UIColor(language: repo.language ?? "Nothing")
-
+        showAccountButton.backgroundColor = UIColor(language: repo.language ?? "Nothing")
+        showRepositoryButton.backgroundColor = UIColor(language: repo.language ?? "Nothing")
+        
         repositoryNameLabel.text = repo.name
         repositoryDescriptionLabel.text = repo.description
 
-        issueLabel.text = "\(calc(count: repo.open_issues_count)) issues"
-        starLabel.text = "\(calc(count: repo.stargazers_count)) stars"
-        forkLabel.text = "\(calc(count: repo.forks_count)) forks"
+        issueLabel.text = "\(calcNumericalValue(count: repo.open_issues_count)) issues"
+        starLabel.text = "\(calcNumericalValue(count: repo.stargazers_count)) stars"
+        forkLabel.text = "\(calcNumericalValue(count: repo.forks_count)) forks"
 
         getImage()
 
@@ -59,7 +61,7 @@ class DetailViewController: UIViewController {
         
     }
 
-    func calc(count: Int) -> String {
+    func calcNumericalValue(count: Int) -> String {
         if count >= 1000000 {
             let i = Double(count) / 100000
             if "\(Double(floor(i) / 10))M".contains(".0") {
@@ -79,8 +81,16 @@ class DetailViewController: UIViewController {
         }
     }
 
-    @IBAction func showProfile(_ sender: Any) {
+
+    @IBAction func showAccount(_ sender: Any) {
         let safariViewController = SFSafariViewController(url: NSURL(string: viewController.viewModel.repo.items[viewController.viewModel.cellIndex].owner.html_url)! as URL)
+        safariViewController.modalPresentationStyle = .overFullScreen
+        present(safariViewController, animated: true, completion: nil)
+    }
+
+
+    @IBAction func showRepository(_ sender: Any) {
+        let safariViewController = SFSafariViewController(url: NSURL(string: viewController.viewModel.repo.items[viewController.viewModel.cellIndex].html_url)! as URL)
         safariViewController.modalPresentationStyle = .overFullScreen
         present(safariViewController, animated: true, completion: nil)
     }
