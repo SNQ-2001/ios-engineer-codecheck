@@ -155,32 +155,32 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9EN-ca-Icl">
-                                        <rect key="frame" x="10" y="282" width="394" height="356"/>
+                                        <rect key="frame" x="10" y="282" width="394" height="357"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repository Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cO-bt-mje">
-                                                <rect key="frame" x="8" y="8" width="378" height="31"/>
+                                                <rect key="frame" x="8" y="8" width="378" height="32"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="31" id="Zl5-3M-2NY"/>
+                                                    <constraint firstAttribute="height" constant="32" id="Zl5-3M-2NY"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3df-mJ-WM7">
-                                                <rect key="frame" x="8" y="40" width="378" height="16"/>
+                                                <rect key="frame" x="8" y="41" width="378" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYg-ZS-HYd" customClass="PieChartView" customModule="Charts">
-                                                <rect key="frame" x="8" y="94" width="378" height="200"/>
+                                                <rect key="frame" x="8" y="95" width="378" height="200"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="Dci-3i-BCH"/>
                                                 </constraints>
                                             </view>
                                             <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efg-iF-ctI">
-                                                <rect key="frame" x="88.5" y="63" width="67" height="23"/>
+                                                <rect key="frame" x="88.5" y="64" width="67" height="23"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="fSv-Ms-JqW">
                                                         <rect key="frame" x="5" y="6" width="11" height="11"/>
@@ -218,7 +218,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UkA-sD-yJD">
-                                                <rect key="frame" x="160.5" y="63" width="67.5" height="23"/>
+                                                <rect key="frame" x="160.5" y="64" width="67.5" height="23"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fork" translatesAutoresizingMaskIntoConstraints="NO" id="CVG-hz-Knd">
                                                         <rect key="frame" x="5" y="6" width="11" height="11"/>
@@ -256,7 +256,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RuF-uC-zeH">
-                                                <rect key="frame" x="8" y="63" width="75.5" height="23"/>
+                                                <rect key="frame" x="8" y="64" width="75.5" height="23"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="issues" translatesAutoresizingMaskIntoConstraints="NO" id="Fac-fx-4pp">
                                                         <rect key="frame" x="5" y="6" width="11" height="11"/>
@@ -294,7 +294,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <button opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKY-U4-81h">
-                                                <rect key="frame" x="8" y="302" width="378" height="46"/>
+                                                <rect key="frame" x="8" y="303" width="378" height="46"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="46" id="xoN-Zw-Wdm"/>
                                                 </constraints>

@@ -14,25 +14,21 @@ import SafariServices
 
 class DetailViewController: UIViewController {
 
+    // Accountカード
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var loginLabel: UILabel!
+    @IBOutlet weak var bioLable: UILabel!
+    @IBOutlet weak var showAccountButton: UIButton!
 
-    @IBOutlet var nameLabel: UILabel!
-
-    @IBOutlet var loginLabel: UILabel!
-
-    @IBOutlet var bioLable: UILabel!
-
-    @IBOutlet var showAccountButton: UIButton!
-    @IBOutlet var showRepositoryButton: UIButton!
-
-    @IBOutlet var repositoryNameLabel: UILabel!
-    @IBOutlet var repositoryDescriptionLabel: UILabel!
-
+    // Repositoryカード
+    @IBOutlet weak var repositoryNameLabel: UILabel!
+    @IBOutlet weak var repositoryDescriptionLabel: UILabel!
     @IBOutlet weak var starLabel: UILabel!
     @IBOutlet weak var forkLabel: UILabel!
     @IBOutlet weak var issueLabel: UILabel!
-
     @IBOutlet weak var chartView: PieChartView!
+    @IBOutlet weak var showRepositoryButton: UIButton!
     
     var viewController: ViewController!
 
@@ -40,104 +36,59 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         let repo = viewController.viewModel.repo.items[viewController.viewModel.cellIndex]
-        
-        createGradient(repo: repo)
 
-        showAccountButton.backgroundColor = UIColor(language: repo.language ?? "Nothing")
-        showRepositoryButton.backgroundColor = UIColor(language: repo.language ?? "Nothing")
-        
-        repositoryNameLabel.text = repo.name
-        repositoryDescriptionLabel.text = repo.description
-
-        issueLabel.text = "\(calcNumericalValue(count: repo.open_issues_count)) issues"
-        starLabel.text = "\(calcNumericalValue(count: repo.stargazers_count)) stars"
-        forkLabel.text = "\(calcNumericalValue(count: repo.forks_count)) forks"
-
-        getImage()
-
-        getAcountInfo()
-
-        createChart()
-        
-    }
-
-    func calcNumericalValue(count: Int) -> String {
-        if count >= 1000000 {
-            let i = Double(count) / 100000
-            if "\(Double(floor(i) / 10))M".contains(".0") {
-                return "\(Double(floor(i) / 10))M".replacingOccurrences(of: ".0", with: "")
-            } else {
-                return "\(Double(floor(i) / 10))M"
-            }
-        } else if count >= 1000 {
-            let i = Double(count) / 10000
-            if "\(Double(floor(i) / 10))M".contains(".0") {
-                return "\(floor(i * 100) / 10)K".replacingOccurrences(of: ".0", with: "")
-            } else {
-                return "\(floor(i * 100) / 10)K"
-            }
-        } else {
-            return "\(count)"
-        }
-    }
+        // グラデーション背景を設定
+        self.viewController.viewModel.createGradient(self, repo: repo)
 
 
-    @IBAction func showAccount(_ sender: Any) {
-        let safariViewController = SFSafariViewController(url: NSURL(string: viewController.viewModel.repo.items[viewController.viewModel.cellIndex].owner.html_url)! as URL)
-        safariViewController.modalPresentationStyle = .overFullScreen
-        present(safariViewController, animated: true, completion: nil)
-    }
-
-
-    @IBAction func showRepository(_ sender: Any) {
-        let safariViewController = SFSafariViewController(url: NSURL(string: viewController.viewModel.repo.items[viewController.viewModel.cellIndex].html_url)! as URL)
-        safariViewController.modalPresentationStyle = .overFullScreen
-        present(safariViewController, animated: true, completion: nil)
-    }
-
-    func createGradient(repo: Item) {
-        let topTrailingColor = UIColor(language: repo.language ?? "No Language")
-        let bottomLeadingColor = UIColor(language: repo.language ?? "No Language").gradient
-        let gradientColors: [CGColor] = [topTrailingColor.cgColor, bottomLeadingColor.cgColor]
-
-        let gradientLayer: CAGradientLayer = CAGradientLayer()
-        gradientLayer.colors = gradientColors
-        gradientLayer.startPoint = CGPoint.init(x: 1, y: 0)
-        gradientLayer.endPoint = CGPoint.init(x: 0, y:1)
-        gradientLayer.frame = self.view.bounds
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
-    }
-    
-    func getImage() {
-
-        let repo = viewController.viewModel.repo.items[viewController.viewModel.cellIndex]
-
-        // MARK: AlamofireImageに変更
-        /// プレイスホルダー画像の設定
-        /// 表示アニメーションの設定
+        // プロフィール画像の表示
         self.imageView.af.setImage(
             withURL: URL(string: repo.owner.avatar_url)!,
             placeholderImage: UIImage(named: "placeholder")!,
             imageTransition: .crossDissolve(0.5)
         )
+
+        // アカウント情報の表示(名前, ID, BIO)
+        self.viewController.viewModel.getAcountInfo(
+            url: viewController.viewModel.repo.items[viewController.viewModel.cellIndex].owner.url
+        ) { accountInfo in
+            self.nameLabel.viewTransition(0.4)
+            self.loginLabel.viewTransition(0.6)
+            self.bioLable.viewTransition(0.8)
+            self.nameLabel.text = accountInfo.name
+            self.loginLabel.text = accountInfo.login
+            self.bioLable.text = accountInfo.bio ?? ""
+        } missAlert: {
+            self.viewController.viewModel.alert(self, title: "エラー", message: "アカウント情報の取得に失敗しました。")
+        }
+
+        // ボタンに言語カラーを設定
+        self.showAccountButton.backgroundColor = UIColor(language: repo.language ?? "Nothing")
+        self.showRepositoryButton.backgroundColor = UIColor(language: repo.language ?? "Nothing")
+
+
+        // リポジトリ情報を表示(リポジトリの名前, リポジトリの説明, イシュー数, スター数, フォーク数)
+        self.repositoryNameLabel.text = repo.name
+        self.repositoryDescriptionLabel.text = repo.description
+
+        self.issueLabel.text = "\(viewController.viewModel.calcNumericalValue(count: repo.open_issues_count)) issues"
+        self.starLabel.text = "\(viewController.viewModel.calcNumericalValue(count: repo.stargazers_count)) stars"
+        self.forkLabel.text = "\(viewController.viewModel.calcNumericalValue(count: repo.forks_count)) forks"
+
+
+        // 使用言語割合グラフを表示
+        self.createChart()
+        
     }
 
-    func getAcountInfo() {
-        AF.request(viewController.viewModel.repo.items[viewController.viewModel.cellIndex].owner.url, method: .get).responseData { response in
-            do {
-                guard let data = response.data else { return }
-                let accountInfo = try JSONDecoder().decode(AccountInfo.self, from: data)
-                self.nameLabel.viewTransition(0.4)
-                self.loginLabel.viewTransition(0.6)
-                self.bioLable.viewTransition(0.8)
-                self.nameLabel.text = accountInfo.name
-                self.loginLabel.text = accountInfo.login
-                self.bioLable.text = accountInfo.bio ?? ""
-            } catch {
-                print("エラー")
-            }
-        }
+    @IBAction func showAccount(_ sender: Any) {
+        viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo.items[viewController.viewModel.cellIndex].owner.html_url)
     }
+
+    @IBAction func showRepository(_ sender: Any) {
+        viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo.items[viewController.viewModel.cellIndex].html_url)
+    }
+
 }
 
 

@@ -54,7 +54,6 @@ class ViewController: UITableViewController {
 
 // MARK: 画面遷移
 extension ViewController {
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if segue.identifier == "Detail" {
@@ -63,7 +62,6 @@ extension ViewController {
         }
 
     }
-    
 }
 
 // MARK: UITableView
@@ -71,9 +69,7 @@ extension ViewController {
 
     // セルの個数を計算
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         return self.viewModel.repo.items.count
-
     }
 
     // Cellの高さを計算
@@ -84,11 +80,12 @@ extension ViewController {
     // セルの生成
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        tableView.separatorInset = .zero
+        tableView.separatorInset = .zero // TabelViewの区切り線を端まで伸ばす
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "Repository", for: indexPath) as! RepositoryTableViewCell
         let rp = self.viewModel.repo.items[indexPath.row]
 
+        // カスタムセルをセット
         cell.setCell(avatarUrl: rp.owner.avatar_url, login: rp.owner.login, name: rp.name, language: rp.language ?? "No Language")
 
         cell.tag = indexPath.row
