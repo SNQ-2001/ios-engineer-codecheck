@@ -22,6 +22,7 @@ struct Item: Codable {
     let owner: Owner
     let html_url: String
     let description: String?
+    let languages_url: String
     let stargazers_count: Int
     let language: String?
     let forks_count: Int

@@ -155,7 +155,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9EN-ca-Icl">
-                                        <rect key="frame" x="10" y="282" width="394" height="172"/>
+                                        <rect key="frame" x="10" y="282" width="394" height="377"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repository Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cO-bt-mje">
                                                 <rect key="frame" x="8" y="8" width="378" height="31"/>
@@ -257,12 +257,20 @@
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYg-ZS-HYd" customClass="PieChartView" customModule="Charts">
+                                                <rect key="frame" x="8" y="169" width="378" height="200"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="200" id="Dci-3i-BCH"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="0.69872723509933776" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="3df-mJ-WM7" secondAttribute="trailing" constant="8" id="2PF-ld-idm"/>
                                             <constraint firstItem="ZMv-4f-X2V" firstAttribute="top" secondItem="0WZ-UA-R8O" secondAttribute="bottom" constant="3" id="3uA-J3-FzH"/>
                                             <constraint firstItem="3cO-bt-mje" firstAttribute="top" secondItem="9EN-ca-Icl" secondAttribute="top" constant="8" id="4qL-bH-Y8o"/>
+                                            <constraint firstItem="tYg-ZS-HYd" firstAttribute="leading" secondItem="9EN-ca-Icl" secondAttribute="leading" constant="8" id="6C1-ya-304"/>
                                             <constraint firstItem="EN2-U7-9Df" firstAttribute="top" secondItem="aEo-Tr-c23" secondAttribute="bottom" constant="4" id="9Z8-Bf-ixB"/>
                                             <constraint firstItem="EN2-U7-9Df" firstAttribute="leading" secondItem="Kdk-V3-imU" secondAttribute="trailing" constant="8" id="9tq-FV-io1"/>
                                             <constraint firstItem="aEo-Tr-c23" firstAttribute="top" secondItem="xQg-pU-Fq0" secondAttribute="top" id="ABV-34-ooD"/>
@@ -271,6 +279,7 @@
                                             <constraint firstItem="0WZ-UA-R8O" firstAttribute="top" secondItem="dzg-K8-h2L" secondAttribute="bottom" constant="3" id="CI1-I5-KYA"/>
                                             <constraint firstItem="Kdk-V3-imU" firstAttribute="top" secondItem="xQg-pU-Fq0" secondAttribute="bottom" constant="3" id="EYd-FX-Vj9"/>
                                             <constraint firstItem="aEo-Tr-c23" firstAttribute="leading" secondItem="xQg-pU-Fq0" secondAttribute="trailing" constant="8" id="KfR-hn-qoB"/>
+                                            <constraint firstAttribute="bottom" secondItem="tYg-ZS-HYd" secondAttribute="bottom" constant="8" id="M2F-9a-pYG"/>
                                             <constraint firstItem="3df-mJ-WM7" firstAttribute="leading" secondItem="9EN-ca-Icl" secondAttribute="leading" constant="8" id="NDN-Z9-oIq"/>
                                             <constraint firstItem="Kdk-V3-imU" firstAttribute="leading" secondItem="9EN-ca-Icl" secondAttribute="leading" constant="8" id="OCf-AR-MPB"/>
                                             <constraint firstItem="3df-mJ-WM7" firstAttribute="top" secondItem="3cO-bt-mje" secondAttribute="bottom" constant="1" id="OVs-hZ-FfR"/>
@@ -287,8 +296,9 @@
                                             <constraint firstAttribute="trailing" secondItem="EN2-U7-9Df" secondAttribute="trailing" constant="8" id="kAg-QA-WK0"/>
                                             <constraint firstItem="0WZ-UA-R8O" firstAttribute="leading" secondItem="fSv-Ms-JqW" secondAttribute="trailing" constant="8" id="m75-Eh-pqh"/>
                                             <constraint firstItem="ZMv-4f-X2V" firstAttribute="leading" secondItem="CVG-hz-Knd" secondAttribute="trailing" constant="8" id="nMj-8s-la7"/>
-                                            <constraint firstAttribute="bottom" secondItem="ZMv-4f-X2V" secondAttribute="bottom" constant="8" id="qG4-p7-NBh"/>
+                                            <constraint firstItem="tYg-ZS-HYd" firstAttribute="top" secondItem="ZMv-4f-X2V" secondAttribute="bottom" constant="5" id="oD4-9b-2Ad"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0WZ-UA-R8O" secondAttribute="trailing" constant="20" symbolic="YES" id="qHc-X2-Y5n"/>
+                                            <constraint firstAttribute="trailing" secondItem="tYg-ZS-HYd" secondAttribute="trailing" constant="8" id="qeH-cT-8tj"/>
                                             <constraint firstAttribute="trailing" secondItem="aEo-Tr-c23" secondAttribute="trailing" constant="8" id="r5s-T9-30G"/>
                                             <constraint firstItem="fSv-Ms-JqW" firstAttribute="top" secondItem="Fac-fx-4pp" secondAttribute="bottom" constant="3" id="w0x-er-Hb3"/>
                                             <constraint firstItem="xQg-pU-Fq0" firstAttribute="top" secondItem="3df-mJ-WM7" secondAttribute="bottom" constant="5" id="ysP-Qf-aI7"/>
@@ -447,6 +457,7 @@
                     <navigationItem key="navigationItem" id="J6o-vL-S1z"/>
                     <connections>
                         <outlet property="bioLable" destination="jXE-Nq-l3I" id="f10-N0-ltx"/>
+                        <outlet property="chartView" destination="tYg-ZS-HYd" id="KuN-GO-JOM"/>
                         <outlet property="forkLabel" destination="ZMv-4f-X2V" id="GE8-Jt-mkI"/>
                         <outlet property="imageView" destination="Iim-eb-8Ad" id="oQa-ha-SMe"/>
                         <outlet property="issueLabel" destination="dzg-K8-h2L" id="mWl-Vv-tW4"/>

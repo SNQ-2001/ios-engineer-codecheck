@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIView {
-    func textTransition(_ duration:CFTimeInterval) {
+    func viewTransition(_ duration:CFTimeInterval) {
         let animation = CATransition()
         animation.timingFunction = CAMediaTimingFunction(name:
             CAMediaTimingFunctionName.easeInEaseOut)
