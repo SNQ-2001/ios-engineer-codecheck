@@ -141,7 +141,7 @@ extension DetailViewController: ChartViewDelegate {
         chartView.drawEntryLabelsEnabled = false // グラフラのラベルを非表示
         chartView.chartDescription.enabled = false // グラフの説明文を非表示
         chartView.holeColor = .clear // 中央の円の色
-        chartView.holeRadiusPercent = 0.58 //　中央の円の大きさ？
+        chartView.holeRadiusPercent = 0.58 //　中央のくり抜き円の大きさ
 
         chartView.rotationEnabled = false
         chartView.highlightPerTapEnabled = true
@@ -159,9 +159,6 @@ extension DetailViewController: ChartViewDelegate {
         l.xEntrySpace = 5
         l.yEntrySpace = 0
 
-        chartView.entryLabelColor = .black
-        chartView.entryLabelFont = UIFont(name:"HelveticaNeue-Light", size:12)!
-
         getLanguages() { (languagesNameArray, languagesValueArray)  in
             self.setDataCount(languagesNameArray, languagesValueArray)
         }
@@ -177,7 +174,7 @@ extension DetailViewController: ChartViewDelegate {
 
 
         for i in 0..<languagesValueArray.count {
-            let percent = round((Double(languagesValueArray[i]) / Double(languagesValueSum)) * 1000) / 10
+            let percent = floor((Double(languagesValueArray[i]) / Double(languagesValueSum)) * 1000) / 10
             if percent >= 0.5 {
                 newLanguagesNameArray.append(languagesNameArray[i])
                 newLanguagesValueArray.append(percent)
@@ -193,8 +190,8 @@ extension DetailViewController: ChartViewDelegate {
 
         if (100 - newLanguagesValueSum) != 0 {
             newLanguagesNameArray.append("Other")
-            newLanguagesValueArray.append(round((100 - newLanguagesValueSum) * 10) / 10)
-            print("Other: \(floor((100 - newLanguagesValueSum) * 10) / 10)%")
+            newLanguagesValueArray.append(round((100 - newLanguagesValueSum) * 100) / 100)
+            print("Other: \(floor((100 - newLanguagesValueSum) * 100) / 100)%")
         }
 
         let entries = (0..<newLanguagesNameArray.count).map { (i) -> PieChartDataEntry in
