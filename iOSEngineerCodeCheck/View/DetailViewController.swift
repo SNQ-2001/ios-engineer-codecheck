@@ -49,7 +49,7 @@ class DetailViewController: UIViewController {
 
         // アカウント情報の表示(名前, ID, BIO)
         self.viewController.viewModel.getAcountInfo(
-            url: viewController.viewModel.repo.items[viewController.viewModel.cellIndex].owner.url
+            url: self.viewController.viewModel.repo.items[viewController.viewModel.cellIndex].owner.url
         ) { accountInfo in
             self.nameLabel.viewTransition(0.4)
             self.loginLabel.viewTransition(0.6)
@@ -62,8 +62,8 @@ class DetailViewController: UIViewController {
         }
 
         // ボタンに言語カラーを設定
-        self.showAccountButton.backgroundColor = UIColor(language: repo.language ?? "Nothing")
-        self.showRepositoryButton.backgroundColor = UIColor(language: repo.language ?? "Nothing")
+        self.showAccountButton.backgroundColor = UIColor(language: repo.language ?? "No Language")
+        self.showRepositoryButton.backgroundColor = UIColor(language: repo.language ?? "No Language")
 
 
         // リポジトリ情報を表示(リポジトリの名前, リポジトリの説明, イシュー数, スター数, フォーク数)
@@ -75,7 +75,7 @@ class DetailViewController: UIViewController {
         self.forkLabel.text = "\(viewController.viewModel.calcNumericalValue(count: repo.forks_count)) forks"
 
         // Chartsの設定
-        chartView.delegate = self
+        self.chartView.delegate = self
 
         // 使用言語割合グラフを表示
         self.setChart()
@@ -102,6 +102,7 @@ extension DetailViewController: ChartViewDelegate {
 
         chartView.rotationEnabled = false // 回転無効化
         chartView.highlightPerTapEnabled = false // タップを無効化
+        chartView.noDataTextColor = .clear // データなしの場合のテキストを透明にする
 
         // 半円用グラフ(これがないと円になる)
         chartView.maxAngle = 180

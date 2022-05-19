@@ -124,11 +124,15 @@ extension ViewModel {
             newLanguagesValueSum += i
         }
 
-        // 割合が0.5より小さい言語はOtherとしてまとめる
-        if (100 - newLanguagesValueSum) != 0 {
+        // 割合が0.5より小さい言語はOtherとしてまとめる & 言語がなかった場合、"No Language"を返す
+        if (100 - newLanguagesValueSum) != 0.0 && (100 - newLanguagesValueSum) != 100.0 {
             newLanguagesNameArray.append("Other")
             newLanguagesValueArray.append(round((100 - newLanguagesValueSum) * 100) / 100)
             print("Other: \(floor((100 - newLanguagesValueSum) * 100) / 100)%")
+        } else if (100 - newLanguagesValueSum) == 100.0 {
+            newLanguagesNameArray.append("No Language")
+            newLanguagesValueArray.append(100)
+            print("No Language")
         }
 
         return (newLanguagesNameArray, newLanguagesValueArray)
