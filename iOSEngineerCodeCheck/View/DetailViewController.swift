@@ -111,6 +111,7 @@ extension DetailViewController: ChartViewDelegate {
 
         // 凡例の設定
         let l = chartView.legend
+        l.textColor = .black
         l.horizontalAlignment = .center
         l.verticalAlignment = .bottom
         l.orientation = .horizontal

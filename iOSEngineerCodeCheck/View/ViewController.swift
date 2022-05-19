@@ -37,7 +37,7 @@ class ViewController: UITableViewController {
 
         // サーチバーの設定
         self.uiSearchBar.delegate = self
-        self.uiSearchBar.placeholder = "GitHubのリポジトリを検索できるよー"
+        self.uiSearchBar.placeholder = "キーワードを入力してください。"
 
         // ナビゲーションビューにアイコンの設定
         self.navigationItem.titleView = icon
