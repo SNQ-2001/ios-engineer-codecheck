@@ -20,13 +20,15 @@ struct Item: Codable {
     let name: String
     let full_name: String
     let owner: Owner
+    let html_url: String
+    let description: String?
+    let languages_url: String
     let stargazers_count: Int
-    let watchers_count: Int
     let language: String?
     let forks_count: Int
     let open_issues_count: Int
-    let html_url: String
-    let description: String?
+    let license: License?
+    let topics: [String]
 }
 
 // MARK: - Owner
@@ -35,4 +37,9 @@ struct Owner: Codable {
     let avatar_url: String
     let url: String
     let html_url: String
+}
+
+// MARK: - License
+struct License: Codable {
+    let name: String
 }

@@ -2,12 +2,18 @@ PODS:
   - Alamofire (5.6.1)
   - AlamofireImage (4.2.0):
     - Alamofire (~> 5.4)
+  - Charts (4.0.2):
+    - Charts/Core (= 4.0.2)
+  - Charts/Core (4.0.2):
+    - SwiftAlgorithms (~> 1.0)
   - LicensePlist (3.22.0)
   - PKHUD (5.3.0)
+  - SwiftAlgorithms (1.0.0)
 
 DEPENDENCIES:
   - Alamofire
   - AlamofireImage (~> 4.1)
+  - Charts
   - LicensePlist
   - PKHUD (~> 5.0)
 
@@ -15,15 +21,19 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - AlamofireImage
+    - Charts
     - LicensePlist
     - PKHUD
+    - SwiftAlgorithms
 
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
   AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
+  Charts: cfa4e911e6dc289582c2fe011a0e87c03d96727f
   LicensePlist: be4f67fadceeba970ed2f13e198592a4f420d2be
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
+  SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
 
-PODFILE CHECKSUM: 71e76233745fb1ab3b6869b013d74df61ef38236
+PODFILE CHECKSUM: 597a755fa3de8bf68606e417d20a20830f40c568
 
 COCOAPODS: 1.11.2

@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		1C4573FD283512280088A5E1 /* AccountInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4573FC283512280088A5E1 /* AccountInfoModel.swift */; };
 		1C4573FF283516D10088A5E1 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4573FE283516D10088A5E1 /* UIView+.swift */; };
+		1C4CF84E28365699004B4700 /* VCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4CF84D28365699004B4700 /* VCViewModel.swift */; };
+		1C4CF850283656A3004B4700 /* DVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4CF84F283656A3004B4700 /* DVCViewModel.swift */; };
 		1C54D3C428339EB800AA5023 /* SearchRepositoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C54D3C328339EB800AA5023 /* SearchRepositoriesModel.swift */; };
 		1C589A5A2833D8DE00E19FF3 /* Color+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C589A592833D8DE00E19FF3 /* Color+.swift */; };
 		1C589A5D2833E05100E19FF3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C589A5C2833E05100E19FF3 /* ViewModel.swift */; };
 		1C589A622834246F00E19FF3 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C589A612834246F00E19FF3 /* RepositoryTableViewCell.swift */; };
 		1C589A642834358900E19FF3 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C589A632834358900E19FF3 /* UILabel+.swift */; };
+		1CBB310B283682850003566F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1CBB310A283682850003566F /* Settings.bundle */; };
 		73E5FD7C23FFA5871801E867 /* Pods_iOSEngineerCodeCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 804E7B50D189420AA3ACD4FC /* Pods_iOSEngineerCodeCheck.framework */; };
 		BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */; };
 		BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945DE244DC5E80012785A /* AppDelegate.swift */; };
@@ -50,11 +53,14 @@
 		13B4032742389BD8945E4EB9 /* Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests/Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1C4573FC283512280088A5E1 /* AccountInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoModel.swift; sourceTree = "<group>"; };
 		1C4573FE283516D10088A5E1 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		1C4CF84D28365699004B4700 /* VCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCViewModel.swift; sourceTree = "<group>"; };
+		1C4CF84F283656A3004B4700 /* DVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DVCViewModel.swift; sourceTree = "<group>"; };
 		1C54D3C328339EB800AA5023 /* SearchRepositoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepositoriesModel.swift; sourceTree = "<group>"; };
 		1C589A592833D8DE00E19FF3 /* Color+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+.swift"; sourceTree = "<group>"; };
 		1C589A5C2833E05100E19FF3 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		1C589A612834246F00E19FF3 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		1C589A632834358900E19FF3 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		1CBB310A283682850003566F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		2D93C820053CB9600DD82C79 /* Pods_iOSEngineerCodeCheckTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSEngineerCodeCheckTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E732FC83A728287EE145C00 /* Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests.release.xcconfig"; path = "Target Support Files/Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests/Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6B7E954536DF99945D0A3BD7 /* Pods-iOSEngineerCodeCheck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSEngineerCodeCheck.release.xcconfig"; path = "Target Support Files/Pods-iOSEngineerCodeCheck/Pods-iOSEngineerCodeCheck.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				1C589A5C2833E05100E19FF3 /* ViewModel.swift */,
+				1C4CF84D28365699004B4700 /* VCViewModel.swift */,
+				1C4CF84F283656A3004B4700 /* DVCViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -202,6 +210,7 @@
 				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
 				BFD945E9244DC5EB0012785A /* LaunchScreen.storyboard */,
 				BFD945EC244DC5EB0012785A /* Info.plist */,
+				1CBB310A283682850003566F /* Settings.bundle */,
 			);
 			path = iOSEngineerCodeCheck;
 			sourceTree = "<group>";
@@ -236,6 +245,7 @@
 				BFD945D8244DC5E80012785A /* Frameworks */,
 				BFD945D9244DC5E80012785A /* Resources */,
 				368BE059F26AECDABBAC03F8 /* [CP] Embed Pods Frameworks */,
+				1CBB310D283682FA0003566F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -333,6 +343,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CBB310B283682850003566F /* Settings.bundle in Resources */,
 				BFD945EB244DC5EB0012785A /* LaunchScreen.storyboard in Resources */,
 				BFD945E8244DC5EB0012785A /* Assets.xcassets in Resources */,
 				BFD945E6244DC5E80012785A /* Main.storyboard in Resources */,
@@ -394,6 +405,23 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		1CBB310D283682FA0003566F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ $CONFIGURATION = \"Debug\" ]; then\n ${PODS_ROOT}/LicensePlist/license-plist --output-path $PRODUCT_NAME/Settings.bundle\nfi\n";
 		};
 		35879F8735F4281344CBBDB7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -468,6 +496,8 @@
 				1C4573FF283516D10088A5E1 /* UIView+.swift in Sources */,
 				1C54D3C428339EB800AA5023 /* SearchRepositoriesModel.swift in Sources */,
 				1C589A5A2833D8DE00E19FF3 /* Color+.swift in Sources */,
+				1C4CF850283656A3004B4700 /* DVCViewModel.swift in Sources */,
+				1C4CF84E28365699004B4700 /* VCViewModel.swift in Sources */,
 				BFD945E3244DC5E80012785A /* ViewController.swift in Sources */,
 				1C589A622834246F00E19FF3 /* RepositoryTableViewCell.swift in Sources */,
 				BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */,

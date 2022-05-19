@@ -31,12 +31,18 @@ class ViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.uiSearchBar.placeholder = "GitHubのリポジトリを検索できるよー"
-        self.uiSearchBar.delegate = self
+
+        // リロードハンドラー
         self.initViewModel()
 
+        // サーチバーの設定
+        self.uiSearchBar.delegate = self
+        self.uiSearchBar.placeholder = "キーワードを入力してください。"
+
+        // ナビゲーションビューにアイコンの設定
         self.navigationItem.titleView = icon
 
+        // ローディングビューの設定
         PKHUD.sharedHUD.contentView = PKHUDProgressView()
 
     }
@@ -54,16 +60,12 @@ class ViewController: UITableViewController {
 
 // MARK: 画面遷移
 extension ViewController {
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
         if segue.identifier == "Detail" {
             let detailViewController = segue.destination as! DetailViewController
             detailViewController.viewController = self
         }
-
     }
-    
 }
 
 // MARK: UITableView
@@ -71,9 +73,7 @@ extension ViewController {
 
     // セルの個数を計算
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         return self.viewModel.repo.items.count
-
     }
 
     // Cellの高さを計算
@@ -83,26 +83,23 @@ extension ViewController {
 
     // セルの生成
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
-        tableView.separatorInset = .zero
+        tableView.separatorInset = .zero // TabelViewの区切り線を端まで伸ばす
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "Repository", for: indexPath) as! RepositoryTableViewCell
         let rp = self.viewModel.repo.items[indexPath.row]
 
+        // カスタムセルをセット
         cell.setCell(avatarUrl: rp.owner.avatar_url, login: rp.owner.login, name: rp.name, language: rp.language ?? "No Language")
 
         cell.tag = indexPath.row
 
         return cell
-
     }
 
     // セルのタップ時に呼び出される
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
         self.viewModel.cellIndex = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)
-
     }
 
 }
@@ -110,17 +107,26 @@ extension ViewController {
 // MARK: UISearchBar
 extension ViewController: UISearchBarDelegate {
 
-    // 入力に変更があった際に呼び出されるメソッド.
-    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    // キャンセルボタンを表示
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar){
+        self.uiSearchBar.setShowsCancelButton(true, animated: true)
+    }
 
+    // キャンセルボタンを押したら非表示
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.uiSearchBar.resignFirstResponder()
+        self.uiSearchBar.setShowsCancelButton(false, animated: true)
+    }
+
+    // 入力に変更があったらリセット
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if !self.viewModel.repo.items.isEmpty {
             viewModel.resetSearchRepositories()
         }
         return true
-
     }
 
-    // 検索キータップ時に呼び出される
+    // 検索
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.viewModel.showLoading()
         view.endEditing(true) // 遷移から戻る時に強制的に上にスクロールするバグを修正
@@ -140,7 +146,6 @@ extension ViewController: UISearchBarDelegate {
             self.viewModel.hideLoading()
             self.viewModel.alert(self, title: "エラー", message: "入力されていません。")
         }
-
     }
 
 }
