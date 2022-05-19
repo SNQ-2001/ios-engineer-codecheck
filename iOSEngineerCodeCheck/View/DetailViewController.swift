@@ -47,9 +47,9 @@ class DetailViewController: UIViewController {
         repositoryNameLabel.text = repo.name
         repositoryDescriptionLabel.text = repo.description
 
-        issueLabel.text = "\(repo.open_issues_count) issues"
-        starLabel.text = "\(repo.stargazers_count) stars"
-        forkLabel.text = "\(repo.forks_count) forks"
+        issueLabel.text = "\(calc(count: repo.open_issues_count)) issues"
+        starLabel.text = "\(calc(count: repo.stargazers_count)) stars"
+        forkLabel.text = "\(calc(count: repo.forks_count)) forks"
 
         getImage()
 
@@ -59,6 +59,25 @@ class DetailViewController: UIViewController {
         
     }
 
+    func calc(count: Int) -> String {
+        if count >= 1000000 {
+            let i = Double(count) / 100000
+            if "\(Double(floor(i) / 10))M".contains(".0") {
+                return "\(Double(floor(i) / 10))M".replacingOccurrences(of: ".0", with: "")
+            } else {
+                return "\(Double(floor(i) / 10))M"
+            }
+        } else if count >= 1000 {
+            let i = Double(count) / 10000
+            if "\(Double(floor(i) / 10))M".contains(".0") {
+                return "\(floor(i * 100) / 10)K".replacingOccurrences(of: ".0", with: "")
+            } else {
+                return "\(floor(i * 100) / 10)K"
+            }
+        } else {
+            return "\(count)"
+        }
+    }
 
     @IBAction func showProfile(_ sender: Any) {
         let safariViewController = SFSafariViewController(url: NSURL(string: viewController.viewModel.repo.items[viewController.viewModel.cellIndex].owner.html_url)! as URL)
