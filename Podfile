@@ -10,6 +10,7 @@ target 'iOSEngineerCodeCheck' do
   pod 'AlamofireImage', '~> 4.1'
   pod 'LicensePlist'
   pod 'PKHUD', '~> 5.0'
+  pod 'Charts'
 
   target 'iOSEngineerCodeCheckTests' do
     inherit! :search_paths
