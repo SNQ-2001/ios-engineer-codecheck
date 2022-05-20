@@ -20,7 +20,7 @@ extension ViewModel {
     ///  - title: アラートのタイトル
     ///  - message: アラートのメッセージ
     ///  
-    func alert(_ vc: ViewController, title: String, message: String) {
+    public func alert(_ vc: ViewController, title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle:  .alert)
         let OK = UIAlertAction(title: "OK", style: .default) { (action: UIAlertAction!) -> Void in }
         alert.addAction(OK)
@@ -39,7 +39,7 @@ extension ViewModel {
     ///
     /// EX) https://api.github.com/search/repositories?q=Swift
     ///
-    func getRepositories(
+    public func getRepositories(
         searchBarText: String,
         emptyAlert: @escaping () -> Void,
         missAlert: @escaping () -> Void,

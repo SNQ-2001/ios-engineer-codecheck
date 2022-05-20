@@ -16,7 +16,7 @@ class ViewController: UITableViewController {
 
     @IBOutlet weak var uiSearchBar: UISearchBar!
 
-    let icon: UIImageView = {
+    private let icon: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         let image = UIImage(named: "GitHubMark")
@@ -28,19 +28,17 @@ class ViewController: UITableViewController {
         return imageView
     }()
 
-    let animationView: AnimationView = {
+    private let animationView: AnimationView = {
         var lottie = AnimationView()
         lottie.animation = Animation.named("empty-box")
-        // 比率
         lottie.contentMode = .scaleAspectFit
-        // ループモード
         lottie.loopMode = .loop
         lottie.play()
 
         return lottie
     }()
 
-    let viewModel = ViewModel()
+    public let viewModel = ViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +59,7 @@ class ViewController: UITableViewController {
         PKHUD.sharedHUD.contentView = PKHUDProgressView()
 
         /// アニメーションの設定
-        setLottieView()
+        self.setLottieView()
 
     }
     
@@ -83,7 +81,7 @@ class ViewController: UITableViewController {
     }
 
     /// アニメーションの設定
-    func setLottieView() {
+    private func setLottieView() {
         view.addSubview(animationView)
         animationView.translatesAutoresizingMaskIntoConstraints = false
         animationView.heightAnchor.constraint(equalToConstant: 130.0).isActive = true
@@ -184,7 +182,7 @@ extension ViewController: UISearchBarDelegate {
     /// 検索
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.viewModel.showLoading()
-        view.endEditing(true) // 遷移から戻る時に強制的に上にスクロールするバグを修正
+        self.view.endEditing(true) // 遷移から戻る時に強制的に上にスクロールするバグを修正
 
         guard let searchBarText = searchBar.text else { return }
 

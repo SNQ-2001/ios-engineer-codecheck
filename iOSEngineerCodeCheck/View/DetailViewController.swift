@@ -84,10 +84,6 @@ class DetailViewController: UIViewController {
         
     }
 
-    func license() {
-        
-    }
-
     @IBAction func showAccount(_ sender: Any) {
         viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo.items[viewController.viewModel.cellIndex].owner.html_url)
     }
@@ -100,7 +96,7 @@ class DetailViewController: UIViewController {
 
 
 extension DetailViewController: ChartViewDelegate {
-    func setChart() {
+    private func setChart() {
         chartView.drawEntryLabelsEnabled = false // グラフラのラベルを非表示
         chartView.chartDescription.enabled = false // グラフの説明文を非表示
         chartView.holeColor = .clear // 中央のくり抜き円の色
@@ -135,7 +131,7 @@ extension DetailViewController: ChartViewDelegate {
         chartView.animate(xAxisDuration: 1.4, easingOption: .easeInOutCubic) // グラフに表示アニメーションを設定
     }
 
-    func setData(_ languagesNameArray: [String], _ languagesValueArray: [Int]) {
+    private func setData(_ languagesNameArray: [String], _ languagesValueArray: [Int]) {
 
         let languagesArray = self.viewController.viewModel.createLanguageArray(languagesNameArray: languagesNameArray, languagesValueArray: languagesValueArray)
 

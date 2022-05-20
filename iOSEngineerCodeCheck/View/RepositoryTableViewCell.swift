@@ -34,17 +34,17 @@ class RepositoryTableViewCell: UITableViewCell {
     }
 
     /// カスタムセルをセット
-    func setCell(avatarUrl: String, login: String, name: String, language: String) {
+    public func setCell(avatarUrl: String, login: String, name: String, language: String) {
 
-        avatarImage.af.setImage(
+        self.avatarImage.af.setImage(
             withURL: URL(string: avatarUrl)!,
             placeholderImage: UIImage(named: "placeholder")!,
             imageTransition: .crossDissolve(0.5)
         )
-        loginLabel.text = login
-        nameLabel.text = name
-        languageLabel.text = language
-        languageView.backgroundColor = UIColor(language: language)
+        self.loginLabel.text = login
+        self.nameLabel.text = name
+        self.languageLabel.text = language
+        self.languageView.backgroundColor = UIColor(language: language)
         
     }
 }
