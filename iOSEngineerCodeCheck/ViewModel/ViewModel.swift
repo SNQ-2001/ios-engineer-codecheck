@@ -35,7 +35,8 @@ class ViewModel: NSObject {
     /// セルインデックス
     var cellIndex: Int!
 
-    
+    /// ネットワークの接続チェック
+    /// フラグで判定
     func networkMonitoring() {
         self.monitor.pathUpdateHandler = { path in
             if path.status == .satisfied {
@@ -44,7 +45,6 @@ class ViewModel: NSObject {
                 self.networkStatus = false
             }
         }
-
         self.monitor.start(queue: queue)
     }
 

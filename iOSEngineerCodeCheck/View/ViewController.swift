@@ -60,6 +60,10 @@ class ViewController: UITableViewController {
 
 }
 
+
+
+
+
 // MARK: 画面遷移
 extension ViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -69,6 +73,10 @@ extension ViewController {
         }
     }
 }
+
+
+
+
 
 // MARK: UITableView
 extension ViewController {
@@ -105,6 +113,10 @@ extension ViewController {
     }
 
 }
+
+
+
+
 
 // MARK: UISearchBar
 extension ViewController: UISearchBarDelegate {
@@ -145,20 +157,16 @@ extension ViewController: UISearchBarDelegate {
         if searchBarText.count != 0 {
             self.viewModel.getRepositories(searchBarText: searchBarText) {
                 self.viewModel.hideLoading()
-                
                 self.viewModel.alert(self, title: "Error", message: "Repository not found")
             } missAlert: {
                 self.viewModel.hideLoading()
-
                 self.viewModel.alert(self, title: "Error", message: "Request failed")
             } offlineAlert: {
                 self.viewModel.hideLoading()
-
                 self.viewModel.alert(self, title: "Error", message: "Offline")
             }
         } else {
             self.viewModel.hideLoading()
-
             self.viewModel.alert(self, title: "Error", message: "Not entered")
         }
     }
