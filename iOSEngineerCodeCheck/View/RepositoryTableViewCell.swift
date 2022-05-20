@@ -16,6 +16,14 @@ class RepositoryTableViewCell: UITableViewCell {
     @IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
 
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .default, reuseIdentifier: "Repository")
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
     }

@@ -375,7 +375,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4q1-pG-WSB">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4q1-pG-WSB" customClass="MarqueeLabel" customModule="MarqueeLabel">
                                                 <rect key="frame" x="103" y="12" width="283" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="VkR-xH-4cM"/>
@@ -384,7 +384,7 @@
                                                 <color key="textColor" systemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXE-Nq-l3I">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXE-Nq-l3I" customClass="MarqueeLabel" customModule="MarqueeLabel">
                                                 <rect key="frame" x="103" y="73" width="283" height="17"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="17" id="ei1-i3-Mj4"/>
@@ -530,9 +530,11 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="4q1-pG-WSB"/>
         <designable name="FW2-vC-x9G">
             <size key="intrinsicContentSize" width="44" height="14.5"/>
         </designable>
+        <designable name="jXE-Nq-l3I"/>
     </designables>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>

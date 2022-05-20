@@ -11,8 +11,11 @@ import UIKit
 
 @IBDesignable
 public class PaddingLabel: UILabel {
+
     var textEdgeInsets = UIEdgeInsets.zero {
-        didSet { invalidateIntrinsicContentSize() }
+        didSet {
+            invalidateIntrinsicContentSize()
+        }
     }
 
     open override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {

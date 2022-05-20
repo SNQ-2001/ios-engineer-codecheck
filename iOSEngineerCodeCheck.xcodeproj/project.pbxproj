@@ -42,6 +42,8 @@
 		1CA069632837629E004BD000 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA069612837603C004BD000 /* Int+.swift */; };
 		1CA069642837629E004BD000 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA069612837603C004BD000 /* Int+.swift */; };
 		1CBB310B283682850003566F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1CBB310A283682850003566F /* Settings.bundle */; };
+		1CC59AE728378AC1004B88EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD945E4244DC5E80012785A /* Main.storyboard */; };
+		1CC59AE828378AC2004B88EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD945E4244DC5E80012785A /* Main.storyboard */; };
 		73E5FD7C23FFA5871801E867 /* Pods_iOSEngineerCodeCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 804E7B50D189420AA3ACD4FC /* Pods_iOSEngineerCodeCheck.framework */; };
 		BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */; };
 		BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945DE244DC5E80012785A /* AppDelegate.swift */; };
@@ -381,6 +383,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CC59AE728378AC1004B88EE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +391,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CC59AE828378AC2004B88EE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
