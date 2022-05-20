@@ -13,10 +13,9 @@ import Alamofire
 // MARK: 共通
 class ViewModel: NSObject {
 
+    /// ネットワーク監視
     private let monitor = NWPathMonitor()
-
     private let queue = DispatchQueue(label: "com.iOSEngineerCodeCheck.Network")
-
     public var networkStatus: Bool = false
 
     /// リロードハンドラー

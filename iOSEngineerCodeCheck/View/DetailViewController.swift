@@ -60,7 +60,7 @@ class DetailViewController: UIViewController {
             self.loginLabel.viewTransition(0.6)
             self.bioLabel.viewTransition(0.8)
 
-            // name
+            // 流れる文字ラベル(nameLabel)
             let name = UILabel()
             name.textColor = UIColor.black
             name.font = UIFont.systemFont(ofSize: 30, weight: .bold)
@@ -72,7 +72,7 @@ class DetailViewController: UIViewController {
 
             self.loginLabel.text = accountInfo.login
 
-            // bio
+            // 流れる文字ラベル(bioLabel)
             let bio = UILabel()
             bio.textColor = UIColor.black
             bio.font = UIFont.systemFont(ofSize: 13, weight: .regular)

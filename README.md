@@ -8,7 +8,7 @@
 
 本アプリは GitHub のリポジトリーを検索するアプリです。
 |サンプル1|サンプル2|
-|-|-|
+|:-:|:-:|
 |![swift](README_Images/swift.gif)|![visualstudio](README_Images/visualstudio.gif)|
 
 ## 環境
@@ -68,7 +68,7 @@ pod 'LicensePlist'
 (ライブラリのライセンスをアプリの設定に表示しています。)
 
 |手順1|手順2|
-|-|-|
+|:-:|:-:|
 |![IMG_0320](https://user-images.githubusercontent.com/84154073/169511058-444929c8-1acb-4a14-97b9-fad4ab9ff522.jpg)|![IMG_0319](https://user-images.githubusercontent.com/84154073/169511064-f7d50004-5feb-4ef6-8b16-a77d325c0e4c.jpg)|
 
 ---
@@ -100,20 +100,6 @@ pod 'Charts'
 <img width="40%" src="https://user-images.githubusercontent.com/84154073/169510269-f2fa6d36-c802-4144-933e-c6fd62b4e5c4.gif">
 
 ---
-### **[MarqueeLabel](https://github.com/cbpowell/MarqueeLabel)**
-
-**インストール方法(CocoaPods)**
-```ruby
-pod 'MarqueeLabel'
-```
-
-**使用箇所**
-
-(Viewの幅よりbioが長い場合、流れる文字になります。)
-
-<img width="40%" src="https://user-images.githubusercontent.com/84154073/169508516-ddeadaa5-f76a-4046-a334-fd42e3e80351.gif">
-
----
 ### **[lottie-ios](https://github.com/airbnb/lottie-ios)**
 
 **インストール方法(CocoaPods)**
@@ -126,6 +112,20 @@ pod 'lottie-ios'
 (リポジトリ格納庫が空の場合、アニメーションを表示します。)
 
 <img width="40%" src="https://user-images.githubusercontent.com/84154073/169574766-37a287a2-be57-4bb6-8579-71c92374262c.gif">
+
+---
+### **[JXMarqueeView](https://github.com/pujiaxin33/JXMarqueeView)**
+
+**インストール方法(CocoaPods)**
+```ruby
+pod 'JXMarqueeView'
+```
+
+**使用箇所**
+
+(Viewの幅よりbioが長い場合、流れる文字になります。)
+
+<img width="40%" src="https://user-images.githubusercontent.com/84154073/169508516-ddeadaa5-f76a-4046-a334-fd42e3e80351.gif">
 
 ---
 ## 課題をやるにあたっての問題点
@@ -143,25 +143,30 @@ https://api.github.com/search/repositories?q=Swift
 
 ## 課題に対する自己評価
 
-|||||
+||難易度|課題|評価|
 |:-:|:-:|:-:|:-:|
-|1<td bgcolor="#362B2E"><font color="#EC9D9E">初級|ソースコードの可読性の向上|5/5|
-|2<td bgcolor="#362B2E"><font color="#EC9D9E">初級|ソースコードの安全性の向上|5/5|
-|3<td bgcolor="#362B2E"><font color="#EC9D9E">初級|バグを修正|5/5|
-|4<td bgcolor="#362B2E"><font color="#EC9D9E">初級|Fat VC の回避|4/5|
-|5<td bgcolor="#3A382F"><font color="#D8B967">中級|プログラム構造をリファクタリング|2/5|
-|6<td bgcolor="#3A382F"><font color="#D8B967">中級|アーキテクチャを適用|3/5|
-|8<td bgcolor="#3A382F"><font color="#D8B967">中級|テストを追加|1/5|
-|9<td bgcolor="#293625"><font color="#ACDE5E">ボーナス|UI をブラッシュアップ|5/5|
-|10<td bgcolor="#293625"><font color="#ACDE5E">ボーナス|新機能を追加|5/5|
+|<td bgcolor="#362B2E"><font color="#EC9D9E">初級|ソースコードの可読性の向上|5/5|
+|<td bgcolor="#362B2E"><font color="#EC9D9E">初級|ソースコードの安全性の向上|5/5|
+|<td bgcolor="#362B2E"><font color="#EC9D9E">初級|バグを修正|5/5|
+|<td bgcolor="#362B2E"><font color="#EC9D9E">初級|Fat VC の回避|4/5|
+|<td bgcolor="#3A382F"><font color="#D8B967">中級|プログラム構造をリファクタリング|2/5|
+|<td bgcolor="#3A382F"><font color="#D8B967">中級|アーキテクチャを適用|3/5|
+|<td bgcolor="#3A382F"><font color="#D8B967">中級|テストを追加|1/5|
+|<td bgcolor="#293625"><font color="#ACDE5E">ボーナス|UI をブラッシュアップ|5/5|
+|<td bgcolor="#293625"><font color="#ACDE5E">ボーナス|新機能を追加|5/5|
 
 ## アピールポイント
 
 UXの向上を心掛けました。
 
-- インターネット接続の確認 → 接続されていない場合、アラートを表示
-- 通信エラー → アラート表示
-- 検索結果が空の時 → アラート表示
+**インターネット接続の確認**
+|オンライン|オフライン|
+|:-:|:-:|
+|<img height="250px" src="README_Images/online.gif">|<img height="250px" src="README_Images/offline.gif">|
+
+
+
+
 
 ## 改善点
 

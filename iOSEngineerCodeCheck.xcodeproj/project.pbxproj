@@ -139,6 +139,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C2DFE8F28381ADD00FFDE56 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				BFD945DE244DC5E80012785A /* AppDelegate.swift */,
+				BFD945E0244DC5E80012785A /* SceneDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
 		1C54D3C128339DA600AA5023 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,14 +236,13 @@
 		BFD945DD244DC5E80012785A /* iOSEngineerCodeCheck */ = {
 			isa = PBXGroup;
 			children = (
-				BFD945DE244DC5E80012785A /* AppDelegate.swift */,
-				BFD945E0244DC5E80012785A /* SceneDelegate.swift */,
+				1C2DFE8F28381ADD00FFDE56 /* Delegate */,
 				1C54D3C128339DA600AA5023 /* View */,
 				1C589A5B2833E01F00E19FF3 /* ViewModel */,
 				1C54D3C228339DAE00AA5023 /* Model */,
 				1C589A582833D8D000E19FF3 /* Extensions */,
-				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
 				1C656CA52837F416007A82B4 /* empty-box.json */,
+				BFD945E7244DC5EB0012785A /* Assets.xcassets */,
 				BFD945E9244DC5EB0012785A /* LaunchScreen.storyboard */,
 				BFD945EC244DC5EB0012785A /* Info.plist */,
 				1CBB310A283682850003566F /* Settings.bundle */,
