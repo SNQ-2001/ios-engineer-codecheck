@@ -10,14 +10,15 @@ import UIKit
 import Charts
 import Alamofire
 import AlamofireImage
+import JXMarqueeView
 
 class DetailViewController: UIViewController {
 
     // Accountカード
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameLabel: JXMarqueeView!
     @IBOutlet weak var loginLabel: UILabel!
-    @IBOutlet weak var bioLable: UILabel!
+    @IBOutlet weak var bioLabel: JXMarqueeView!
     @IBOutlet weak var showAccountButton: UIButton!
 
     // Repositoryカード
@@ -57,10 +58,29 @@ class DetailViewController: UIViewController {
         } completion: { accountInfo in
             self.nameLabel.viewTransition(0.4)
             self.loginLabel.viewTransition(0.6)
-            self.bioLable.viewTransition(0.8)
-            self.nameLabel.text = accountInfo.name
+            self.bioLabel.viewTransition(0.8)
+
+            // name
+            let name = UILabel()
+            name.textColor = UIColor.black
+            name.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+            name.text = accountInfo.name
+
+            self.nameLabel.contentView = name
+            self.nameLabel.contentMargin = 50
+            self.nameLabel.marqueeType = .left
+
             self.loginLabel.text = accountInfo.login
-            self.bioLable.text = accountInfo.bio ?? ""
+
+            // bio
+            let bio = UILabel()
+            bio.textColor = UIColor.black
+            bio.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+            bio.text = accountInfo.bio ?? ""
+
+            self.bioLabel.contentView = bio
+            self.bioLabel.contentMargin = 50
+            self.bioLabel.marqueeType = .left
         }
 
         // ボタンに言語カラーを設定

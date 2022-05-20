@@ -28,7 +28,7 @@
 ### **[Alamofire](https://github.com/Alamofire/Alamofire)**
 
 **インストール方法(CocoaPods)**
-```
+```ruby
 pod 'Alamofire'
 ```
 
@@ -43,7 +43,7 @@ pod 'Alamofire'
 
 **インストール方法(CocoaPods)**
 
-```
+```ruby
 pod 'AlamofireImage', '~> 4.1'
 ```
 
@@ -59,7 +59,7 @@ pod 'AlamofireImage', '~> 4.1'
 ### **[LicensePlist](https://github.com/mono0926/LicensePlist)**
 
 **インストール方法(CocoaPods)**
-```
+```ruby
 pod 'LicensePlist'
 ```
 
@@ -75,7 +75,7 @@ pod 'LicensePlist'
 ### **[PKHUD](https://github.com/pkluz/PKHUD)**
 
 **インストール方法(CocoaPods)**
-```
+```ruby
 pod 'PKHUD', '~> 5.0'
 ```
 
@@ -89,7 +89,7 @@ pod 'PKHUD', '~> 5.0'
 ### **[Charts](https://github.com/danielgindi/Charts)**
 
 インストール方法(CocoaPods)
-```
+```ruby
 pod 'Charts'
 ```
 
@@ -103,7 +103,7 @@ pod 'Charts'
 ### **[MarqueeLabel](https://github.com/cbpowell/MarqueeLabel)**
 
 **インストール方法(CocoaPods)**
-```
+```ruby
 pod 'MarqueeLabel'
 ```
 
@@ -113,10 +113,21 @@ pod 'MarqueeLabel'
 
 <img width="40%" src="https://user-images.githubusercontent.com/84154073/169508516-ddeadaa5-f76a-4046-a334-fd42e3e80351.gif">
 
+---
+### **[lottie-ios](https://github.com/airbnb/lottie-ios)**
+
+**インストール方法(CocoaPods)**
+```ruby
+pod 'lottie-ios'
+```
+
+**使用箇所**
+
+(リポジトリ格納庫が空の場合、アニメーションを表示します。)
+
+<img width="40%" src="https://user-images.githubusercontent.com/84154073/169574766-37a287a2-be57-4bb6-8579-71c92374262c.gif">
 
 ---
-
-
 ## 課題をやるにあたっての問題点
 
 https://api.github.com/search/repositories?q=Swift
@@ -132,6 +143,25 @@ https://api.github.com/search/repositories?q=Swift
 
 ## 課題に対する自己評価
 
+|||||
+|:-:|:-:|:-:|:-:|
+|1<td bgcolor="#362B2E"><font color="#EC9D9E">初級|ソースコードの可読性の向上|5/5|
+|2<td bgcolor="#362B2E"><font color="#EC9D9E">初級|ソースコードの安全性の向上|5/5|
+|3<td bgcolor="#362B2E"><font color="#EC9D9E">初級|バグを修正|5/5|
+|4<td bgcolor="#362B2E"><font color="#EC9D9E">初級|Fat VC の回避|4/5|
+|5<td bgcolor="#3A382F"><font color="#D8B967">中級|プログラム構造をリファクタリング|2/5|
+|6<td bgcolor="#3A382F"><font color="#D8B967">中級|アーキテクチャを適用|3/5|
+|8<td bgcolor="#3A382F"><font color="#D8B967">中級|テストを追加|1/5|
+|9<td bgcolor="#293625"><font color="#ACDE5E">ボーナス|UI をブラッシュアップ|5/5|
+|10<td bgcolor="#293625"><font color="#ACDE5E">ボーナス|新機能を追加|5/5|
+
 ## アピールポイント
 
+UXの向上を心掛けました。
+
+- インターネット接続の確認 → 接続されていない場合、アラートを表示
+- 通信エラー → アラート表示
+- 検索結果が空の時 → アラート表示
+
 ## 改善点
+
