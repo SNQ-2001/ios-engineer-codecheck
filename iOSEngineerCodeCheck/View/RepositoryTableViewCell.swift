@@ -24,7 +24,7 @@ class RepositoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    // カスタムセルをセット
+    /// カスタムセルをセット
     func setCell(avatarUrl: String, login: String, name: String, language: String) {
 
         avatarImage.af.setImage(

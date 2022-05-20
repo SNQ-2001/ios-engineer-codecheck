@@ -11,20 +11,37 @@ import Alamofire
 
 // MARK: ViewController
 extension ViewModel {
-    // アラート
-    func alert(_ viewController: ViewController, title: String, message: String) {
+    
+    /// アラートを表示
+    /// アニメーションと被るのを防ぐ為、表示を0.6秒遅らせています
+    ///
+    /// - parameters:
+    ///  - vc: 表示する画面を指定（self）
+    ///  - title: アラートのタイトル
+    ///  - message: アラートのメッセージ
+    ///  
+    func alert(_ vc: ViewController, title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle:  .alert)
         let OK = UIAlertAction(title: "OK", style: .default) { (action: UIAlertAction!) -> Void in }
         alert.addAction(OK)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-            viewController.present(alert, animated: true, completion: nil)
+            vc.present(alert, animated: true, completion: nil)
         }
     }
 
-    // リポジトリ検索
+    /// リポジトリ検索
+    /// ここで取得されたデータがTableViewに表示されます
+    ///
+    ///  - parameters:
+    ///   - searchBarText: サーチバーに入力されたテキスト
+    ///   - emptyAlert: 検索結果が空だった場合に実行されます
+    ///   - missAlert: 通信失敗 or デコード失敗 で実行されます
+    ///
+    /// EX) https://api.github.com/search/repositories?q=Swift
+    ///
     func getRepositories(searchBarText: String, emptyAlert: @escaping () -> Void, missAlert: @escaping () -> Void) {
         // 全角が入力される可能性があるのでエンコード
-        let query = searchBarText.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+        let query = searchBarText.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
         AF.request("https://api.github.com/search/repositories?q=\(query)", method: .get).responseData { response in
             do {
                 guard let data = response.data else { return }

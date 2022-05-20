@@ -32,17 +32,17 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // リロードハンドラー
+        /// リロードハンドラー
         self.initViewModel()
 
-        // サーチバーの設定
+        /// サーチバーの設定
         self.uiSearchBar.delegate = self
         self.uiSearchBar.placeholder = "キーワードを入力してください。"
 
-        // ナビゲーションビューにアイコンの設定
+        /// ナビゲーションビューにアイコンの設定
         self.navigationItem.titleView = icon
 
-        // ローディングビューの設定
+        /// ローディングビューの設定
         PKHUD.sharedHUD.contentView = PKHUDProgressView()
 
     }
@@ -71,17 +71,17 @@ extension ViewController {
 // MARK: UITableView
 extension ViewController {
 
-    // セルの個数を計算
+    /// セルの個数を計算
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel.repo.items.count
     }
 
-    // Cellの高さを計算
+    /// Cellの高さを計算
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 65
     }
 
-    // セルの生成
+    /// セルの生成
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.separatorInset = .zero // TabelViewの区切り線を端まで伸ばす
 
@@ -96,7 +96,7 @@ extension ViewController {
         return cell
     }
 
-    // セルのタップ時に呼び出される
+    /// セルのタップ時に呼び出される
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.viewModel.cellIndex = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)
@@ -107,18 +107,18 @@ extension ViewController {
 // MARK: UISearchBar
 extension ViewController: UISearchBarDelegate {
 
-    // キャンセルボタンを表示
+    /// キャンセルボタンを表示
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar){
         self.uiSearchBar.setShowsCancelButton(true, animated: true)
     }
 
-    // キャンセルボタンを押したら非表示
+    /// キャンセルボタンを押したら非表示
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.uiSearchBar.resignFirstResponder()
         self.uiSearchBar.setShowsCancelButton(false, animated: true)
     }
 
-    // 入力に変更があったらリセット
+    /// 入力に変更があったらリセット
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if !self.viewModel.repo.items.isEmpty {
             viewModel.resetSearchRepositories()
@@ -126,7 +126,7 @@ extension ViewController: UISearchBarDelegate {
         return true
     }
 
-    // 検索
+    /// 検索
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.viewModel.showLoading()
         view.endEditing(true) // 遷移から戻る時に強制的に上にスクロールするバグを修正

@@ -8,6 +8,10 @@
 
 import UIKit
 
+/// グラデーションカラーを作成
+/// 元のカラーより明るい色を作成（+0.3）
+///
+/// EX) `UIColor.black.gradient`
 extension UIColor {
     var gradient: UIColor {
         if let components = self.cgColor.components {
@@ -18,6 +22,9 @@ extension UIColor {
     }
 }
 
+/// GitHubの言語カラー定義
+///
+/// EX) `UIColor(language: "Swift")`
 extension UIColor {
     convenience init(language: String) {
         switch language {
