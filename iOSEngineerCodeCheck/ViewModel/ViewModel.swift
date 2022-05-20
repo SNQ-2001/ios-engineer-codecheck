@@ -7,10 +7,17 @@
 //
 
 import PKHUD
+import Network
 import Alamofire
 
 // MARK: 共通
 class ViewModel: NSObject {
+
+    private let monitor = NWPathMonitor()
+
+    private let queue = DispatchQueue(label: "com.iOSEngineerCodeCheck.Network")
+
+    var networkStatus: Bool = false
 
     /// リロードハンドラー
     /// アクションをViewControllerから受け取る
@@ -27,6 +34,19 @@ class ViewModel: NSObject {
 
     /// セルインデックス
     var cellIndex: Int!
+
+    
+    func networkMonitoring() {
+        self.monitor.pathUpdateHandler = { path in
+            if path.status == .satisfied {
+                self.networkStatus = true
+            } else {
+                self.networkStatus = false
+            }
+        }
+
+        self.monitor.start(queue: queue)
+    }
 
     /// リセット
     /// リポジトリ情報の格納庫を空にする

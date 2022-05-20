@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class PaddingLabel: UILabel {
+public class PaddingLabel: UILabel {
     var textEdgeInsets = UIEdgeInsets.zero {
         didSet { invalidateIntrinsicContentSize() }
     }
@@ -22,7 +22,7 @@ class PaddingLabel: UILabel {
         return textRect.inset(by: invertedInsets)
     }
 
-    override func drawText(in rect: CGRect) {
+    public override func drawText(in rect: CGRect) {
         super.drawText(in: rect.inset(by: textEdgeInsets))
     }
 

@@ -50,15 +50,17 @@ class DetailViewController: UIViewController {
         // アカウント情報の表示(名前, ID, BIO)
         self.viewController.viewModel.getAcountInfo(
             url: self.viewController.viewModel.repo.items[viewController.viewModel.cellIndex].owner.url
-        ) { accountInfo in
+        ) {
+            self.viewController.viewModel.alert(self, title: "Error", message: "Request failed")
+        } offlineAlert: {
+            self.viewController.viewModel.alert(self, title: "Error", message: "Offline")
+        } completion: { accountInfo in
             self.nameLabel.viewTransition(0.4)
             self.loginLabel.viewTransition(0.6)
             self.bioLable.viewTransition(0.8)
             self.nameLabel.text = accountInfo.name
             self.loginLabel.text = accountInfo.login
             self.bioLable.text = accountInfo.bio ?? ""
-        } missAlert: {
-            self.viewController.viewModel.alert(self, title: "エラー", message: "アカウント情報の取得に失敗しました。")
         }
 
         // ボタンに言語カラーを設定
@@ -70,15 +72,19 @@ class DetailViewController: UIViewController {
         self.repositoryNameLabel.text = repo.name
         self.repositoryDescriptionLabel.text = repo.description
 
-        self.issueLabel.text = "\(viewController.viewModel.calcNumericalValue(count: repo.open_issues_count)) issues"
-        self.starLabel.text = "\(viewController.viewModel.calcNumericalValue(count: repo.stargazers_count)) stars"
-        self.forkLabel.text = "\(viewController.viewModel.calcNumericalValue(count: repo.forks_count)) forks"
+        self.issueLabel.text = "\(repo.open_issues_count.calcNumericalValue()) issues"
+        self.starLabel.text = "\(repo.stargazers_count.calcNumericalValue()) stars"
+        self.forkLabel.text = "\(repo.forks_count.calcNumericalValue()) forks"
 
         // Chartsの設定
         self.chartView.delegate = self
 
         // 使用言語割合グラフを表示
         self.setChart()
+        
+    }
+
+    func license() {
         
     }
 

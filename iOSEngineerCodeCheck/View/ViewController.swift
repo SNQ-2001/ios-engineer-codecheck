@@ -35,9 +35,11 @@ class ViewController: UITableViewController {
         /// リロードハンドラー
         self.initViewModel()
 
+        /// ネットワーク監視
+        self.viewModel.networkMonitoring()
+
         /// サーチバーの設定
         self.uiSearchBar.delegate = self
-        self.uiSearchBar.placeholder = "キーワードを入力してください。"
 
         /// ナビゲーションビューにアイコンの設定
         self.navigationItem.titleView = icon
@@ -46,7 +48,7 @@ class ViewController: UITableViewController {
         PKHUD.sharedHUD.contentView = PKHUDProgressView()
 
     }
-
+    
     private func initViewModel() {
         self.viewModel.reloadHandler = { [weak self] in
             DispatchQueue.main.async {
@@ -121,9 +123,16 @@ extension ViewController: UISearchBarDelegate {
     /// 入力に変更があったらリセット
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if !self.viewModel.repo.items.isEmpty {
-            viewModel.resetSearchRepositories()
+            self.viewModel.resetSearchRepositories()
         }
         return true
+    }
+
+    /// xボタンが押されたらリセット
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            self.viewModel.resetSearchRepositories()
+        }
     }
 
     /// 検索
@@ -136,15 +145,21 @@ extension ViewController: UISearchBarDelegate {
         if searchBarText.count != 0 {
             self.viewModel.getRepositories(searchBarText: searchBarText) {
                 self.viewModel.hideLoading()
-                self.viewModel.alert(self, title: "エラー", message: "リポジトリが見つかりません。")
+                
+                self.viewModel.alert(self, title: "Error", message: "Repository not found")
             } missAlert: {
                 self.viewModel.hideLoading()
 
-                self.viewModel.alert(self, title: "エラー", message: "リポジトリの取得に失敗しました。")
+                self.viewModel.alert(self, title: "Error", message: "Request failed")
+            } offlineAlert: {
+                self.viewModel.hideLoading()
+
+                self.viewModel.alert(self, title: "Error", message: "Offline")
             }
         } else {
             self.viewModel.hideLoading()
-            self.viewModel.alert(self, title: "エラー", message: "入力されていません。")
+
+            self.viewModel.alert(self, title: "Error", message: "Not entered")
         }
     }
 

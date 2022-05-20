@@ -28,7 +28,6 @@ struct Item: Codable {
     let forks_count: Int
     let open_issues_count: Int
     let license: License?
-    let topics: [String]
 }
 
 // MARK: - Owner

@@ -39,21 +39,31 @@ extension ViewModel {
     ///
     /// EX) https://api.github.com/search/repositories?q=Swift
     ///
-    func getRepositories(searchBarText: String, emptyAlert: @escaping () -> Void, missAlert: @escaping () -> Void) {
+    func getRepositories(
+        searchBarText: String,
+        emptyAlert: @escaping () -> Void,
+        missAlert: @escaping () -> Void,
+        offlineAlert: @escaping () -> Void
+    ) {
         // 全角が入力される可能性があるのでエンコード
         let query = searchBarText.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-        AF.request("https://api.github.com/search/repositories?q=\(query)", method: .get).responseData { response in
-            do {
-                guard let data = response.data else { return }
-                let repositories = try JSONDecoder().decode(SearchRepositories.self, from: data)
-                if repositories.items.isEmpty {
-                    emptyAlert()
-                } else {
-                    self.repo = repositories
+
+        if self.networkStatus {
+            AF.request("https://api.github.com/search/repositories?q=\(query)", method: .get).responseData { response in
+                do {
+                    guard let data = response.data else { return }
+                    let repositories = try JSONDecoder().decode(SearchRepositories.self, from: data)
+                    if repositories.items.isEmpty {
+                        emptyAlert()
+                    } else {
+                        self.repo = repositories
+                    }
+                } catch {
+                    missAlert()
                 }
-            } catch {
-                missAlert()
             }
+        } else {
+            offlineAlert()
         }
     }
 

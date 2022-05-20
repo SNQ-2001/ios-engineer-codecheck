@@ -30,33 +30,6 @@ extension ViewModel {
         }
     }
 
-    /// イシュー数, スター数, フォーク数が1000を超えたら省略する
-    ///
-    /// - parameters:
-    ///  - count: 変換する数字
-    ///
-    /// - returns: 変換後の文字列を返す
-    ///
-    func calcNumericalValue(count: Int) -> String {
-        if count >= 1000000 {
-            let i = Double(count) / 100000
-            if "\(Double(round(i) / 10))M".contains(".0") {
-                return "\(Double(round(i) / 10))M".replacingOccurrences(of: ".0", with: "")
-            } else {
-                return "\(Double(round(i) / 10))M"
-            }
-        } else if count >= 1000 {
-            let i = Double(count) / 10000
-            if "\(round(i * 100) / 10)K".contains(".0") {
-                return "\(round(i * 100) / 10)K".replacingOccurrences(of: ".0", with: "")
-            } else {
-                return "\(round(i * 100) / 10)K"
-            }
-        } else {
-            return "\(count)"
-        }
-    }
-
     /// サファリ開く
     /// アカウントページ or リポジトリページ をSafariServicesで開く
     ///
@@ -98,15 +71,24 @@ extension ViewModel {
     ///
     /// EX) https://api.github.com/users/apple
     ///
-    func getAcountInfo(url: String, completion: @escaping (AccountInfo) -> Void, missAlert: @escaping () -> Void) {
-        AF.request(url, method: .get).responseData { response in
-            do {
-                guard let data = response.data else { return }
-                let accountInfo = try JSONDecoder().decode(AccountInfo.self, from: data)
-                completion(accountInfo)
-            } catch {
-                missAlert()
+    func getAcountInfo(
+        url: String,
+        missAlert: @escaping () -> Void,
+        offlineAlert: @escaping () -> Void,
+        completion: @escaping (AccountInfo) -> Void
+    ) {
+        if networkStatus {
+            AF.request(url, method: .get).responseData { response in
+                do {
+                    guard let data = response.data else { return }
+                    let accountInfo = try JSONDecoder().decode(AccountInfo.self, from: data)
+                    completion(accountInfo)
+                } catch {
+                    missAlert()
+                }
             }
+        } else {
+            offlineAlert()
         }
     }
 
@@ -120,7 +102,10 @@ extension ViewModel {
     ///
     /// EX) https://api.github.com/repos/apple/swift/languages
     ///
-    func getLanguages(url: String, completion: @escaping ([String], [Int]) -> Void) {
+    func getLanguages(
+        url: String,
+        completion: @escaping ([String], [Int]) -> Void
+    ) {
         var languagesNameArray: [String] = []
         var languagesValueArray: [Int] = []
         AF.request(url, method: .get).responseData { response in
@@ -131,7 +116,7 @@ extension ViewModel {
 
                 // 使用割合の高い言語順に並び替える
                 let languagesSort = languagesDict.sorted { $0.1 > $1.1 } .map { $0 }
-                
+
                 for language in languagesSort {
                     languagesNameArray.append(language.key)
                     languagesValueArray.append(language.value)

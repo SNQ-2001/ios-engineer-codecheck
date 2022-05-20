@@ -12,7 +12,7 @@ import UIKit
 /// 元のカラーより明るい色を作成（+0.3）
 ///
 /// EX) `UIColor.black.gradient`
-extension UIColor {
+public extension UIColor {
     var gradient: UIColor {
         if let components = self.cgColor.components {
             return UIColor(red: components[0] + 0.3, green: components[1] + 0.3, blue: components[2] + 0.3, alpha: 0.7)
@@ -25,7 +25,7 @@ extension UIColor {
 /// GitHubの言語カラー定義
 ///
 /// EX) `UIColor(language: "Swift")`
-extension UIColor {
+public extension UIColor {
     convenience init(language: String) {
         switch language {
         case "1C Enterprise":

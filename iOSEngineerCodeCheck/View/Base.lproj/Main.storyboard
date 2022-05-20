@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" text="" id="6rq-CD-Hob">
+                        <searchBar key="tableHeaderView" contentMode="redraw" restorationIdentifier="searchBar" text="" placeholder="キーワードを入力してください。" id="6rq-CD-Hob">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="tintColor" systemColor="systemBlueColor"/>
@@ -42,7 +42,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swift" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FW2-vC-x9G" userLabel="language" customClass="PaddingLabel" customModule="iOSEngineerCodeCheck" customModuleProvider="target">
-                                            <rect key="frame" x="75" y="42" width="30" height="15"/>
+                                            <rect key="frame" x="75" y="42" width="44" height="15"/>
                                             <color key="backgroundColor" systemColor="systemPinkColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="15" id="Onv-9t-6vk"/>
@@ -531,7 +531,7 @@
     </scenes>
     <designables>
         <designable name="FW2-vC-x9G">
-            <size key="intrinsicContentSize" width="30" height="14.5"/>
+            <size key="intrinsicContentSize" width="44" height="14.5"/>
         </designable>
     </designables>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
