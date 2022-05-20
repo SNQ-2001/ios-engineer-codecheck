@@ -2,44 +2,136 @@
 
 ## 概要
 
-本プロジェクトは株式会社ゆめみ（以下弊社）が、弊社に iOS エンジニアを希望する方に出す課題のベースプロジェクトです。本課題が与えられた方は、下記の概要を詳しく読んだ上で課題を取り組んでください。
+本プロジェクトは株式会社ゆめみのコードチェック課題です。
 
 ## アプリ仕様
 
 本アプリは GitHub のリポジトリーを検索するアプリです。
+|サンプル1|サンプル2|
+|-|-|
+|![swift](https://user-images.githubusercontent.com/84154073/169501589-5e625390-18c4-4479-8331-ffbf4bf9fafa.gif)|![visualstudio](https://user-images.githubusercontent.com/84154073/169501617-0a59a979-cc69-4eee-b63b-365f328b5d99.gif)|
 
-![動作イメージ](README_Images/app.gif)
+## 環境
 
-### 環境
+- IDE：Xcode 13.3.1
+- Swift：Swift 5.5
+- 開発ターゲット：15.0
 
-- IDE：基本最新の安定版（本概要更新時点では Xcode 13.0）
-- Swift：基本最新の安定版（本概要更新時点では Swift 5.5）
-- 開発ターゲット：基本最新の安定版（本概要更新時点では iOS 15.0）
-- サードパーティーライブラリーの利用：オープンソースのものに限り制限しない
+## 使用ライブラリ
+- Alamofire
+- AlamofireImage
+- LicensePlist
+- PKHUD
+- Charts
+- MarqueeLabel
+---
+### **[Alamofire](https://github.com/Alamofire/Alamofire)**
 
-### 動作
+**インストール方法(CocoaPods)**
+```
+pod 'Alamofire'
+```
 
-1. 何かしらのキーワードを入力
-2. GitHub API（`search/repositories`）でリポジトリーを検索し、結果一覧を概要（リポジトリ名）で表示
-3. 特定の結果を選択したら、該当リポジトリの詳細（リポジトリ名、オーナーアイコン、プロジェクト言語、Star 数、Watcher 数、Fork 数、Issue 数）を表示
+**使用箇所**
 
-## 課題取り組み方法
+(Alamofireを使用してコードを簡略化しました。)
 
-Issues を確認した上、本プロジェクトを [**Duplicate** してください](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/duplicating-a-repository)（Fork しないようにしてください。必要ならプライベートリポジトリーにしても大丈夫です）。今後のコミットは全てご自身のリポジトリーで行ってください。
+通信処理全て
 
-コードチェックの課題 Issue は全て [`課題`](https://github.com/yumemi/ios-engineer-codecheck/milestone/1) Milestone がついており、難易度に応じて Label が [`初級`](https://github.com/yumemi/ios-engineer-codecheck/issues?q=is%3Aopen+is%3Aissue+label%3A初級+milestone%3A課題)、[`中級`](https://github.com/yumemi/ios-engineer-codecheck/issues?q=is%3Aopen+is%3Aissue+label%3A中級+milestone%3A課題+) と [`ボーナス`](https://github.com/yumemi/ios-engineer-codecheck/issues?q=is%3Aopen+is%3Aissue+label%3Aボーナス+milestone%3A課題+) に分けられています。課題の必須／選択は下記の表とします：
+---
+### **[AlamofireImage](https://github.com/Alamofire/AlamofireImage)**
 
-|   | 初級 | 中級 | ボーナス
-|--:|:--:|:--:|:--:|
-| 新卒／未経験者 | 必須 | 選択 | 選択 |
-| 中途／経験者 | 必須 | 必須 | 選択 |
+**インストール方法(CocoaPods)**
+
+```
+pod 'AlamofireImage', '~> 4.1'
+```
+
+**使用箇所**
+
+(AlamofireImageを使用してコードを簡略化しました。)
+
+<img width="40%" src="https://user-images.githubusercontent.com/84154073/169513820-c40adbd2-f166-49d5-8048-d5ac4432247d.jpg">
+
+<img width="40%" src="https://user-images.githubusercontent.com/84154073/169513831-2dd2d215-b74c-483c-9521-49490951720d.jpg">
+
+---
+### **[LicensePlist](https://github.com/mono0926/LicensePlist)**
+
+**インストール方法(CocoaPods)**
+```
+pod 'LicensePlist'
+```
+
+**使用箇所**
+
+(ライブラリのライセンスをアプリの設定に表示しています。)
+
+|手順1|手順2|
+|-|-|
+|![IMG_0320](https://user-images.githubusercontent.com/84154073/169511058-444929c8-1acb-4a14-97b9-fad4ab9ff522.jpg)|![IMG_0319](https://user-images.githubusercontent.com/84154073/169511064-f7d50004-5feb-4ef6-8b16-a77d325c0e4c.jpg)|
+
+---
+### **[PKHUD](https://github.com/pkluz/PKHUD)**
+
+**インストール方法(CocoaPods)**
+```
+pod 'PKHUD', '~> 5.0'
+```
+
+**使用箇所**
+
+(検索を実行した後、ユーザーがフリーズしたと勘違いしないようにローディング画面を追加しました。)
+
+<img width="40%" src="https://user-images.githubusercontent.com/84154073/169511118-15976f95-339d-49c9-af81-aca5b9387807.gif">
+
+---
+### **[Charts](https://github.com/danielgindi/Charts)**
+
+インストール方法(CocoaPods)
+```
+pod 'Charts'
+```
+
+**使用箇所**
+
+(リポジトリの使用言語のグラフが表示されます。)
+
+<img width="40%" src="https://user-images.githubusercontent.com/84154073/169510269-f2fa6d36-c802-4144-933e-c6fd62b4e5c4.gif">
+
+---
+### **[MarqueeLabel](https://github.com/cbpowell/MarqueeLabel)**
+
+**インストール方法(CocoaPods)**
+```
+pod 'MarqueeLabel'
+```
+
+**使用箇所**
+
+(Viewの幅よりbioが長い場合、流れる文字になります。)
+
+<img width="40%" src="https://user-images.githubusercontent.com/84154073/169508516-ddeadaa5-f76a-4046-a334-fd42e3e80351.gif">
 
 
-課題 Issueをご自身のリポジトリーにコピーするGitHub Actionsをご用意しております。  
-[こちらのWorkflow](./.github/workflows/copy-issues.yml)を[手動でトリガーする](https://docs.github.com/ja/actions/managing-workflow-runs/manually-running-a-workflow)ことでコピーできますのでご活用下さい。
+---
 
-課題が完成したら、リポジトリーのアドレスを教えてください。
 
-## 参考記事
+## 課題をやるにあたっての問題点
 
-提出された課題の評価ポイントに関しては、[こちらの記事](https://qiita.com/lovee/items/d76c68341ec3e7beb611)に詳しく書かれてありますので、ぜひご覧ください。
+https://api.github.com/search/repositories?q=Swift
+
+こちらのAPIのWatcher数が正常に取得できていないと思われます。(2022/05/20)
+
+必ずスター数と同じ結果が返却されます。
+
+
+間違った数値を表示する事によってUXが損なわれると考えた為、
+
+動作に「Watcher数」が含まれていましたが除外しました。
+
+## 課題に対する自己評価
+
+## アピールポイント
+
+## 改善点
