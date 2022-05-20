@@ -32,21 +32,23 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // リロードハンドラー
+        /// リロードハンドラー
         self.initViewModel()
 
-        // サーチバーの設定
-        self.uiSearchBar.delegate = self
-        self.uiSearchBar.placeholder = "キーワードを入力してください。"
+        /// ネットワーク監視
+        self.viewModel.networkMonitoring()
 
-        // ナビゲーションビューにアイコンの設定
+        /// サーチバーの設定
+        self.uiSearchBar.delegate = self
+
+        /// ナビゲーションビューにアイコンの設定
         self.navigationItem.titleView = icon
 
-        // ローディングビューの設定
+        /// ローディングビューの設定
         PKHUD.sharedHUD.contentView = PKHUDProgressView()
 
     }
-
+    
     private func initViewModel() {
         self.viewModel.reloadHandler = { [weak self] in
             DispatchQueue.main.async {
@@ -58,6 +60,10 @@ class ViewController: UITableViewController {
 
 }
 
+
+
+
+
 // MARK: 画面遷移
 extension ViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -68,20 +74,24 @@ extension ViewController {
     }
 }
 
+
+
+
+
 // MARK: UITableView
 extension ViewController {
 
-    // セルの個数を計算
+    /// セルの個数を計算
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.viewModel.repo.items.count
     }
 
-    // Cellの高さを計算
+    /// Cellの高さを計算
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 65
     }
 
-    // セルの生成
+    /// セルの生成
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.separatorInset = .zero // TabelViewの区切り線を端まで伸ばす
 
@@ -96,7 +106,7 @@ extension ViewController {
         return cell
     }
 
-    // セルのタップ時に呼び出される
+    /// セルのタップ時に呼び出される
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.viewModel.cellIndex = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)
@@ -104,29 +114,40 @@ extension ViewController {
 
 }
 
+
+
+
+
 // MARK: UISearchBar
 extension ViewController: UISearchBarDelegate {
 
-    // キャンセルボタンを表示
+    /// キャンセルボタンを表示
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar){
         self.uiSearchBar.setShowsCancelButton(true, animated: true)
     }
 
-    // キャンセルボタンを押したら非表示
+    /// キャンセルボタンを押したら非表示
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.uiSearchBar.resignFirstResponder()
         self.uiSearchBar.setShowsCancelButton(false, animated: true)
     }
 
-    // 入力に変更があったらリセット
+    /// 入力に変更があったらリセット
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if !self.viewModel.repo.items.isEmpty {
-            viewModel.resetSearchRepositories()
+            self.viewModel.resetSearchRepositories()
         }
         return true
     }
 
-    // 検索
+    /// xボタンが押されたらリセット
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            self.viewModel.resetSearchRepositories()
+        }
+    }
+
+    /// 検索
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.viewModel.showLoading()
         view.endEditing(true) // 遷移から戻る時に強制的に上にスクロールするバグを修正
@@ -136,15 +157,17 @@ extension ViewController: UISearchBarDelegate {
         if searchBarText.count != 0 {
             self.viewModel.getRepositories(searchBarText: searchBarText) {
                 self.viewModel.hideLoading()
-                self.viewModel.alert(self, title: "エラー", message: "リポジトリが見つかりません。")
+                self.viewModel.alert(self, title: "Error", message: "Repository not found")
             } missAlert: {
                 self.viewModel.hideLoading()
-
-                self.viewModel.alert(self, title: "エラー", message: "リポジトリの取得に失敗しました。")
+                self.viewModel.alert(self, title: "Error", message: "Request failed")
+            } offlineAlert: {
+                self.viewModel.hideLoading()
+                self.viewModel.alert(self, title: "Error", message: "Offline")
             }
         } else {
             self.viewModel.hideLoading()
-            self.viewModel.alert(self, title: "エラー", message: "入力されていません。")
+            self.viewModel.alert(self, title: "Error", message: "Not entered")
         }
     }
 

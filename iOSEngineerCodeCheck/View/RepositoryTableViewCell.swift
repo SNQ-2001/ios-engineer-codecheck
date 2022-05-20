@@ -15,6 +15,15 @@ class RepositoryTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet weak var languageView: UIView!
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: .default, reuseIdentifier: "Repository")
+    }
+
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,7 +33,7 @@ class RepositoryTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    // カスタムセルをセット
+    /// カスタムセルをセット
     func setCell(avatarUrl: String, login: String, name: String, language: String) {
 
         avatarImage.af.setImage(
@@ -35,7 +44,7 @@ class RepositoryTableViewCell: UITableViewCell {
         loginLabel.text = login
         nameLabel.text = name
         languageLabel.text = language
-        languageLabel.backgroundColor = UIColor(language: language)
+        languageView.backgroundColor = UIColor(language: language)
         
     }
 }

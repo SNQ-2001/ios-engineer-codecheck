@@ -11,24 +11,20 @@ import XCTest
 
 class iOSEngineerCodeCheckTests: XCTestCase {
 
+    let viewModel = ViewModel()
+
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        // ここにセットアップコードを入れます。このメソッドは、クラス内の各テストメソッドが呼び出される前に呼び出されます。
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        // ティアダウンコードをここに置く。このメソッドは、クラス内の各テストメソッドの呼び出しの後に呼び出されます。
     }
 
     func testPerformanceExample() throws {
-        // This is an example of a performance test case.
+        // これはパフォーマンステストケースの例です。
         self.measure {
-            // Put the code you want to measure the time of here.
+            // ここに時間を計測したいコードを入れてください。
         }
     }
-
 }
