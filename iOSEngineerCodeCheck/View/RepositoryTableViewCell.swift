@@ -15,6 +15,7 @@ class RepositoryTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet weak var languageView: UIView!
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: "Repository")
@@ -43,7 +44,7 @@ class RepositoryTableViewCell: UITableViewCell {
         loginLabel.text = login
         nameLabel.text = name
         languageLabel.text = language
-        languageLabel.backgroundColor = UIColor(language: language)
+        languageView.backgroundColor = UIColor(language: language)
         
     }
 }
