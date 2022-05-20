@@ -9,7 +9,7 @@
 本アプリは GitHub のリポジトリーを検索するアプリです。
 |サンプル1|サンプル2|
 |-|-|
-|![swift](https://user-images.githubusercontent.com/84154073/169501589-5e625390-18c4-4479-8331-ffbf4bf9fafa.gif)|![visualstudio](https://user-images.githubusercontent.com/84154073/169501617-0a59a979-cc69-4eee-b63b-365f328b5d99.gif)|
+|![swift](README_Images/swift.gif)|![visualstudio](README_Images/visualstudio.gif)|
 
 ## 環境
 
