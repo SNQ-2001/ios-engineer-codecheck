@@ -7,6 +7,7 @@ PODS:
   - Charts/Core (4.0.2):
     - SwiftAlgorithms (~> 1.0)
   - LicensePlist (3.22.0)
+  - lottie-ios (3.3.0)
   - MarqueeLabel (4.3.0)
   - PKHUD (5.3.0)
   - SwiftAlgorithms (1.0.0)
@@ -16,6 +17,7 @@ DEPENDENCIES:
   - AlamofireImage (~> 4.1)
   - Charts
   - LicensePlist
+  - lottie-ios
   - MarqueeLabel
   - PKHUD (~> 5.0)
 
@@ -25,6 +27,7 @@ SPEC REPOS:
     - AlamofireImage
     - Charts
     - LicensePlist
+    - lottie-ios
     - MarqueeLabel
     - PKHUD
     - SwiftAlgorithms
@@ -34,10 +37,11 @@ SPEC CHECKSUMS:
   AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
   Charts: cfa4e911e6dc289582c2fe011a0e87c03d96727f
   LicensePlist: be4f67fadceeba970ed2f13e198592a4f420d2be
+  lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
   MarqueeLabel: 02f5ac8fd6877c94564556cb93fa86c70c08baeb
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   SwiftAlgorithms: 38dda4731d19027fdeee1125f973111bf3386b53
 
-PODFILE CHECKSUM: 248330af1f0b082b451a4b0ea544cae3f6219863
+PODFILE CHECKSUM: 025f5584e82c6094a58dd6f0796f5c460e53e32c
 
 COCOAPODS: 1.11.2

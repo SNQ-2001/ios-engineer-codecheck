@@ -12,6 +12,7 @@ target 'iOSEngineerCodeCheck' do
   pod 'PKHUD', '~> 5.0'
   pod 'Charts'
   pod 'MarqueeLabel'
+  pod 'lottie-ios'
 
   target 'iOSEngineerCodeCheckTests' do
     inherit! :search_paths

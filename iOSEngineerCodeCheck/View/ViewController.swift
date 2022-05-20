@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import PKHUD
+import Lottie
 import Alamofire
 import AlamofireImage
-import PKHUD
 
 class ViewController: UITableViewController {
 
@@ -25,6 +26,18 @@ class ViewController: UITableViewController {
         imageView.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
 
         return imageView
+    }()
+
+    let animationView: AnimationView = {
+        var lottie = AnimationView()
+        lottie.animation = Animation.named("empty-box")
+        // 比率
+        lottie.contentMode = .scaleAspectFit
+        // ループモード
+        lottie.loopMode = .loop
+        lottie.play()
+
+        return lottie
     }()
 
     let viewModel = ViewModel()
@@ -47,15 +60,36 @@ class ViewController: UITableViewController {
         /// ローディングビューの設定
         PKHUD.sharedHUD.contentView = PKHUDProgressView()
 
+        /// アニメーションの設定
+        setLottieView()
+
     }
     
     private func initViewModel() {
         self.viewModel.reloadHandler = { [weak self] in
             DispatchQueue.main.async {
+                // リポジトリ情報格納庫が空になったらアニメーションを表示
+                if self?.viewModel.repo.items.count == 0 {
+                    self?.animationView.play()
+                    self?.animationView.isHidden = false
+                } else {
+                    self?.animationView.isHidden = true
+                }
+
                 self?.viewModel.hideLoading()
                 self?.tableView.reloadData()
             }
         }
+    }
+
+    /// アニメーションの設定
+    func setLottieView() {
+        view.addSubview(animationView)
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+        animationView.heightAnchor.constraint(equalToConstant: 130.0).isActive = true
+        animationView.widthAnchor.constraint(equalToConstant: 130.0).isActive = true
+        animationView.topAnchor.constraint(equalTo: uiSearchBar.bottomAnchor, constant: UIScreen.main.bounds.size.height / 4).isActive = true
+        animationView.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
     }
 
 }

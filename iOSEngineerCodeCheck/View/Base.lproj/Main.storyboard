@@ -544,6 +544,10 @@
             <point key="canvasLocation" x="-1417" y="137"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="4q1-pG-WSB"/>
+        <designable name="jXE-Nq-l3I"/>
+    </designables>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="fork" width="1024" height="1024"/>
