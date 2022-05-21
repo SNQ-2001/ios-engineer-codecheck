@@ -52,9 +52,9 @@ class DetailViewController: UIViewController {
         self.viewController.viewModel.getAcountInfo(
             url: self.viewController.viewModel.repo[viewController.viewModel.cellIndex].owner.url
         ) { error in
-            self.viewController.viewModel.alert(self, title: "Error", message: error)
+            self.viewController.viewModel.alert(self, title: NSLocalizedString("Error", comment: ""), message: error)
         } offlineAlert: {
-            self.viewController.viewModel.alert(self, title: "Error", message: "Offline")
+            self.viewController.viewModel.alert(self, title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Offline", comment: ""))
         } completion: { accountInfo in
             self.nameLabel.viewTransition(0.4)
             self.loginLabel.viewTransition(0.6)

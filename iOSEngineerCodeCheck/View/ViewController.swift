@@ -159,9 +159,9 @@ extension ViewController {
             viewModel.getRepositories(searchBarText: searchBarText) {
                 return // 最後まで更新した
             } errorAlert: { error in
-                self.viewModel.alert(self, title: "Error", message: error)
+                self.viewModel.alert(self, title: NSLocalizedString("Error", comment: ""), message: error)
             } offlineAlert: {
-                self.viewModel.alert(self, title: "Error", message: "Offline")
+                self.viewModel.alert(self, title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Offline", comment: ""))
             }
         }
 
@@ -212,17 +212,17 @@ extension ViewController: UISearchBarDelegate {
         if searchBarText.count != 0 {
             self.viewModel.getRepositories(searchBarText: searchBarText) {
                 self.viewModel.hideLoading()
-                self.viewModel.alert(self, title: "Error", message: "Repository not found")
+                self.viewModel.alert(self, title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Repository not found", comment: ""))
             } errorAlert: { error in
                 self.viewModel.hideLoading()
-                self.viewModel.alert(self, title: "Error", message: error)
+                self.viewModel.alert(self, title: NSLocalizedString("Error", comment: ""), message: error)
             } offlineAlert: {
                 self.viewModel.hideLoading()
-                self.viewModel.alert(self, title: "Error", message: "Offline")
+                self.viewModel.alert(self, title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Offline", comment: ""))
             }
         } else {
             self.viewModel.hideLoading()
-            self.viewModel.alert(self, title: "Error", message: "Not entered")
+            self.viewModel.alert(self, title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Not entered", comment: ""))
         }
     }
 
