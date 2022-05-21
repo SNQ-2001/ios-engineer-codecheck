@@ -83,16 +83,7 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UOG-FP-9X1" userLabel="name">
-                                            <rect key="frame" x="75" y="4" width="329" height="25"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="25" id="k0E-x6-vQU"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfR-oa-3UZ" userLabel="login">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SNQ-2001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfR-oa-3UZ" userLabel="login">
                                             <rect key="frame" x="75" y="25" width="329" height="16"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="vcn-VJ-y6g"/>
@@ -101,20 +92,29 @@
                                             <color key="textColor" systemColor="systemGrayColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SNQ" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUw-Yi-su9">
+                                            <rect key="frame" x="75" y="4" width="329" height="25"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="25" id="My5-dx-phH"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="yfR-oa-3UZ" firstAttribute="leading" secondItem="c81-3m-xhE" secondAttribute="trailing" constant="10" id="31B-sr-yzA"/>
+                                        <constraint firstAttribute="trailing" secondItem="EUw-Yi-su9" secondAttribute="trailing" constant="10" id="61K-dB-Be2"/>
                                         <constraint firstAttribute="bottom" secondItem="r52-Vq-gsA" secondAttribute="bottom" constant="8" id="90a-Tm-itM"/>
+                                        <constraint firstItem="EUw-Yi-su9" firstAttribute="leading" secondItem="c81-3m-xhE" secondAttribute="trailing" constant="10" id="D0u-oZ-de1"/>
                                         <constraint firstItem="c81-3m-xhE" firstAttribute="leading" secondItem="k29-jL-IM1" secondAttribute="leading" constant="10" id="EDT-XP-T58"/>
                                         <constraint firstItem="r52-Vq-gsA" firstAttribute="leading" secondItem="c81-3m-xhE" secondAttribute="trailing" constant="10" id="HZb-Aw-JLs"/>
                                         <constraint firstItem="c81-3m-xhE" firstAttribute="top" secondItem="k29-jL-IM1" secondAttribute="top" constant="5" id="KWp-8L-PBz"/>
                                         <constraint firstItem="r52-Vq-gsA" firstAttribute="top" secondItem="yfR-oa-3UZ" secondAttribute="bottom" constant="1" id="OnV-ba-ybh"/>
                                         <constraint firstAttribute="trailing" secondItem="yfR-oa-3UZ" secondAttribute="trailing" constant="10" id="Tgw-99-UrK"/>
-                                        <constraint firstItem="UOG-FP-9X1" firstAttribute="top" secondItem="k29-jL-IM1" secondAttribute="top" constant="4" id="bv6-JD-KgR"/>
                                         <constraint firstItem="yfR-oa-3UZ" firstAttribute="top" secondItem="k29-jL-IM1" secondAttribute="top" constant="25" id="gSu-8z-9sy"/>
                                         <constraint firstAttribute="bottom" secondItem="c81-3m-xhE" secondAttribute="bottom" constant="5" id="pDQ-7Q-15K"/>
-                                        <constraint firstAttribute="trailing" secondItem="UOG-FP-9X1" secondAttribute="trailing" constant="10" id="tka-oS-Lk3"/>
-                                        <constraint firstItem="UOG-FP-9X1" firstAttribute="leading" secondItem="c81-3m-xhE" secondAttribute="trailing" constant="10" id="udU-Xm-7TD"/>
+                                        <constraint firstItem="EUw-Yi-su9" firstAttribute="top" secondItem="k29-jL-IM1" secondAttribute="top" constant="4" id="ugl-og-KcY"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -122,7 +122,7 @@
                                     <outlet property="languageLabel" destination="FW2-vC-x9G" id="FzO-Na-6Rj"/>
                                     <outlet property="languageView" destination="r52-Vq-gsA" id="XPu-G2-n6L"/>
                                     <outlet property="loginLabel" destination="yfR-oa-3UZ" id="crn-Wt-KKX"/>
-                                    <outlet property="nameLabel" destination="UOG-FP-9X1" id="iGG-OS-cEA"/>
+                                    <outlet property="nameLabel" destination="EUw-Yi-su9" id="Tfn-3C-v8c"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

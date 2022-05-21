@@ -65,11 +65,11 @@ class DetailViewController: UIViewController {
             name.textColor = UIColor.black
             name.font = UIFont.systemFont(ofSize: 30, weight: .bold)
             name.text = accountInfo.name
-
             self.nameLabel.contentView = name
             self.nameLabel.contentMargin = 50
             self.nameLabel.marqueeType = .left
 
+            // アカウントIDラベル(loginLabel)
             self.loginLabel.text = accountInfo.login
 
             // 流れる文字ラベル(bioLabel)
@@ -77,7 +77,6 @@ class DetailViewController: UIViewController {
             bio.textColor = UIColor.black
             bio.font = UIFont.systemFont(ofSize: 13, weight: .regular)
             bio.text = accountInfo.bio ?? ""
-
             self.bioLabel.contentView = bio
             self.bioLabel.contentMargin = 50
             self.bioLabel.marqueeType = .left
@@ -93,7 +92,7 @@ class DetailViewController: UIViewController {
         let repositoryName = UILabel()
         repositoryName.textColor = UIColor.black
         repositoryName.font = UIFont.systemFont(ofSize: 30, weight: .bold)
-        repositoryName.text = repo.description
+        repositoryName.text = repo.name
         self.repositoryNameLabel.contentView = repositoryName
         self.repositoryNameLabel.contentMargin = 50
         self.repositoryNameLabel.marqueeType = .left

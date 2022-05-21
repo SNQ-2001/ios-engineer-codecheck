@@ -25,7 +25,9 @@
 - Charts
 - lottie-ios
 - JXMarqueeView
+
 ---
+
 ### **[Alamofire](https://github.com/Alamofire/Alamofire)**
 
 **インストール方法(CocoaPods)**
@@ -156,24 +158,88 @@ https://api.github.com/search/repositories?q=Swift
 |<td bgcolor="#293625"><font color="#ACDE5E">ボーナス|UI をブラッシュアップ|5/5|
 |<td bgcolor="#293625"><font color="#ACDE5E">ボーナス|新機能を追加|5/5|
 
-## アピールポイント
+## アピールポイント(機能紹介)
 
-UXの向上を心掛けました。
+### UXの向上系
 
 **インターネット接続の確認**
 |オンライン|オフライン|
 |:-:|:-:|
-|<img height="250px" src="README_Images/online.gif">|<img height="250px" src="README_Images/offline.gif">|
+|![online](README_Images/online.gif)|![offline](README_Images/offline.gif)|
+
+**入力の有無**
+|有|無|
+|:-:|:-:|
+|![online](README_Images/online.gif)|![not-entered](README_Images/not-entered.gif)|
 
 **検索結果の有無**
 |有|無|
 |:-:|:-:|
-|<img height="250px" src="README_Images/online.gif">|<img height="250px" src="README_Images/not-found.gif">|
+|![online](README_Images/online.gif)|![not-found](README_Images/not-found.gif)|
 
-**通信**
+**通信失敗(レートリミットの場合)**
 |成功|失敗|
 |:-:|:-:|
-|<img height="250px" src="README_Images/online.gif">|<img height="250px" src="README_Images/not-found.gif">|
+|![online](README_Images/online.gif)|![rate-limit](README_Images/rate-limit.gif)|
+
+**自動更新**
+
+一番下までスクロールすると自動で更新されます。
+
+![auto-reload](README_Images/auto-reload.gif)
+
+**ワンタップアクセス**
+|アカウントにアクセス|リポジトリにアクセス|
+|:-:|:-:|
+|![show-account](README_Images/show-account.gif)|![show-repositry](README_Images/show-repositry.gif)|
+
+**多言語対応**
+|英語|日本語|
+|:-:|:-:|
+|![not-entered](README_Images/not-entered.gif)|![japanese](README_Images/japanese.gif)|
+
+**入力の中断**
+
+![cancel](README_Images/cancel.gif)
+
+**インジゲーター**
+
+「読み込み中である」という事をユーザーに伝える
+
+![indicator](README_Images/indicator.gif)
+
+**空の場合のアニメーション表示**
+
+「今は表示するものがないよ」という事をユーザーに伝える
+
+![animation](README_Images/animation.gif)
+
+---
+
+### UIのブラッシュアップ系
+
+**背景色に言語カラーのグラデーションを使用**
+
+![gradation](README_Images/gradation.gif)
+
+**言語の使用割合をグラフで表示**
+
+<img width="40%" src="https://user-images.githubusercontent.com/84154073/169510269-f2fa6d36-c802-4144-933e-c6fd62b4e5c4.gif">
 
 ## 改善点
+
+**テストが書けなかった**
+
+いままでテストを書くことがなかったので書き方がわからなかった。
+
+**アーキテクチャについての知識がない**
+
+自分なりにMVVMで書いたつもりだが、なんちゃってMVVMになっている可能性がある
+
+**リファクタリング不足の可能性**
+
+正直、どこまで細かく分けるべきか分からなかった
+
+分けると引数が多くなりそうな箇所は読みにくくなる可能性があると思ったので、
+複数の関数に分けずにまとめているがこの判断が合っているのか分からない
 
