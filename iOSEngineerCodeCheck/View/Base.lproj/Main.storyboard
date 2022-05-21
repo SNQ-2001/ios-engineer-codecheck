@@ -174,16 +174,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9EN-ca-Icl">
                                         <rect key="frame" x="10" y="282" width="394" height="357"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repository Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cO-bt-mje">
-                                                <rect key="frame" x="8" y="8" width="378" height="32"/>
-                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="32" id="Zl5-3M-2NY"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3df-mJ-WM7">
                                                 <rect key="frame" x="8" y="41" width="378" height="16"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -330,26 +320,33 @@
                                                     <action selector="showRepository:" destination="AHY-RL-7mG" eventType="touchUpInside" id="N3O-dS-RT0"/>
                                                 </connections>
                                             </button>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyu-Gg-Lgw" customClass="JXMarqueeView" customModule="JXMarqueeView">
+                                                <rect key="frame" x="8" y="8" width="378" height="32"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="gO3-YL-BRN"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="0.69872723509933776" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="3df-mJ-WM7" secondAttribute="trailing" constant="8" id="2PF-ld-idm"/>
-                                            <constraint firstItem="3cO-bt-mje" firstAttribute="top" secondItem="9EN-ca-Icl" secondAttribute="top" constant="8" id="4qL-bH-Y8o"/>
                                             <constraint firstItem="tYg-ZS-HYd" firstAttribute="top" secondItem="RuF-uC-zeH" secondAttribute="bottom" constant="8" id="5hA-Fa-99n"/>
                                             <constraint firstItem="tYg-ZS-HYd" firstAttribute="leading" secondItem="9EN-ca-Icl" secondAttribute="leading" constant="8" id="6C1-ya-304"/>
                                             <constraint firstItem="RKY-U4-81h" firstAttribute="leading" secondItem="9EN-ca-Icl" secondAttribute="leading" constant="8" id="BRF-Yt-2bz"/>
+                                            <constraint firstItem="3df-mJ-WM7" firstAttribute="top" secondItem="hyu-Gg-Lgw" secondAttribute="bottom" constant="1" id="CQN-RK-yGH"/>
                                             <constraint firstItem="efg-iF-ctI" firstAttribute="top" secondItem="3df-mJ-WM7" secondAttribute="bottom" constant="7" id="DE1-nw-i8Q"/>
                                             <constraint firstItem="RKY-U4-81h" firstAttribute="bottom" secondItem="9EN-ca-Icl" secondAttribute="bottomMargin" id="Jp6-ss-fCy"/>
                                             <constraint firstItem="3df-mJ-WM7" firstAttribute="leading" secondItem="9EN-ca-Icl" secondAttribute="leading" constant="8" id="NDN-Z9-oIq"/>
                                             <constraint firstItem="RuF-uC-zeH" firstAttribute="leading" secondItem="9EN-ca-Icl" secondAttribute="leading" constant="8" id="Nyz-do-t7n"/>
-                                            <constraint firstItem="3df-mJ-WM7" firstAttribute="top" secondItem="3cO-bt-mje" secondAttribute="bottom" constant="1" id="OVs-hZ-FfR"/>
-                                            <constraint firstItem="3cO-bt-mje" firstAttribute="leading" secondItem="9EN-ca-Icl" secondAttribute="leading" constant="8" id="Rrx-Wv-W4x"/>
+                                            <constraint firstAttribute="trailing" secondItem="hyu-Gg-Lgw" secondAttribute="trailing" constant="8" id="T8e-Dq-Nj1"/>
+                                            <constraint firstItem="hyu-Gg-Lgw" firstAttribute="top" secondItem="9EN-ca-Icl" secondAttribute="top" constant="8" id="YrN-43-neQ"/>
                                             <constraint firstItem="tYg-ZS-HYd" firstAttribute="top" secondItem="efg-iF-ctI" secondAttribute="bottom" constant="8" id="dtI-1V-jGJ"/>
-                                            <constraint firstAttribute="trailing" secondItem="3cO-bt-mje" secondAttribute="trailing" constant="8" id="fx6-Tm-9aS"/>
                                             <constraint firstAttribute="trailing" secondItem="RKY-U4-81h" secondAttribute="trailing" constant="8" id="jbk-5T-xxI"/>
                                             <constraint firstItem="tYg-ZS-HYd" firstAttribute="top" secondItem="UkA-sD-yJD" secondAttribute="bottom" constant="8" id="oLK-ro-5MJ"/>
                                             <constraint firstItem="UkA-sD-yJD" firstAttribute="leading" secondItem="efg-iF-ctI" secondAttribute="trailing" constant="5" id="oNf-LT-Zkn"/>
                                             <constraint firstItem="RuF-uC-zeH" firstAttribute="top" secondItem="3df-mJ-WM7" secondAttribute="bottom" constant="7" id="oYM-sC-Gzv"/>
+                                            <constraint firstItem="hyu-Gg-Lgw" firstAttribute="leading" secondItem="9EN-ca-Icl" secondAttribute="leading" constant="8" id="ovm-m1-j23"/>
                                             <constraint firstAttribute="trailing" secondItem="tYg-ZS-HYd" secondAttribute="trailing" constant="8" id="qeH-cT-8tj"/>
                                             <constraint firstItem="efg-iF-ctI" firstAttribute="leading" secondItem="RuF-uC-zeH" secondAttribute="trailing" constant="5" id="sRI-4X-wKQ"/>
                                             <constraint firstItem="UkA-sD-yJD" firstAttribute="top" secondItem="3df-mJ-WM7" secondAttribute="bottom" constant="7" id="y7f-L2-qe4"/>
@@ -512,7 +509,7 @@
                         <outlet property="loginLabel" destination="E8n-Ph-ZkI" id="Fkn-D1-W2j"/>
                         <outlet property="nameLabel" destination="c6L-mA-xUk" id="7bQ-Gt-h7b"/>
                         <outlet property="repositoryDescriptionLabel" destination="3df-mJ-WM7" id="YtO-SD-lN7"/>
-                        <outlet property="repositoryNameLabel" destination="3cO-bt-mje" id="KLi-4W-mxV"/>
+                        <outlet property="repositoryNameLabel" destination="hyu-Gg-Lgw" id="wGS-78-sdT"/>
                         <outlet property="showAccountButton" destination="7i1-hV-6EN" id="KfI-Yc-Pcn"/>
                         <outlet property="showRepositoryButton" destination="RKY-U4-81h" id="D1c-ps-oRu"/>
                         <outlet property="starLabel" destination="0WZ-UA-R8O" id="o2p-HC-jcW"/>

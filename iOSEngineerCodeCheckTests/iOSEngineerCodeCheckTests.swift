@@ -21,6 +21,10 @@ class iOSEngineerCodeCheckTests: XCTestCase {
         // ティアダウンコードをここに置く。このメソッドは、クラス内の各テストメソッドの呼び出しの後に呼び出されます。
     }
 
+    func testDecode() {
+        
+    }
+
     func testPerformanceExample() throws {
         // これはパフォーマンステストケースの例です。
         self.measure {

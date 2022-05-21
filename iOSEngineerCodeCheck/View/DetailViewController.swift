@@ -22,7 +22,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var showAccountButton: UIButton!
 
     // Repositoryカード
-    @IBOutlet weak var repositoryNameLabel: UILabel!
+    @IBOutlet weak var repositoryNameLabel: JXMarqueeView!
     @IBOutlet weak var repositoryDescriptionLabel: UILabel!
     @IBOutlet weak var starLabel: UILabel!
     @IBOutlet weak var forkLabel: UILabel!
@@ -89,9 +89,19 @@ class DetailViewController: UIViewController {
 
 
         // リポジトリ情報を表示(リポジトリの名前, リポジトリの説明, イシュー数, スター数, フォーク数)
-        self.repositoryNameLabel.text = repo.name
+        /// リポジトリの名前 - 流れる文字ラベル(repositoryNameLabel)
+        let repositoryName = UILabel()
+        repositoryName.textColor = UIColor.black
+        repositoryName.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+        repositoryName.text = repo.description
+        self.repositoryNameLabel.contentView = repositoryName
+        self.repositoryNameLabel.contentMargin = 50
+        self.repositoryNameLabel.marqueeType = .left
+
+        /// リポジトリ説明
         self.repositoryDescriptionLabel.text = repo.description
 
+        /// イシュー数, スター数, フォーク数
         self.issueLabel.text = "\(repo.open_issues_count.calcNumericalValue()) issues"
         self.starLabel.text = "\(repo.stargazers_count.calcNumericalValue()) stars"
         self.forkLabel.text = "\(repo.forks_count.calcNumericalValue()) forks"
