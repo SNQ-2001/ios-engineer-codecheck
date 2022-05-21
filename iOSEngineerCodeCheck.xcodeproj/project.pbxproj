@@ -49,6 +49,12 @@
 		1CD0F6922838DF7000E9A9D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1CD0F6962838DF7000E9A9D3 /* Localizable.strings */; };
 		1CD0F6932838DF7000E9A9D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1CD0F6962838DF7000E9A9D3 /* Localizable.strings */; };
 		1CD0F6942838DF7000E9A9D3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1CD0F6962838DF7000E9A9D3 /* Localizable.strings */; };
+		1CD0F6992839022600E9A9D3 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2DFE902838C69200FFDE56 /* RequestError.swift */; };
+		1CD0F69A2839022600E9A9D3 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2DFE902838C69200FFDE56 /* RequestError.swift */; };
+		1CD0F69B2839033200E9A9D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945DE244DC5E80012785A /* AppDelegate.swift */; };
+		1CD0F69C2839033300E9A9D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945DE244DC5E80012785A /* AppDelegate.swift */; };
+		1CD0F69D2839033500E9A9D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945E0244DC5E80012785A /* SceneDelegate.swift */; };
+		1CD0F69E2839033500E9A9D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945E0244DC5E80012785A /* SceneDelegate.swift */; };
 		73E5FD7C23FFA5871801E867 /* Pods_iOSEngineerCodeCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 804E7B50D189420AA3ACD4FC /* Pods_iOSEngineerCodeCheck.framework */; };
 		BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */; };
 		BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945DE244DC5E80012785A /* AppDelegate.swift */; };
@@ -564,11 +570,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CD0F69A2839022600E9A9D3 /* RequestError.swift in Sources */,
 				1CA06950283753C6004BD000 /* ViewModel.swift in Sources */,
 				1CA069632837629E004BD000 /* Int+.swift in Sources */,
+				1CD0F69B2839033200E9A9D3 /* AppDelegate.swift in Sources */,
 				1CA0695E2837545C004BD000 /* SearchRepositoriesModel.swift in Sources */,
 				1CA0695628375451004BD000 /* UIColor+.swift in Sources */,
 				1CA0694C283753B5004BD000 /* RepositoryTableViewCell.swift in Sources */,
+				1CD0F69E2839033500E9A9D3 /* SceneDelegate.swift in Sources */,
 				1CA0695A28375457004BD000 /* UIView+.swift in Sources */,
 				1CA0694A283753B1004BD000 /* ViewController.swift in Sources */,
 				1CA06955283753CC004BD000 /* DVCViewModel.swift in Sources */,
@@ -584,11 +593,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CD0F6992839022600E9A9D3 /* RequestError.swift in Sources */,
 				1CA06951283753C6004BD000 /* ViewModel.swift in Sources */,
 				1CA069642837629E004BD000 /* Int+.swift in Sources */,
+				1CD0F69C2839033300E9A9D3 /* AppDelegate.swift in Sources */,
 				1CA0695D2837545C004BD000 /* SearchRepositoriesModel.swift in Sources */,
 				1CA0695728375451004BD000 /* UIColor+.swift in Sources */,
 				1CA0694D283753B5004BD000 /* RepositoryTableViewCell.swift in Sources */,
+				1CD0F69D2839033500E9A9D3 /* SceneDelegate.swift in Sources */,
 				1CA0695B28375458004BD000 /* UIView+.swift in Sources */,
 				1CA0694B283753B1004BD000 /* ViewController.swift in Sources */,
 				1CA06954283753CC004BD000 /* DVCViewModel.swift in Sources */,
