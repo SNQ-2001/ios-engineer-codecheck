@@ -10,18 +10,19 @@ import UIKit
 import Charts
 import Alamofire
 import AlamofireImage
+import JXMarqueeView
 
 class DetailViewController: UIViewController {
 
     // Accountカード
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameLabel: JXMarqueeView!
     @IBOutlet weak var loginLabel: UILabel!
-    @IBOutlet weak var bioLable: UILabel!
+    @IBOutlet weak var bioLabel: JXMarqueeView!
     @IBOutlet weak var showAccountButton: UIButton!
 
     // Repositoryカード
-    @IBOutlet weak var repositoryNameLabel: UILabel!
+    @IBOutlet weak var repositoryNameLabel: JXMarqueeView!
     @IBOutlet weak var repositoryDescriptionLabel: UILabel!
     @IBOutlet weak var starLabel: UILabel!
     @IBOutlet weak var forkLabel: UILabel!
@@ -34,7 +35,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let repo = viewController.viewModel.repo.items[viewController.viewModel.cellIndex]
+        let repo = viewController.viewModel.repo[viewController.viewModel.cellIndex]
 
         // グラデーション背景を設定
         self.viewController.viewModel.createGradient(self, repo: repo)
@@ -49,18 +50,36 @@ class DetailViewController: UIViewController {
 
         // アカウント情報の表示(名前, ID, BIO)
         self.viewController.viewModel.getAcountInfo(
-            url: self.viewController.viewModel.repo.items[viewController.viewModel.cellIndex].owner.url
-        ) {
-            self.viewController.viewModel.alert(self, title: "Error", message: "Request failed")
+            url: self.viewController.viewModel.repo[viewController.viewModel.cellIndex].owner.url
+        ) { error in
+            self.viewController.viewModel.alert(self, title: NSLocalizedString("Error", comment: ""), message: error)
         } offlineAlert: {
-            self.viewController.viewModel.alert(self, title: "Error", message: "Offline")
+            self.viewController.viewModel.alert(self, title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Offline", comment: ""))
         } completion: { accountInfo in
             self.nameLabel.viewTransition(0.4)
             self.loginLabel.viewTransition(0.6)
-            self.bioLable.viewTransition(0.8)
-            self.nameLabel.text = accountInfo.name
+            self.bioLabel.viewTransition(0.8)
+
+            // 流れる文字ラベル(nameLabel)
+            let name = UILabel()
+            name.textColor = UIColor.black
+            name.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+            name.text = accountInfo.name
+            self.nameLabel.contentView = name
+            self.nameLabel.contentMargin = 50
+            self.nameLabel.marqueeType = .left
+
+            // アカウントIDラベル(loginLabel)
             self.loginLabel.text = accountInfo.login
-            self.bioLable.text = accountInfo.bio ?? ""
+
+            // 流れる文字ラベル(bioLabel)
+            let bio = UILabel()
+            bio.textColor = UIColor.black
+            bio.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+            bio.text = accountInfo.bio ?? ""
+            self.bioLabel.contentView = bio
+            self.bioLabel.contentMargin = 50
+            self.bioLabel.marqueeType = .left
         }
 
         // ボタンに言語カラーを設定
@@ -69,9 +88,19 @@ class DetailViewController: UIViewController {
 
 
         // リポジトリ情報を表示(リポジトリの名前, リポジトリの説明, イシュー数, スター数, フォーク数)
-        self.repositoryNameLabel.text = repo.name
+        /// リポジトリの名前 - 流れる文字ラベル(repositoryNameLabel)
+        let repositoryName = UILabel()
+        repositoryName.textColor = UIColor.black
+        repositoryName.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+        repositoryName.text = repo.name
+        self.repositoryNameLabel.contentView = repositoryName
+        self.repositoryNameLabel.contentMargin = 50
+        self.repositoryNameLabel.marqueeType = .left
+
+        /// リポジトリ説明
         self.repositoryDescriptionLabel.text = repo.description
 
+        /// イシュー数, スター数, フォーク数
         self.issueLabel.text = "\(repo.open_issues_count.calcNumericalValue()) issues"
         self.starLabel.text = "\(repo.stargazers_count.calcNumericalValue()) stars"
         self.forkLabel.text = "\(repo.forks_count.calcNumericalValue()) forks"
@@ -84,23 +113,19 @@ class DetailViewController: UIViewController {
         
     }
 
-    func license() {
-        
-    }
-
     @IBAction func showAccount(_ sender: Any) {
-        viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo.items[viewController.viewModel.cellIndex].owner.html_url)
+        self.viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo[viewController.viewModel.cellIndex].owner.html_url)
     }
 
     @IBAction func showRepository(_ sender: Any) {
-        viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo.items[viewController.viewModel.cellIndex].html_url)
+        self.viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo[viewController.viewModel.cellIndex].html_url)
     }
 
 }
 
 
 extension DetailViewController: ChartViewDelegate {
-    func setChart() {
+    private func setChart() {
         chartView.drawEntryLabelsEnabled = false // グラフラのラベルを非表示
         chartView.chartDescription.enabled = false // グラフの説明文を非表示
         chartView.holeColor = .clear // 中央のくり抜き円の色
@@ -127,7 +152,7 @@ extension DetailViewController: ChartViewDelegate {
 
         // 使用言語を取得
         self.viewController.viewModel.getLanguages(
-            url: viewController.viewModel.repo.items[viewController.viewModel.cellIndex].languages_url
+            url: viewController.viewModel.repo[viewController.viewModel.cellIndex].languages_url
         ) { (languagesNameArray, languagesValueArray)  in
             self.setData(languagesNameArray, languagesValueArray)
         }
@@ -135,7 +160,7 @@ extension DetailViewController: ChartViewDelegate {
         chartView.animate(xAxisDuration: 1.4, easingOption: .easeInOutCubic) // グラフに表示アニメーションを設定
     }
 
-    func setData(_ languagesNameArray: [String], _ languagesValueArray: [Int]) {
+    private func setData(_ languagesNameArray: [String], _ languagesValueArray: [Int]) {
 
         let languagesArray = self.viewController.viewModel.createLanguageArray(languagesNameArray: languagesNameArray, languagesValueArray: languagesValueArray)
 

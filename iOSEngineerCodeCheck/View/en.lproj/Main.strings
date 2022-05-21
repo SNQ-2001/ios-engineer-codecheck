@@ -1,0 +1,45 @@
+
+/* Class = "UILabel"; text = "0 stars"; ObjectID = "0WZ-UA-R8O"; */
+"0WZ-UA-R8O.text" = "0 stars";
+
+/* Class = "UILabel"; text = "Repository Name"; ObjectID = "3cO-bt-mje"; */
+"3cO-bt-mje.text" = "Repository Name";
+
+/* Class = "UILabel"; text = "description"; ObjectID = "3df-mJ-WM7"; */
+"3df-mJ-WM7.text" = "description";
+
+/* Class = "UISearchBar"; placeholder = "Please enter keywords"; ObjectID = "6rq-CD-Hob"; */
+"6rq-CD-Hob.placeholder" = "Please enter keywords";
+
+/* Class = "UIButton"; normalTitle = "SHOW"; ObjectID = "7i1-hV-6EN"; */
+"7i1-hV-6EN.normalTitle" = "SHOW";
+
+/* Class = "UILabel"; text = "Swift"; ObjectID = "FW2-vC-x9G"; */
+"FW2-vC-x9G.text" = "Swift";
+
+/* Class = "UIButton"; configuration.title = "SHOW"; ObjectID = "RKY-U4-81h"; */
+"RKY-U4-81h.configuration.title" = "SHOW";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "RKY-U4-81h"; */
+"RKY-U4-81h.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "UOG-FP-9X1"; */
+"UOG-FP-9X1.text" = "Label";
+
+/* Class = "UILabel"; text = "0 issues"; ObjectID = "Z5G-Uz-qNe"; */
+"Z5G-Uz-qNe.text" = "0 issues";
+
+/* Class = "UILabel"; text = "0 forks"; ObjectID = "ZMv-4f-X2V"; */
+"ZMv-4f-X2V.text" = "0 forks";
+
+/* Class = "UILabel"; text = "Account"; ObjectID = "afO-eh-XaM"; */
+"afO-eh-XaM.text" = "Account";
+
+/* Class = "UILabel"; text = "Repository"; ObjectID = "jBM-v4-D7r"; */
+"jBM-v4-D7r.text" = "Repository";
+
+/* Class = "UINavigationItem"; title = "Search Repositories"; ObjectID = "ktq-eC-ZBq"; */
+"ktq-eC-ZBq.title" = "Search Repositories";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "yfR-oa-3UZ"; */
+"yfR-oa-3UZ.text" = "Label";

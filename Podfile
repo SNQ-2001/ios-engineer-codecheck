@@ -11,7 +11,8 @@ target 'iOSEngineerCodeCheck' do
   pod 'LicensePlist'
   pod 'PKHUD', '~> 5.0'
   pod 'Charts'
-  pod 'MarqueeLabel'
+  pod 'lottie-ios'
+  pod 'JXMarqueeView'
 
   target 'iOSEngineerCodeCheckTests' do
     inherit! :search_paths

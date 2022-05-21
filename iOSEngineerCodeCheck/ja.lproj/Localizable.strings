@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  iOSEngineerCodeCheck
+
+  Created by 宮本大新 on 2022/05/21.
+  Copyright © 2022 YUMEMI Inc. All rights reserved.
+*/
+
+// MARK: アラートメッセージ
+"Error" = "エラー";
+
+"Repository not found" = "リポジトリが見つかりませんでした。";
+
+"Offline" = "インターネットに接続されていません。";
+
+"Not entered" = "入力されていません。";

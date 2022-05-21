@@ -21,7 +21,7 @@ extension ViewModel {
     ///  - title: アラートのタイトル
     ///  - message: アラートのメッセージ
     ///
-    func alert(_ dvc: DetailViewController, title: String, message: String) {
+    public func alert(_ dvc: DetailViewController, title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle:  .alert)
         let OK = UIAlertAction(title: "OK", style: .default) { (action: UIAlertAction!) -> Void in }
         alert.addAction(OK)
@@ -37,7 +37,7 @@ extension ViewModel {
     ///  - dvc: 表示する画面を指定（self）
     ///  - url: 表示するURLを指定
     ///
-    func showSafariView(_ dvc: DetailViewController, url: String) {
+    public func showSafariView(_ dvc: DetailViewController, url: String) {
         let safariViewController = SFSafariViewController(url: NSURL(string: url)! as URL)
         safariViewController.modalPresentationStyle = .overFullScreen
         dvc.present(safariViewController, animated: true, completion: nil)
@@ -49,7 +49,7 @@ extension ViewModel {
     ///  - dvc: 表示する画面を指定（self）
     ///  - repo: リポジトリ情報（言語情報用）
     ///
-    func createGradient(_ dvc: DetailViewController, repo: Item) {
+    public func createGradient(_ dvc: DetailViewController, repo: Item) {
         let topTrailingColor = UIColor(language: repo.language ?? "No Language")
         let bottomLeadingColor = UIColor(language: repo.language ?? "No Language").gradient
         let gradientColors: [CGColor] = [topTrailingColor.cgColor, bottomLeadingColor.cgColor]
@@ -66,14 +66,16 @@ extension ViewModel {
     /// リポジトリ情報で取得できないアカウント名やbioを取得
     ///
     /// - parameters:
-    ///  - url: アカウント情報の取得可能なAPIをリポジトリ情報から指定
-    ///  - completion: アカウント情報を返す
+    ///  - url: アカウント情報の取得可能なAPIをリポジトリ情報から指定します
+    ///  - errorAlert: 通信失敗 or デコード失敗 で実行されます（レートリミットがほとんど）
+    ///  - offlineAlert: インターネットに接続されていない場合に実行されます
+    ///  - completion: アカウント情報を返します
     ///
     /// EX) https://api.github.com/users/apple
     ///
-    func getAcountInfo(
+    public func getAcountInfo(
         url: String,
-        missAlert: @escaping () -> Void,
+        errorAlert: @escaping (String) -> Void,
         offlineAlert: @escaping () -> Void,
         completion: @escaping (AccountInfo) -> Void
     ) {
@@ -84,7 +86,9 @@ extension ViewModel {
                     let accountInfo = try JSONDecoder().decode(AccountInfo.self, from: data)
                     completion(accountInfo)
                 } catch {
-                    missAlert()
+                    self.throwsError(response: response.data) { error in
+                        errorAlert(error)
+                    }
                 }
             }
         } else {
@@ -102,12 +106,13 @@ extension ViewModel {
     ///
     /// EX) https://api.github.com/repos/apple/swift/languages
     ///
-    func getLanguages(
+    public func getLanguages(
         url: String,
         completion: @escaping ([String], [Int]) -> Void
     ) {
         var languagesNameArray: [String] = []
         var languagesValueArray: [Int] = []
+        
         AF.request(url, method: .get).responseData { response in
             do {
                 guard let data = response.data else { return }
@@ -138,7 +143,7 @@ extension ViewModel {
     ///  - newLanguagesNameArray: 使用割合が0.5%以上の言語名のみ
     ///  - newLanguagesValueArray: 使用割合が0.5%以上の言語割合のみ
     ///
-    func createLanguageArray(languagesNameArray: [String], languagesValueArray: [Int]) -> ([String], [Double]) {
+    public func createLanguageArray(languagesNameArray: [String], languagesValueArray: [Int]) -> ([String], [Double]) {
         let languagesValueSum = languagesValueArray.reduce(0, +) // 配列合計
 
         var newLanguagesNameArray: [String] = []
@@ -181,7 +186,7 @@ extension ViewModel {
     ///
     /// - returns: 言語カラー配列
     ///
-    func createLanguageColorArray(languagesArray: [String]) -> [UIColor] {
+    public func createLanguageColorArray(languagesArray: [String]) -> [UIColor] {
         var colors: [UIColor] = []
         for i in languagesArray {
             colors.append(UIColor(language: i))

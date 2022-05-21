@@ -8,11 +8,14 @@
 
 import UIKit
 import AlamofireImage
+import JXMarqueeView
 
 class RepositoryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var avatarImage: UIImageView!
+
     @IBOutlet weak var nameLabel: UILabel!
+
     @IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var languageView: UIView!
@@ -34,17 +37,26 @@ class RepositoryTableViewCell: UITableViewCell {
     }
 
     /// カスタムセルをセット
-    func setCell(avatarUrl: String, login: String, name: String, language: String) {
+    public func setCell(avatarUrl: String, login: String, name: String, language: String) {
 
-        avatarImage.af.setImage(
+        // アカウント画像
+        self.avatarImage.af.setImage(
             withURL: URL(string: avatarUrl)!,
             placeholderImage: UIImage(named: "placeholder")!,
             imageTransition: .crossDissolve(0.5)
         )
-        loginLabel.text = login
-        nameLabel.text = name
-        languageLabel.text = language
-        languageView.backgroundColor = UIColor(language: language)
+
+        // リポジトリ名
+        self.nameLabel.text = name
+
+        // アカウントID
+        self.loginLabel.text = login
+
+        // リポジトリ言語
+        self.languageLabel.text = language
+
+        // リポジトリ言語カラー
+        self.languageView.backgroundColor = UIColor(language: language)
         
     }
 }

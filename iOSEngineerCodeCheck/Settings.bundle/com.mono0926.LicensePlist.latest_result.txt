@@ -24,6 +24,18 @@ body: Apache License
      …
 version: 4.0.2
 
+name: JXMarqueeView, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 0.0.9
+
+name: JXMarqueeView, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 0.0.9
+
 name: LicensePlist, nameSpecified: 
 body: MIT License
 
@@ -36,13 +48,13 @@ body: MIT License
 Copyrig…
 version: 3.22.0
 
-name: MarqueeLabel, nameSpecified: 
-body: Copyright (c) 2011-2…
-version: 4.3.0
+name: lottie-ios, nameSpecified: 
+body:                     …
+version: 3.3.0
 
-name: MarqueeLabel, nameSpecified: 
-body: Copyright (c) 2011-2…
-version: 4.3.0
+name: lottie-ios, nameSpecified: 
+body:                     …
+version: 3.3.0
 
 name: PKHUD, nameSpecified: 
 body: The MIT License (MIT…
