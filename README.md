@@ -114,7 +114,7 @@ pod 'lottie-ios'
 
 (リポジトリ格納庫が空の場合、アニメーションを表示します。)
 
-<img width="40%" src="https://user-images.githubusercontent.com/84154073/169574766-37a287a2-be57-4bb6-8579-71c92374262c.gif">
+<img width="50%" src="https://user-images.githubusercontent.com/84154073/169574766-37a287a2-be57-4bb6-8579-71c92374262c.gif">
 
 ---
 ### **[JXMarqueeView](https://github.com/pujiaxin33/JXMarqueeView)**
@@ -128,7 +128,7 @@ pod 'JXMarqueeView'
 
 (Viewの幅よりbioが長い場合、流れる文字になります。)
 
-<img width="40%" src="https://user-images.githubusercontent.com/84154073/169508516-ddeadaa5-f76a-4046-a334-fd42e3e80351.gif">
+<img width="60%" src="https://user-images.githubusercontent.com/84154073/169508516-ddeadaa5-f76a-4046-a334-fd42e3e80351.gif">
 
 ---
 ## 課題をやるにあたっての問題点
@@ -144,6 +144,8 @@ https://api.github.com/search/repositories?q=Swift
 
 動作に「Watcher数」が含まれていましたが除外しました。
 
+---
+
 ## 課題に対する自己評価
 
 ||難易度|課題|評価|
@@ -157,6 +159,8 @@ https://api.github.com/search/repositories?q=Swift
 |<td bgcolor="#3A382F"><font color="#D8B967">中級|テストを追加|1/5|
 |<td bgcolor="#293625"><font color="#ACDE5E">ボーナス|UI をブラッシュアップ|5/5|
 |<td bgcolor="#293625"><font color="#ACDE5E">ボーナス|新機能を追加|5/5|
+
+---
 
 ## アピールポイント(機能紹介)
 
@@ -218,6 +222,16 @@ https://api.github.com/search/repositories?q=Swift
 
 ### UIのブラッシュアップ系
 
+**言語ラベル**
+
+
+
+<img width="40%" src="README_Images/languageLabel.png">
+
+**流れる文字**
+
+<img width="60%" src="https://user-images.githubusercontent.com/84154073/169508516-ddeadaa5-f76a-4046-a334-fd42e3e80351.gif">
+
 **背景色に言語カラーのグラデーションを使用**
 
 <img width="40%" src="README_Images/gradation.png">
@@ -225,6 +239,8 @@ https://api.github.com/search/repositories?q=Swift
 **言語の使用割合をグラフで表示**
 
 <img width="40%" src="https://user-images.githubusercontent.com/84154073/169510269-f2fa6d36-c802-4144-933e-c6fd62b4e5c4.gif">
+
+---
 
 ## 改善点
 
