@@ -157,7 +157,7 @@ extension ViewController {
             guard let searchBarText = uiSearchBar.text else { return }
             
             viewModel.getRepositories(searchBarText: searchBarText) {
-                return
+                return // 最後まで更新した
             } errorAlert: { error in
                 self.viewModel.alert(self, title: "Error", message: error)
             } offlineAlert: {

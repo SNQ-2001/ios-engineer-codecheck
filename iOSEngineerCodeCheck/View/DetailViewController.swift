@@ -51,8 +51,8 @@ class DetailViewController: UIViewController {
         // アカウント情報の表示(名前, ID, BIO)
         self.viewController.viewModel.getAcountInfo(
             url: self.viewController.viewModel.repo[viewController.viewModel.cellIndex].owner.url
-        ) {
-            self.viewController.viewModel.alert(self, title: "Error", message: "Request failed")
+        ) { error in
+            self.viewController.viewModel.alert(self, title: "Error", message: error)
         } offlineAlert: {
             self.viewController.viewModel.alert(self, title: "Error", message: "Offline")
         } completion: { accountInfo in
@@ -105,11 +105,11 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func showAccount(_ sender: Any) {
-        viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo[viewController.viewModel.cellIndex].owner.html_url)
+        self.viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo[viewController.viewModel.cellIndex].owner.html_url)
     }
 
     @IBAction func showRepository(_ sender: Any) {
-        viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo[viewController.viewModel.cellIndex].html_url)
+        self.viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo[viewController.viewModel.cellIndex].html_url)
     }
 
 }

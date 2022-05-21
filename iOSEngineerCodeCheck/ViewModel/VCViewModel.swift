@@ -47,7 +47,7 @@ extension ViewModel {
     ) {
         // 連続更新を避ける
         self.reloadFlag = true
-        
+
         if self.networkStatus {
             AF.request("https://api.github.com/search/repositories?q=\(searchBarText.encode)&page=\(pageCount)", method: .get).responseData { response in
                 do {
@@ -70,17 +70,6 @@ extension ViewModel {
         } else {
             offlineAlert()
             self.reloadFlag = false
-        }
-    }
-
-    /// レスポンスからエラーメッセージを受け取って返却
-    func throwsError(response: Data?, missAlert: @escaping (String) -> Void) {
-        do {
-            guard let data = response else { return }
-            let repositories = try JSONDecoder().decode(RequestError.self, from: data)
-            missAlert(repositories.message)
-        } catch {
-            missAlert("Request failed")
         }
     }
     

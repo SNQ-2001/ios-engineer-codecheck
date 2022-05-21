@@ -73,7 +73,7 @@ extension ViewModel {
     ///
     public func getAcountInfo(
         url: String,
-        missAlert: @escaping () -> Void,
+        missAlert: @escaping (String) -> Void,
         offlineAlert: @escaping () -> Void,
         completion: @escaping (AccountInfo) -> Void
     ) {
@@ -84,7 +84,9 @@ extension ViewModel {
                     let accountInfo = try JSONDecoder().decode(AccountInfo.self, from: data)
                     completion(accountInfo)
                 } catch {
-                    missAlert()
+                    self.throwsError(response: response.data) { error in
+                        missAlert(error)
+                    }
                 }
             }
         } else {

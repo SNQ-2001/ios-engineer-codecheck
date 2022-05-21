@@ -18,8 +18,10 @@ class ViewModel: NSObject {
     private let queue = DispatchQueue(label: "com.iOSEngineerCodeCheck.Network")
     public var networkStatus: Bool = false
 
-    /// 更新
+    /// 更新フラグ
     var reloadFlag: Bool = false
+
+    /// リポジトリを取得するページ数
     var pageCount: Int = 1
 
     /// リロードハンドラー
@@ -65,6 +67,22 @@ class ViewModel: NSObject {
     /// ローディング終了
     public func hideLoading() {
         PKHUD.sharedHUD.hide(true)
+    }
+
+    /// レスポンスからエラーメッセージを受け取って返却
+    ///
+    ///  - parameters:
+    ///   - response: レスポンスを受け取る
+    ///   - missAlert: レスポンスのエラーメッセージを返却
+    ///
+    public func throwsError(response: Data?, errorAlert: @escaping (String) -> Void) {
+        do {
+            guard let data = response else { return }
+            let repositories = try JSONDecoder().decode(RequestError.self, from: data)
+            errorAlert(repositories.message)
+        } catch {
+            errorAlert("Request failed")
+        }
     }
 
 }
