@@ -42,29 +42,46 @@ extension ViewModel {
     public func getRepositories(
         searchBarText: String,
         emptyAlert: @escaping () -> Void,
-        missAlert: @escaping () -> Void,
+        errorAlert: @escaping (String) -> Void,
         offlineAlert: @escaping () -> Void
     ) {
-        // 全角が入力される可能性があるのでエンコード
-        let query = searchBarText.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? ""
-
+        // 連続更新を避ける
+        self.reloadFlag = true
+        
         if self.networkStatus {
-            AF.request("https://api.github.com/search/repositories?q=\(query)", method: .get).responseData { response in
+            AF.request("https://api.github.com/search/repositories?q=\(searchBarText.encode)&page=\(pageCount)", method: .get).responseData { response in
                 do {
                     guard let data = response.data else { return }
                     let repositories = try JSONDecoder().decode(SearchRepositories.self, from: data)
                     if repositories.items.isEmpty {
                         emptyAlert()
                     } else {
-                        self.repo = repositories
+                        self.repo += repositories.items
+                        self.pageCount += 1
+                        self.reloadFlag = false
                     }
                 } catch {
-                    missAlert()
+                    self.throwsError(response: response.data) { error in
+                        errorAlert(error)
+                        self.reloadFlag = false
+                    }
                 }
             }
         } else {
             offlineAlert()
+            self.reloadFlag = false
         }
     }
 
+    /// レスポンスからエラーメッセージを受け取って返却
+    func throwsError(response: Data?, missAlert: @escaping (String) -> Void) {
+        do {
+            guard let data = response else { return }
+            let repositories = try JSONDecoder().decode(RequestError.self, from: data)
+            missAlert(repositories.message)
+        } catch {
+            missAlert("Request failed")
+        }
+    }
+    
 }

@@ -35,7 +35,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let repo = viewController.viewModel.repo.items[viewController.viewModel.cellIndex]
+        let repo = viewController.viewModel.repo[viewController.viewModel.cellIndex]
 
         // グラデーション背景を設定
         self.viewController.viewModel.createGradient(self, repo: repo)
@@ -50,7 +50,7 @@ class DetailViewController: UIViewController {
 
         // アカウント情報の表示(名前, ID, BIO)
         self.viewController.viewModel.getAcountInfo(
-            url: self.viewController.viewModel.repo.items[viewController.viewModel.cellIndex].owner.url
+            url: self.viewController.viewModel.repo[viewController.viewModel.cellIndex].owner.url
         ) {
             self.viewController.viewModel.alert(self, title: "Error", message: "Request failed")
         } offlineAlert: {
@@ -105,11 +105,11 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func showAccount(_ sender: Any) {
-        viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo.items[viewController.viewModel.cellIndex].owner.html_url)
+        viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo[viewController.viewModel.cellIndex].owner.html_url)
     }
 
     @IBAction func showRepository(_ sender: Any) {
-        viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo.items[viewController.viewModel.cellIndex].html_url)
+        viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo[viewController.viewModel.cellIndex].html_url)
     }
 
 }
@@ -143,7 +143,7 @@ extension DetailViewController: ChartViewDelegate {
 
         // 使用言語を取得
         self.viewController.viewModel.getLanguages(
-            url: viewController.viewModel.repo.items[viewController.viewModel.cellIndex].languages_url
+            url: viewController.viewModel.repo[viewController.viewModel.cellIndex].languages_url
         ) { (languagesNameArray, languagesValueArray)  in
             self.setData(languagesNameArray, languagesValueArray)
         }

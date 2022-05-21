@@ -18,6 +18,10 @@ class ViewModel: NSObject {
     private let queue = DispatchQueue(label: "com.iOSEngineerCodeCheck.Network")
     public var networkStatus: Bool = false
 
+    /// 更新
+    var reloadFlag: Bool = false
+    var pageCount: Int = 1
+
     /// リロードハンドラー
     /// アクションをViewControllerから受け取る
     public var reloadHandler: () -> Void = {  }
@@ -25,7 +29,7 @@ class ViewModel: NSObject {
 
     /// リポジトリ情報の格納庫
     /// 変更が検知されるとリロードハンドラーが実行される
-    public var repo: SearchRepositories = SearchRepositories(total_count: 0, incomplete_results: false, items: []) {
+    public var repo: [Item] = [] {
         didSet {
             reloadHandler()
         }
@@ -50,7 +54,7 @@ class ViewModel: NSObject {
     /// リセット
     /// リポジトリ情報の格納庫を空にする
     public func resetSearchRepositories() {
-        self.repo = SearchRepositories(total_count: 0, incomplete_results: false, items: [])
+        self.repo = []
     }
 
     /// ローディング開始

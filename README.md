@@ -23,7 +23,8 @@
 - LicensePlist
 - PKHUD
 - Charts
-- MarqueeLabel
+- lottie-ios
+- JXMarqueeView
 ---
 ### **[Alamofire](https://github.com/Alamofire/Alamofire)**
 
@@ -164,9 +165,15 @@ UXの向上を心掛けました。
 |:-:|:-:|
 |<img height="250px" src="README_Images/online.gif">|<img height="250px" src="README_Images/offline.gif">|
 
+**検索結果の有無**
+|有|無|
+|:-:|:-:|
+|<img height="250px" src="README_Images/online.gif">|<img height="250px" src="README_Images/not-found.gif">|
 
-
-
+**通信**
+|成功|失敗|
+|:-:|:-:|
+|<img height="250px" src="README_Images/online.gif">|<img height="250px" src="README_Images/not-found.gif">|
 
 ## 改善点
 

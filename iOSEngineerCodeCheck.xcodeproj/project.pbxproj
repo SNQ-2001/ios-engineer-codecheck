@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C2DFE912838C69200FFDE56 /* RequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2DFE902838C69200FFDE56 /* RequestError.swift */; };
+		1C2DFE932838CCB200FFDE56 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2DFE922838CCB100FFDE56 /* String+.swift */; };
+		1C2DFE942838CCB500FFDE56 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2DFE922838CCB100FFDE56 /* String+.swift */; };
+		1C2DFE952838CCB500FFDE56 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2DFE922838CCB100FFDE56 /* String+.swift */; };
 		1C4573FD283512280088A5E1 /* AccountInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4573FC283512280088A5E1 /* AccountInfoModel.swift */; };
 		1C4573FF283516D10088A5E1 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4573FE283516D10088A5E1 /* UIView+.swift */; };
 		1C4CF84E28365699004B4700 /* VCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4CF84D28365699004B4700 /* VCViewModel.swift */; };
@@ -76,6 +80,8 @@
 /* Begin PBXFileReference section */
 		0748046C9D430E2AADA43613 /* Pods-iOSEngineerCodeCheckTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSEngineerCodeCheckTests.release.xcconfig"; path = "Target Support Files/Pods-iOSEngineerCodeCheckTests/Pods-iOSEngineerCodeCheckTests.release.xcconfig"; sourceTree = "<group>"; };
 		13B4032742389BD8945E4EB9 /* Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests.debug.xcconfig"; path = "Target Support Files/Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests/Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1C2DFE902838C69200FFDE56 /* RequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestError.swift; sourceTree = "<group>"; };
+		1C2DFE922838CCB100FFDE56 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		1C4573FC283512280088A5E1 /* AccountInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoModel.swift; sourceTree = "<group>"; };
 		1C4573FE283516D10088A5E1 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		1C4CF84D28365699004B4700 /* VCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCViewModel.swift; sourceTree = "<group>"; };
@@ -164,6 +170,7 @@
 			children = (
 				1C54D3C328339EB800AA5023 /* SearchRepositoriesModel.swift */,
 				1C4573FC283512280088A5E1 /* AccountInfoModel.swift */,
+				1C2DFE902838C69200FFDE56 /* RequestError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -172,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				1CA069612837603C004BD000 /* Int+.swift */,
+				1C2DFE922838CCB100FFDE56 /* String+.swift */,
 				1C589A592833D8DE00E19FF3 /* UIColor+.swift */,
 				1C4573FE283516D10088A5E1 /* UIView+.swift */,
 			);
@@ -280,7 +288,6 @@
 				BFD945D8244DC5E80012785A /* Frameworks */,
 				BFD945D9244DC5E80012785A /* Resources */,
 				368BE059F26AECDABBAC03F8 /* [CP] Embed Pods Frameworks */,
-				1CBB310D283682FA0003566F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -446,23 +453,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		1CBB310D283682FA0003566F /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ $CONFIGURATION = \"Debug\" ]; then\n ${PODS_ROOT}/LicensePlist/license-plist --output-path $PRODUCT_NAME/Settings.bundle\nfi\n";
-		};
 		35879F8735F4281344CBBDB7 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -531,12 +521,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C2DFE912838C69200FFDE56 /* RequestError.swift in Sources */,
 				1C4573FD283512280088A5E1 /* AccountInfoModel.swift in Sources */,
 				1C4573FF283516D10088A5E1 /* UIView+.swift in Sources */,
 				1C54D3C428339EB800AA5023 /* SearchRepositoriesModel.swift in Sources */,
 				1C589A5A2833D8DE00E19FF3 /* UIColor+.swift in Sources */,
 				1CA069622837603C004BD000 /* Int+.swift in Sources */,
 				1C4CF850283656A3004B4700 /* DVCViewModel.swift in Sources */,
+				1C2DFE932838CCB200FFDE56 /* String+.swift in Sources */,
 				1C4CF84E28365699004B4700 /* VCViewModel.swift in Sources */,
 				BFD945E3244DC5E80012785A /* ViewController.swift in Sources */,
 				1C589A622834246F00E19FF3 /* RepositoryTableViewCell.swift in Sources */,
@@ -561,6 +553,7 @@
 				1CA06955283753CC004BD000 /* DVCViewModel.swift in Sources */,
 				BFD945F6244DC5EB0012785A /* iOSEngineerCodeCheckTests.swift in Sources */,
 				1CA0694E283753B8004BD000 /* DetailViewController.swift in Sources */,
+				1C2DFE952838CCB500FFDE56 /* String+.swift in Sources */,
 				1CA06952283753C9004BD000 /* VCViewModel.swift in Sources */,
 				1CA069602837545E004BD000 /* AccountInfoModel.swift in Sources */,
 			);
@@ -580,6 +573,7 @@
 				1CA06954283753CC004BD000 /* DVCViewModel.swift in Sources */,
 				BFD94601244DC5EC0012785A /* iOSEngineerCodeCheckUITests.swift in Sources */,
 				1CA0694F283753B8004BD000 /* DetailViewController.swift in Sources */,
+				1C2DFE942838CCB500FFDE56 /* String+.swift in Sources */,
 				1CA06953283753C9004BD000 /* VCViewModel.swift in Sources */,
 				1CA0695F2837545E004BD000 /* AccountInfoModel.swift in Sources */,
 			);

@@ -67,7 +67,7 @@ class ViewController: UITableViewController {
         self.viewModel.reloadHandler = { [weak self] in
             DispatchQueue.main.async {
                 // リポジトリ情報格納庫が空になったらアニメーションを表示
-                if self?.viewModel.repo.items.count == 0 {
+                if self?.viewModel.repo.count == 0 {
                     self?.animationView.play()
                     self?.animationView.isHidden = false
                 } else {
@@ -115,7 +115,7 @@ extension ViewController {
 
     /// セルの個数を計算
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.viewModel.repo.items.count
+        return self.viewModel.repo.count
     }
 
     /// Cellの高さを計算
@@ -128,7 +128,7 @@ extension ViewController {
         tableView.separatorInset = .zero // TabelViewの区切り線を端まで伸ばす
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "Repository", for: indexPath) as! RepositoryTableViewCell
-        let rp = self.viewModel.repo.items[indexPath.row]
+        let rp = self.viewModel.repo[indexPath.row]
 
         // カスタムセルをセット
         cell.setCell(avatarUrl: rp.owner.avatar_url, login: rp.owner.login, name: rp.name, language: rp.language ?? "No Language")
@@ -142,6 +142,29 @@ extension ViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.viewModel.cellIndex = indexPath.row
         performSegue(withIdentifier: "Detail", sender: self)
+    }
+
+    /// 一番下までスクロールしたら更新する
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        if
+            self.tableView.contentOffset.y + self.tableView.frame.size.height > self.tableView.contentSize.height
+            &&
+            self.tableView.isDragging
+            &&
+            self.viewModel.reloadFlag == false
+        {
+            guard let searchBarText = uiSearchBar.text else { return }
+            
+            viewModel.getRepositories(searchBarText: searchBarText) {
+                return
+            } errorAlert: { error in
+                self.viewModel.alert(self, title: "Error", message: error)
+            } offlineAlert: {
+                self.viewModel.alert(self, title: "Error", message: "Offline")
+            }
+        }
+
     }
 
 }
@@ -166,7 +189,7 @@ extension ViewController: UISearchBarDelegate {
 
     /// 入力に変更があったらリセット
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if !self.viewModel.repo.items.isEmpty {
+        if !self.viewModel.repo.isEmpty {
             self.viewModel.resetSearchRepositories()
         }
         return true
@@ -190,9 +213,9 @@ extension ViewController: UISearchBarDelegate {
             self.viewModel.getRepositories(searchBarText: searchBarText) {
                 self.viewModel.hideLoading()
                 self.viewModel.alert(self, title: "Error", message: "Repository not found")
-            } missAlert: {
+            } errorAlert: { error in
                 self.viewModel.hideLoading()
-                self.viewModel.alert(self, title: "Error", message: "Request failed")
+                self.viewModel.alert(self, title: "Error", message: error)
             } offlineAlert: {
                 self.viewModel.hideLoading()
                 self.viewModel.alert(self, title: "Error", message: "Offline")
