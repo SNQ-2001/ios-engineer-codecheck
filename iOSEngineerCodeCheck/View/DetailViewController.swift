@@ -149,7 +149,7 @@ extension DetailViewController: ChartViewDelegate {
         l.drawInside = false
         l.xEntrySpace = 5
         l.yEntrySpace = 0
-
+        
         // 使用言語を取得
         self.viewController.viewModel.getLanguages(
             url: viewController.viewModel.repo[viewController.viewModel.cellIndex].languages_url
