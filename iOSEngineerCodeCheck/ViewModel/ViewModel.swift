@@ -55,8 +55,10 @@ class ViewModel: NSObject {
 
     /// リセット
     /// リポジトリ情報の格納庫を空にする
+    /// ページを1に戻す
     public func resetSearchRepositories() {
         self.repo = []
+        self.pageCount = 1
     }
 
     /// ローディング開始
