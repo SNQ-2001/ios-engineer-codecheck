@@ -66,14 +66,16 @@ extension ViewModel {
     /// リポジトリ情報で取得できないアカウント名やbioを取得
     ///
     /// - parameters:
-    ///  - url: アカウント情報の取得可能なAPIをリポジトリ情報から指定
-    ///  - completion: アカウント情報を返す
+    ///  - url: アカウント情報の取得可能なAPIをリポジトリ情報から指定します
+    ///  - errorAlert: 通信失敗 or デコード失敗 で実行されます（レートリミットがほとんど）
+    ///  - offlineAlert: インターネットに接続されていない場合に実行されます
+    ///  - completion: アカウント情報を返します
     ///
     /// EX) https://api.github.com/users/apple
     ///
     public func getAcountInfo(
         url: String,
-        missAlert: @escaping (String) -> Void,
+        errorAlert: @escaping (String) -> Void,
         offlineAlert: @escaping () -> Void,
         completion: @escaping (AccountInfo) -> Void
     ) {
@@ -85,7 +87,7 @@ extension ViewModel {
                     completion(accountInfo)
                 } catch {
                     self.throwsError(response: response.data) { error in
-                        missAlert(error)
+                        errorAlert(error)
                     }
                 }
             }

@@ -35,7 +35,8 @@ extension ViewModel {
     ///  - parameters:
     ///   - searchBarText: サーチバーに入力されたテキスト
     ///   - emptyAlert: 検索結果が空だった場合に実行されます
-    ///   - missAlert: 通信失敗 or デコード失敗 で実行されます
+    ///   - errorAlert: 通信失敗 or デコード失敗 で実行されます（レートリミットがほとんど）
+    ///   - offlineAlert: インターネットに接続されていない場合に実行されます
     ///
     /// EX) https://api.github.com/search/repositories?q=Swift
     ///
@@ -49,27 +50,49 @@ extension ViewModel {
         self.reloadFlag = true
 
         if self.networkStatus {
-            AF.request("https://api.github.com/search/repositories?q=\(searchBarText.encode)&page=\(pageCount)", method: .get).responseData { response in
-                do {
-                    guard let data = response.data else { return }
-                    let repositories = try JSONDecoder().decode(SearchRepositories.self, from: data)
-                    if repositories.items.isEmpty {
-                        emptyAlert()
-                    } else {
-                        self.repo += repositories.items
-                        self.pageCount += 1
-                        self.reloadFlag = false
-                    }
-                } catch {
-                    self.throwsError(response: response.data) { error in
-                        errorAlert(error)
-                        self.reloadFlag = false
-                    }
+            AF.request(
+                "https://api.github.com/search/repositories?q=\(searchBarText.encode)&page=\(pageCount)",
+                method: .get
+            ).responseData { response in
+
+                self.repositoriesDecode(response: response.data) {
+                    emptyAlert()
+                } errorAlert: { error in
+                    errorAlert(error)
                 }
+
             }
         } else {
             offlineAlert()
             self.reloadFlag = false
+        }
+    }
+
+    /// デコード
+    /// ↓
+    /// 結果が空 OR デコード成功 OR デコード失敗（レートリミットの場合）
+    ///
+    ///  - parameters:
+    ///   - response: レスポンスを受け取ります
+    ///   - emptyAlert: 検索結果が空だった場合に実行されます
+    ///   - errorAlert: 通信失敗 or デコード失敗 で実行されます（レートリミットがほとんど）
+    ///
+    private func repositoriesDecode(response: Data?, emptyAlert: @escaping () -> Void, errorAlert: @escaping (String) -> Void) {
+        do {
+            guard let data = response else { return }
+            let repositories = try JSONDecoder().decode(SearchRepositories.self, from: data)
+            if repositories.items.isEmpty {
+                emptyAlert()
+            } else {
+                self.repo += repositories.items
+                self.pageCount += 1
+                self.reloadFlag = false
+            }
+        } catch {
+            self.throwsError(response: response) { error in
+                errorAlert(error)
+                self.reloadFlag = false
+            }
         }
     }
     
