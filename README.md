@@ -186,7 +186,7 @@ https://api.github.com/search/repositories?q=Swift
 
 一番下までスクロールすると自動で更新されます。
 
-![auto-reload](README_Images/auto-reload.gif)
+<img width="40%" src="README_Images/auto-reload.gif">
 
 **ワンタップアクセス**
 |アカウントにアクセス|リポジトリにアクセス|
@@ -200,19 +200,19 @@ https://api.github.com/search/repositories?q=Swift
 
 **入力の中断**
 
-![cancel](README_Images/cancel.gif)
+<img width="40%" src="README_Images/cancel.gif">
 
 **インジゲーター**
 
 「読み込み中である」という事をユーザーに伝える
 
-![indicator](README_Images/indicator.gif)
+<img width="40%" src="README_Images/indicator.gif">
 
 **空の場合のアニメーション表示**
 
 「今は表示するものがないよ」という事をユーザーに伝える
 
-![animation](README_Images/animation.gif)
+<img width="40%" src="README_Images/animation.gif">
 
 ---
 
@@ -220,7 +220,7 @@ https://api.github.com/search/repositories?q=Swift
 
 **背景色に言語カラーのグラデーションを使用**
 
-![gradation](README_Images/gradation.gif)
+<img width="40%" src="README_Images/gradation.png">
 
 **言語の使用割合をグラフで表示**
 
