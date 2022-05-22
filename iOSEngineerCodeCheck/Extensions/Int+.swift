@@ -15,6 +15,8 @@ import Foundation
 ///
 /// - returns: 変換後の文字列を返す
 ///
+/// EX) `1120 -> 1.1K`
+///
 public extension Int {
     func calcNumericalValue() -> String {
         if self >= 1000000 {

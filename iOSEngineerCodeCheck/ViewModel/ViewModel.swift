@@ -19,10 +19,10 @@ class ViewModel: NSObject {
     public var networkStatus: Bool = false
 
     /// 更新フラグ
-    var reloadFlag: Bool = false
+    public var reloadFlag: Bool = false
 
     /// リポジトリを取得するページ数
-    var pageCount: Int = 1
+    public var pageCount: Int = 1
 
     /// リロードハンドラー
     /// アクションをViewControllerから受け取る

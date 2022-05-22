@@ -182,13 +182,13 @@ https://api.github.com/search/repositories?q=Swift
 |![online](README_Images/online.gif)|![not-found](README_Images/not-found.gif)|
 
 **通信失敗(レートリミットの場合)**
-|成功|失敗|
+|成功|失敗(レートリミット)|
 |:-:|:-:|
 |![online](README_Images/online.gif)|![rate-limit](README_Images/rate-limit.gif)|
 
 **自動更新**
 
-一番下までスクロールすると自動で更新されます。
+一番下までスクロールすると自動で更新
 
 <img width="40%" src="README_Images/auto-reload.gif">
 
@@ -248,7 +248,7 @@ https://api.github.com/search/repositories?q=Swift
 
 いままでテストを書くことがなかったので書き方がわからなかった。
 
-自分なりに調べて書いてみたが正しく書けているのかも分からない。
+調べて書いてみたが正しく書けているのか分からない。
 
 **アーキテクチャについての知識不足**
 

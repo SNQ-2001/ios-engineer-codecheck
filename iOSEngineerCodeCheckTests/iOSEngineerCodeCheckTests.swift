@@ -8,7 +8,6 @@
 
 import XCTest
 @testable import iOSEngineerCodeCheck
-import Alamofire
 
 class iOSEngineerCodeCheckTests: XCTestCase {
 

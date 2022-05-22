@@ -108,7 +108,7 @@ class DetailViewController: UIViewController {
         // Chartsの設定
         self.chartView.delegate = self
 
-        // 使用言語割合グラフを表示
+        // 言語の使用割合グラフを表示
         self.setChart()
         
     }
@@ -125,6 +125,8 @@ class DetailViewController: UIViewController {
 
 
 extension DetailViewController: ChartViewDelegate {
+    /// 言語の使用割合グラフを表示
+    /// グラフの設定
     private func setChart() {
         chartView.drawEntryLabelsEnabled = false // グラフラのラベルを非表示
         chartView.chartDescription.enabled = false // グラフの説明文を非表示
@@ -160,6 +162,9 @@ extension DetailViewController: ChartViewDelegate {
         chartView.animate(xAxisDuration: 1.4, easingOption: .easeInOutCubic) // グラフに表示アニメーションを設定
     }
 
+
+    /// 言語の使用割合グラフ
+    /// データの作成
     private func setData(_ languagesNameArray: [String], _ languagesValueArray: [Int]) {
 
         let languagesArray = self.viewController.viewModel.createLanguageArray(languagesNameArray: languagesNameArray, languagesValueArray: languagesValueArray)

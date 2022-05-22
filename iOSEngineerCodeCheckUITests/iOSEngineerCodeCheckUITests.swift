@@ -47,7 +47,7 @@ class iOSEngineerCodeCheckUITests: XCTestCase {
         }
     }
 
-    /// ランダムに10件の言語をテスト
+    /// ランダムに10件の言語を検索テスト
     func testBasicOperation() throws {
         let app = XCUIApplication()
         app.launch()
