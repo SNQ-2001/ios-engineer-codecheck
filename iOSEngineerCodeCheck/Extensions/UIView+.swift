@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// UIViewに表示アニメーションを適用する
 public extension UIView {
     func viewTransition(_ duration:CFTimeInterval) {
         let animation = CATransition()

@@ -112,7 +112,7 @@ extension ViewModel {
     ) {
         var languagesNameArray: [String] = []
         var languagesValueArray: [Int] = []
-        
+
         AF.request(url, method: .get).responseData { response in
             do {
                 guard let data = response.data else { return }

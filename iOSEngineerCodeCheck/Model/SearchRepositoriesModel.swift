@@ -10,15 +10,12 @@ import Foundation
 
 // MARK: - SearchRepositories
 struct SearchRepositories: Codable {
-    let total_count: Int
-    let incomplete_results: Bool
     var items: [Item]
 }
 
 // MARK: - Item
 struct Item: Codable {
     let name: String
-    let full_name: String
     let owner: Owner
     let html_url: String
     let description: String?
@@ -27,7 +24,6 @@ struct Item: Codable {
     let language: String?
     let forks_count: Int
     let open_issues_count: Int
-    let license: License?
 }
 
 // MARK: - Owner
@@ -36,9 +32,4 @@ struct Owner: Codable {
     let avatar_url: String
     let url: String
     let html_url: String
-}
-
-// MARK: - License
-struct License: Codable {
-    let name: String
 }

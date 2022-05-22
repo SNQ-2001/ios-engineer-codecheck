@@ -12,10 +12,9 @@ import JXMarqueeView
 
 class RepositoryTableViewCell: UITableViewCell {
 
+    /// セルアイテム
     @IBOutlet weak var avatarImage: UIImageView!
-
     @IBOutlet weak var nameLabel: UILabel!
-
     @IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var languageView: UIView!

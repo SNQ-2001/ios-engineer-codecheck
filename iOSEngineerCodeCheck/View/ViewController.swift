@@ -71,6 +71,7 @@ class ViewController: UITableViewController {
                     self?.animationView.play()
                     self?.animationView.isHidden = false
                 } else {
+                    self?.animationView.stop()
                     self?.animationView.isHidden = true
                 }
 
@@ -181,7 +182,7 @@ extension ViewController: UISearchBarDelegate {
         self.uiSearchBar.setShowsCancelButton(true, animated: true)
     }
 
-    /// キャンセルボタンを押したら非表示
+    /// キャンセルボタンを押したらキャンセルボタンを非表示
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         self.uiSearchBar.resignFirstResponder()
         self.uiSearchBar.setShowsCancelButton(false, animated: true)

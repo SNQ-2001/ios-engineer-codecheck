@@ -156,7 +156,7 @@ https://api.github.com/search/repositories?q=Swift
 |<td bgcolor="#362B2E"><font color="#EC9D9E">初級|Fat VC の回避|4/5|
 |<td bgcolor="#3A382F"><font color="#D8B967">中級|プログラム構造をリファクタリング|2/5|
 |<td bgcolor="#3A382F"><font color="#D8B967">中級|アーキテクチャを適用|3/5|
-|<td bgcolor="#3A382F"><font color="#D8B967">中級|テストを追加|1/5|
+|<td bgcolor="#3A382F"><font color="#D8B967">中級|テストを追加|2/5|
 |<td bgcolor="#293625"><font color="#ACDE5E">ボーナス|UI をブラッシュアップ|5/5|
 |<td bgcolor="#293625"><font color="#ACDE5E">ボーナス|新機能を追加|5/5|
 
@@ -182,13 +182,13 @@ https://api.github.com/search/repositories?q=Swift
 |![online](README_Images/online.gif)|![not-found](README_Images/not-found.gif)|
 
 **通信失敗(レートリミットの場合)**
-|成功|失敗|
+|成功|失敗(レートリミット)|
 |:-:|:-:|
 |![online](README_Images/online.gif)|![rate-limit](README_Images/rate-limit.gif)|
 
 **自動更新**
 
-一番下までスクロールすると自動で更新されます。
+一番下までスクロールすると自動で更新
 
 <img width="40%" src="README_Images/auto-reload.gif">
 
@@ -244,11 +244,13 @@ https://api.github.com/search/repositories?q=Swift
 
 ## 改善点
 
-**テストが書けなかった**
+**テストについての知識不足**
 
 いままでテストを書くことがなかったので書き方がわからなかった。
 
-**アーキテクチャについての知識がない**
+調べて書いてみたが正しく書けているのか分からない。
+
+**アーキテクチャについての知識不足**
 
 自分なりにMVVMで書いたつもりだが、なんちゃってMVVMになっている可能性がある
 

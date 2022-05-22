@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - RequestError
 struct RequestError: Codable {
     let message: String
 }
