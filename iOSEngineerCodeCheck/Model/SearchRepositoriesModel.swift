@@ -6,8 +6,6 @@
 //  Copyright © 2022 YUMEMI Inc. All rights reserved.
 //
 
-import Foundation
-
 // MARK: - SearchRepositories
 struct SearchRepositories: Codable {
     var items: [Item]
