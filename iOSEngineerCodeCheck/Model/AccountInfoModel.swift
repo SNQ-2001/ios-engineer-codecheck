@@ -6,8 +6,6 @@
 //  Copyright © 2022 YUMEMI Inc. All rights reserved.
 //
 
-import Foundation
-
 // MARK: - AccountInfo
 struct AccountInfo: Codable {
     let name: String?

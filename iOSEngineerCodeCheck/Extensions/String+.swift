@@ -6,8 +6,6 @@
 //  Copyright © 2022 YUMEMI Inc. All rights reserved.
 //
 
-import Foundation
-
 /// URLエンコードを省略
 extension String {
     var encode: String {
