@@ -167,13 +167,13 @@ extension DetailViewController: ChartViewDelegate {
     /// データの作成
     private func setData(_ languagesNameArray: [String], _ languagesValueArray: [Int]) {
 
-        let languagesArray = self.viewController.viewModel.createLanguageArray(languagesNameArray: languagesNameArray, languagesValueArray: languagesValueArray)
+        let languagesTuple = self.viewController.viewModel.createLanguageArray(languagesNameArray: languagesNameArray, languagesValueArray: languagesValueArray)
 
         // PieChartデータを作成
-        let entries = (0..<languagesArray.0.count).map { (i) -> PieChartDataEntry in
+        let entries = (0..<languagesTuple.0.count).map { (i) -> PieChartDataEntry in
             return PieChartDataEntry(
-                value: Double(languagesArray.1[i % languagesArray.1.count]),
-                label: languagesArray.0[i % languagesArray.0.count]
+                value: Double(languagesTuple.1[i % languagesTuple.1.count]),
+                label: languagesTuple.0[i % languagesTuple.0.count]
             )
         }
 
@@ -182,7 +182,7 @@ extension DetailViewController: ChartViewDelegate {
         set.selectionShift = 20 // 縮小
 
         // 使用言語割合グラフに適用する言語カラー配列を作成する
-        let colors = self.viewController.viewModel.createLanguageColorArray(languagesArray: languagesArray.0)
+        let colors = self.viewController.viewModel.createLanguageColorArray(languagesArray: languagesTuple.0)
         set.colors = colors // グラフの色
 
         let data = PieChartData(dataSet: set)
