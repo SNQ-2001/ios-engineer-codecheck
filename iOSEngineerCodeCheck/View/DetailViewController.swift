@@ -43,7 +43,7 @@ class DetailViewController: UIViewController {
 
         // プロフィール画像の表示
         self.imageView.af.setImage(
-            withURL: URL(string: repo.owner.avatar_url)!,
+            withURL: URL(string: repo.owner.avatarURL)!,
             placeholderImage: UIImage(named: "placeholder")!,
             imageTransition: .crossDissolve(0.5)
         )
@@ -98,12 +98,12 @@ class DetailViewController: UIViewController {
         self.repositoryNameLabel.marqueeType = .left
 
         /// リポジトリ説明
-        self.repositoryDescriptionLabel.text = repo.description
+        self.repositoryDescriptionLabel.text = repo.itemDescription
 
         /// イシュー数, スター数, フォーク数
-        self.issueLabel.text = "\(repo.open_issues_count.calcNumericalValue()) issues"
-        self.starLabel.text = "\(repo.stargazers_count.calcNumericalValue()) stars"
-        self.forkLabel.text = "\(repo.forks_count.calcNumericalValue()) forks"
+        self.issueLabel.text = "\(repo.openIssuesCount.calcNumericalValue()) issues"
+        self.starLabel.text = "\(repo.stargazersCount.calcNumericalValue()) stars"
+        self.forkLabel.text = "\(repo.forksCount.calcNumericalValue()) forks"
 
         // Chartsの設定
         self.chartView.delegate = self
@@ -114,11 +114,11 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func showAccount(_ sender: Any) {
-        self.viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo[viewController.viewModel.cellIndex].owner.html_url)
+        self.viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo[viewController.viewModel.cellIndex].owner.htmlURL)
     }
 
     @IBAction func showRepository(_ sender: Any) {
-        self.viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo[viewController.viewModel.cellIndex].html_url)
+        self.viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo[viewController.viewModel.cellIndex].htmlURL)
     }
 
 }
@@ -154,7 +154,7 @@ extension DetailViewController: ChartViewDelegate {
         
         // 使用言語を取得
         self.viewController.viewModel.getLanguages(
-            url: viewController.viewModel.repo[viewController.viewModel.cellIndex].languages_url
+            url: viewController.viewModel.repo[viewController.viewModel.cellIndex].languagesURL
         ) { (languagesNameArray, languagesValueArray)  in
             self.setData(languagesNameArray, languagesValueArray)
         }

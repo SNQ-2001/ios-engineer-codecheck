@@ -132,7 +132,7 @@ extension ViewController {
         let rp = self.viewModel.repo[indexPath.row]
 
         // カスタムセルをセット
-        cell.setCell(avatarUrl: rp.owner.avatar_url, login: rp.owner.login, name: rp.name, language: rp.language ?? "No Language")
+        cell.setCell(avatarUrl: rp.owner.avatarURL, login: rp.owner.login, name: rp.name, language: rp.language ?? "No Language")
 
         cell.tag = indexPath.row
 
