@@ -11,25 +11,48 @@ import Foundation
 // MARK: - SearchRepositories
 struct SearchRepositories: Codable {
     var items: [Item]
+
+    enum CodingKeys: String, CodingKey {
+        case items
+    }
 }
 
 // MARK: - Item
 struct Item: Codable {
     let name: String
     let owner: Owner
-    let html_url: String
-    let description: String?
-    let languages_url: String
-    let stargazers_count: Int
+    let htmlURL: String
+    let itemDescription: String?
+    let languagesURL: String
+    let stargazersCount: Int
     let language: String?
-    let forks_count: Int
-    let open_issues_count: Int
+    let forksCount: Int
+    let openIssuesCount: Int
+
+    enum CodingKeys: String, CodingKey {
+        case name
+        case owner
+        case htmlURL = "html_url"
+        case itemDescription = "description"
+        case languagesURL = "languages_url"
+        case stargazersCount = "stargazers_count"
+        case language
+        case forksCount = "forks_count"
+        case openIssuesCount = "open_issues_count"
+    }
 }
 
 // MARK: - Owner
 struct Owner: Codable {
     let login: String
-    let avatar_url: String
+    let avatarURL: String
     let url: String
-    let html_url: String
+    let htmlURL: String
+
+    enum CodingKeys: String, CodingKey {
+        case login
+        case avatarURL = "avatar_url"
+        case url
+        case htmlURL = "html_url"
+    }
 }

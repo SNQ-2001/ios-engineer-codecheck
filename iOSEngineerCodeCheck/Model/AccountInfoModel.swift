@@ -13,4 +13,10 @@ struct AccountInfo: Codable {
     let name: String?
     let login: String
     let bio: String?
+
+    enum CodingKeys: String, CodingKey {
+        case name
+        case login
+        case bio
+    }
 }

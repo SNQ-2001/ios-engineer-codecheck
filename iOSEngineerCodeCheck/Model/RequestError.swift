@@ -11,4 +11,8 @@ import Foundation
 // MARK: - RequestError
 struct RequestError: Codable {
     let message: String
+
+    enum CodingKeys: String, CodingKey {
+        case message
+    }
 }
