@@ -20,8 +20,8 @@
 		1C589A5D2833E05100E19FF3 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C589A5C2833E05100E19FF3 /* ViewModel.swift */; };
 		1C589A622834246F00E19FF3 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C589A612834246F00E19FF3 /* RepositoryTableViewCell.swift */; };
 		1C656CA62837F416007A82B4 /* empty-box.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C656CA52837F416007A82B4 /* empty-box.json */; };
-		1CA0694A283753B1004BD000 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945E2244DC5E80012785A /* ViewController.swift */; };
-		1CA0694B283753B1004BD000 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945E2244DC5E80012785A /* ViewController.swift */; };
+		1CA0694A283753B1004BD000 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945E2244DC5E80012785A /* TableViewController.swift */; };
+		1CA0694B283753B1004BD000 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945E2244DC5E80012785A /* TableViewController.swift */; };
 		1CA0694C283753B5004BD000 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C589A612834246F00E19FF3 /* RepositoryTableViewCell.swift */; };
 		1CA0694D283753B5004BD000 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C589A612834246F00E19FF3 /* RepositoryTableViewCell.swift */; };
 		1CA0694E283753B8004BD000 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */; };
@@ -59,7 +59,7 @@
 		BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */; };
 		BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945DE244DC5E80012785A /* AppDelegate.swift */; };
 		BFD945E1244DC5E80012785A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945E0244DC5E80012785A /* SceneDelegate.swift */; };
-		BFD945E3244DC5E80012785A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945E2244DC5E80012785A /* ViewController.swift */; };
+		BFD945E3244DC5E80012785A /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFD945E2244DC5E80012785A /* TableViewController.swift */; };
 		BFD945E6244DC5E80012785A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD945E4244DC5E80012785A /* Main.storyboard */; };
 		BFD945E8244DC5EB0012785A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BFD945E7244DC5EB0012785A /* Assets.xcassets */; };
 		BFD945EB244DC5EB0012785A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFD945E9244DC5EB0012785A /* LaunchScreen.storyboard */; };
@@ -117,7 +117,7 @@
 		BFD945DB244DC5E80012785A /* iOSEngineerCodeCheck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSEngineerCodeCheck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BFD945DE244DC5E80012785A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFD945E0244DC5E80012785A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BFD945E2244DC5E80012785A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BFD945E2244DC5E80012785A /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		BFD945E5244DC5E80012785A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BFD945E7244DC5EB0012785A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BFD945EA244DC5EB0012785A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -171,7 +171,7 @@
 		1C54D3C128339DA600AA5023 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BFD945E2244DC5E80012785A /* ViewController.swift */,
+				BFD945E2244DC5E80012785A /* TableViewController.swift */,
 				1C589A612834246F00E19FF3 /* RepositoryTableViewCell.swift */,
 				BF0A658C244F2A3B00280FA6 /* DetailViewController.swift */,
 				BFD945E4244DC5E80012785A /* Main.storyboard */,
@@ -557,7 +557,7 @@
 				1C4CF850283656A3004B4700 /* DVCViewModel.swift in Sources */,
 				1C2DFE932838CCB200FFDE56 /* String+.swift in Sources */,
 				1C4CF84E28365699004B4700 /* VCViewModel.swift in Sources */,
-				BFD945E3244DC5E80012785A /* ViewController.swift in Sources */,
+				BFD945E3244DC5E80012785A /* TableViewController.swift in Sources */,
 				1C589A622834246F00E19FF3 /* RepositoryTableViewCell.swift in Sources */,
 				BF0A658D244F2A3B00280FA6 /* DetailViewController.swift in Sources */,
 				BFD945DF244DC5E80012785A /* AppDelegate.swift in Sources */,
@@ -579,7 +579,7 @@
 				1CA0694C283753B5004BD000 /* RepositoryTableViewCell.swift in Sources */,
 				1CD0F69E2839033500E9A9D3 /* SceneDelegate.swift in Sources */,
 				1CA0695A28375457004BD000 /* UIView+.swift in Sources */,
-				1CA0694A283753B1004BD000 /* ViewController.swift in Sources */,
+				1CA0694A283753B1004BD000 /* TableViewController.swift in Sources */,
 				1CA06955283753CC004BD000 /* DVCViewModel.swift in Sources */,
 				BFD945F6244DC5EB0012785A /* iOSEngineerCodeCheckTests.swift in Sources */,
 				1CA0694E283753B8004BD000 /* DetailViewController.swift in Sources */,
@@ -602,7 +602,7 @@
 				1CA0694D283753B5004BD000 /* RepositoryTableViewCell.swift in Sources */,
 				1CD0F69D2839033500E9A9D3 /* SceneDelegate.swift in Sources */,
 				1CA0695B28375458004BD000 /* UIView+.swift in Sources */,
-				1CA0694B283753B1004BD000 /* ViewController.swift in Sources */,
+				1CA0694B283753B1004BD000 /* TableViewController.swift in Sources */,
 				1CA06954283753CC004BD000 /* DVCViewModel.swift in Sources */,
 				BFD94601244DC5EC0012785A /* iOSEngineerCodeCheckUITests.swift in Sources */,
 				1CA0694F283753B8004BD000 /* DetailViewController.swift in Sources */,

@@ -30,15 +30,15 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var chartView: PieChartView!
     @IBOutlet weak var showRepositoryButton: UIButton!
     
-    var viewController: ViewController!
+    var tableViewController: TableViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let repo = viewController.viewModel.repo[viewController.viewModel.cellIndex ?? 0]
+        let repo = tableViewController.viewModel.repo[tableViewController.viewModel.cellIndex ?? 0]
 
         // グラデーション背景を設定
-        self.viewController.viewModel.createGradient(self, repo: repo)
+        self.tableViewController.viewModel.createGradient(self, repo: repo)
 
         // プロフィール画像用データのアンラップ
         guard let url = URL(string: repo.owner.avatarURL) else { return }
@@ -52,12 +52,12 @@ class DetailViewController: UIViewController {
         )
 
         // アカウント情報の表示(名前, ID, BIO)
-        self.viewController.viewModel.getAcountInfo(
-            url: self.viewController.viewModel.repo[viewController.viewModel.cellIndex ?? 0].owner.url
+        self.tableViewController.viewModel.getAcountInfo(
+            url: self.tableViewController.viewModel.repo[tableViewController.viewModel.cellIndex ?? 0].owner.url
         ) { error in
-            self.viewController.viewModel.alert(self, title: NSLocalizedString("Error", comment: ""), message: error)
+            self.tableViewController.viewModel.alert(self, title: NSLocalizedString("Error", comment: ""), message: error)
         } offlineAlert: {
-            self.viewController.viewModel.alert(self, title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Offline", comment: ""))
+            self.tableViewController.viewModel.alert(self, title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("Offline", comment: ""))
         } completion: { accountInfo in
             self.nameLabel.viewTransition(0.4)
             self.loginLabel.viewTransition(0.6)
@@ -117,11 +117,11 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func showAccount(_ sender: Any) {
-        self.viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo[viewController.viewModel.cellIndex ?? 0].owner.htmlURL)
+        self.tableViewController.viewModel.showSafariView(self, url: tableViewController.viewModel.repo[tableViewController.viewModel.cellIndex ?? 0].owner.htmlURL)
     }
 
     @IBAction func showRepository(_ sender: Any) {
-        self.viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo[viewController.viewModel.cellIndex ?? 0].htmlURL)
+        self.tableViewController.viewModel.showSafariView(self, url: tableViewController.viewModel.repo[tableViewController.viewModel.cellIndex ?? 0].htmlURL)
     }
 
 }
@@ -156,8 +156,8 @@ extension DetailViewController: ChartViewDelegate {
         l.yEntrySpace = 0
         
         // 使用言語を取得
-        self.viewController.viewModel.getLanguages(
-            url: viewController.viewModel.repo[viewController.viewModel.cellIndex ?? 0].languagesURL
+        self.tableViewController.viewModel.getLanguages(
+            url: tableViewController.viewModel.repo[tableViewController.viewModel.cellIndex ?? 0].languagesURL
         ) { (languagesNameArray, languagesValueArray)  in
             self.setData(languagesNameArray, languagesValueArray)
         }
@@ -170,7 +170,7 @@ extension DetailViewController: ChartViewDelegate {
     /// データの作成
     private func setData(_ languagesNameArray: [String], _ languagesValueArray: [Int]) {
 
-        let languagesTuple = self.viewController.viewModel.createLanguageArray(languagesNameArray: languagesNameArray, languagesValueArray: languagesValueArray)
+        let languagesTuple = self.tableViewController.viewModel.createLanguageArray(languagesNameArray: languagesNameArray, languagesValueArray: languagesValueArray)
 
         // PieChartデータを作成
         let entries = (0..<languagesTuple.0.count).map { (i) -> PieChartDataEntry in
@@ -185,7 +185,7 @@ extension DetailViewController: ChartViewDelegate {
         set.selectionShift = 20 // 縮小
 
         // 使用言語割合グラフに適用する言語カラー配列を作成する
-        let colors = self.viewController.viewModel.createLanguageColorArray(languagesArray: languagesTuple.0)
+        let colors = self.tableViewController.viewModel.createLanguageColorArray(languagesArray: languagesTuple.0)
         set.colors = colors // グラフの色
 
         let data = PieChartData(dataSet: set)

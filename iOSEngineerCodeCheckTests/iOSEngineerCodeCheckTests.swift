@@ -13,11 +13,11 @@ class iOSEngineerCodeCheckTests: XCTestCase {
 
     let viewModel = ViewModel()
 
-    var viewController: ViewController!
+    var tableViewController: TableViewController!
 
     override func setUp() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        self.viewController = storyboard.instantiateInitialViewController() as? ViewController
+        self.tableViewController = storyboard.instantiateInitialViewController() as? TableViewController
     }
 
     override func tearDown() {
