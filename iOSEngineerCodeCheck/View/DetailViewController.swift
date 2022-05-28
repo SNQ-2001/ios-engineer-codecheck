@@ -35,22 +35,25 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let repo = viewController.viewModel.repo[viewController.viewModel.cellIndex]
+        let repo = viewController.viewModel.repo[viewController.viewModel.cellIndex ?? 0]
 
         // グラデーション背景を設定
         self.viewController.viewModel.createGradient(self, repo: repo)
 
+        // プロフィール画像用データのアンラップ
+        guard let url = URL(string: repo.owner.avatarURL) else { return }
+        guard let image = UIImage(named: "placeholder") else { return }
 
         // プロフィール画像の表示
         self.imageView.af.setImage(
-            withURL: URL(string: repo.owner.avatarURL)!,
-            placeholderImage: UIImage(named: "placeholder")!,
+            withURL: url,
+            placeholderImage: image,
             imageTransition: .crossDissolve(0.5)
         )
 
         // アカウント情報の表示(名前, ID, BIO)
         self.viewController.viewModel.getAcountInfo(
-            url: self.viewController.viewModel.repo[viewController.viewModel.cellIndex].owner.url
+            url: self.viewController.viewModel.repo[viewController.viewModel.cellIndex ?? 0].owner.url
         ) { error in
             self.viewController.viewModel.alert(self, title: NSLocalizedString("Error", comment: ""), message: error)
         } offlineAlert: {
@@ -114,11 +117,11 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func showAccount(_ sender: Any) {
-        self.viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo[viewController.viewModel.cellIndex].owner.htmlURL)
+        self.viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo[viewController.viewModel.cellIndex ?? 0].owner.htmlURL)
     }
 
     @IBAction func showRepository(_ sender: Any) {
-        self.viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo[viewController.viewModel.cellIndex].htmlURL)
+        self.viewController.viewModel.showSafariView(self, url: viewController.viewModel.repo[viewController.viewModel.cellIndex ?? 0].htmlURL)
     }
 
 }
@@ -154,7 +157,7 @@ extension DetailViewController: ChartViewDelegate {
         
         // 使用言語を取得
         self.viewController.viewModel.getLanguages(
-            url: viewController.viewModel.repo[viewController.viewModel.cellIndex].languagesURL
+            url: viewController.viewModel.repo[viewController.viewModel.cellIndex ?? 0].languagesURL
         ) { (languagesNameArray, languagesValueArray)  in
             self.setData(languagesNameArray, languagesValueArray)
         }
@@ -188,8 +191,11 @@ extension DetailViewController: ChartViewDelegate {
         let data = PieChartData(dataSet: set)
         chartView.data = data
 
+        // アンラップ
+        guard let chartData = chartView.data else { return }
+
         // 言語が多いとゴチャゴチャになるので値の非表示
-        for set in chartView.data! {
+        for set in chartData {
             set.drawValuesEnabled = !set.drawValuesEnabled
         }
 
