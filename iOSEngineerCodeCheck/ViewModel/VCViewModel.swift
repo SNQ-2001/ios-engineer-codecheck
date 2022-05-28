@@ -54,7 +54,6 @@ extension ViewModel {
                 "https://api.github.com/search/repositories?q=\(searchBarText.encode)&page=\(pageCount)",
                 method: .get
             ).responseData { response in
-                print(String.init(data: response.data!, encoding: .utf8)!)
                 self.repositoriesDecode(response: response.data) {
                     emptyAlert()
                 } errorAlert: { error in

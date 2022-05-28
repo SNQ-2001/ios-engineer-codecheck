@@ -101,7 +101,7 @@ class ViewController: UITableViewController {
 extension ViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Detail" {
-            let detailViewController = segue.destination as! DetailViewController
+            guard let detailViewController = segue.destination as? DetailViewController else { return }
             detailViewController.viewController = self
         }
     }
@@ -128,7 +128,9 @@ extension ViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         tableView.separatorInset = .zero // TabelViewの区切り線を端まで伸ばす
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Repository", for: indexPath) as! RepositoryTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Repository", for: indexPath) as? RepositoryTableViewCell else {
+            fatalError("cell -> nil")
+        }
         let rp = self.viewModel.repo[indexPath.row]
 
         // カスタムセルをセット

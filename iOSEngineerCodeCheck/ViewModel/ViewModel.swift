@@ -38,7 +38,7 @@ class ViewModel: NSObject {
     }
 
     /// セルインデックス
-    public var cellIndex: Int!
+    public var cellIndex: Int?
 
     /// ネットワークの接続チェック
     /// フラグで判定

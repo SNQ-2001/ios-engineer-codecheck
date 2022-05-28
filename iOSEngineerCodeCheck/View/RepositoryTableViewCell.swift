@@ -38,10 +38,14 @@ class RepositoryTableViewCell: UITableViewCell {
     /// カスタムセルをセット
     public func setCell(avatarUrl: String, login: String, name: String, language: String) {
 
+        // アカウント画像用データのアンラップ
+        guard let url = URL(string: avatarUrl) else { return }
+        guard let image = UIImage(named: "placeholder") else { return }
+
         // アカウント画像
         self.avatarImage.af.setImage(
-            withURL: URL(string: avatarUrl)!,
-            placeholderImage: UIImage(named: "placeholder")!,
+            withURL: url,
+            placeholderImage: image,
             imageTransition: .crossDissolve(0.5)
         )
 
