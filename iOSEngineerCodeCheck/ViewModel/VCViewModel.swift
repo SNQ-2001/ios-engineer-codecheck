@@ -20,7 +20,7 @@ extension ViewModel {
     ///  - title: アラートのタイトル
     ///  - message: アラートのメッセージ
     ///  
-    public func alert(_ vc: ViewController, title: String, message: String) {
+    public func alert(_ vc: TableViewController, title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle:  .alert)
         let OK = UIAlertAction(title: "OK", style: .default) { (action: UIAlertAction!) -> Void in }
         alert.addAction(OK)

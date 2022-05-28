@@ -12,7 +12,7 @@ import Lottie
 import Alamofire
 import AlamofireImage
 
-class ViewController: UITableViewController {
+class TableViewController: UITableViewController, UISearchBarDelegate {
 
     @IBOutlet weak var uiSearchBar: UISearchBar!
 
@@ -98,11 +98,11 @@ class ViewController: UITableViewController {
 
 
 // MARK: 画面遷移
-extension ViewController {
+extension TableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Detail" {
             guard let detailViewController = segue.destination as? DetailViewController else { return }
-            detailViewController.viewController = self
+            detailViewController.tableViewController = self
         }
     }
 }
@@ -112,7 +112,7 @@ extension ViewController {
 
 
 // MARK: UITableView
-extension ViewController {
+extension TableViewController {
 
     /// セルの個数を計算
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -177,7 +177,7 @@ extension ViewController {
 
 
 // MARK: UISearchBar
-extension ViewController: UISearchBarDelegate {
+extension TableViewController {
 
     /// キャンセルボタンを表示
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar){
