@@ -150,19 +150,19 @@ extension ViewModel {
         var newLanguagesValueArray: [Double] = []
 
         // 割合が0.5％以上の言語を配列に格納
-        for i in 0..<languagesValueArray.count {
-            let percent = floor((Double(languagesValueArray[i]) / Double(languagesValueSum)) * 1000) / 10
+        for num in 0..<languagesValueArray.count {
+            let percent = floor((Double(languagesValueArray[num]) / Double(languagesValueSum)) * 1000) / 10
             if percent >= 0.5 {
-                newLanguagesNameArray.append(languagesNameArray[i])
+                newLanguagesNameArray.append(languagesNameArray[num])
                 newLanguagesValueArray.append(percent)
-                print("\(languagesNameArray[i]): \(percent)%")
+                print("\(languagesNameArray[num]): \(percent)%")
             }
         }
 
         var newLanguagesValueSum: Double = 0 // 割合合計
 
-        for i in newLanguagesValueArray {
-            newLanguagesValueSum += i
+        for newLanguagesValue in newLanguagesValueArray {
+            newLanguagesValueSum += newLanguagesValue
         }
 
         // 割合が0.5より小さい言語はOtherとしてまとめる & 言語がなかった場合、"No Language"を返す
