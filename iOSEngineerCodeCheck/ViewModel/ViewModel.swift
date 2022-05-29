@@ -26,7 +26,7 @@ class ViewModel: NSObject {
 
     /// リロードハンドラー
     /// アクションをViewControllerから受け取る
-    public var reloadHandler: () -> Void = {  }
+    public var reloadHandler: () -> Void = { }
 
 
     /// リポジトリ情報の格納庫
