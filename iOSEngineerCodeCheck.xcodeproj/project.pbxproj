@@ -662,6 +662,7 @@
 		BFD94603244DC5EC0012785A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -724,6 +725,7 @@
 		BFD94604244DC5EC0012785A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -781,6 +783,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6FA2148721F9E596DDD35D91 /* Pods-iOSEngineerCodeCheck.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69BMRJXU5B;
@@ -800,6 +803,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6B7E954536DF99945D0A3BD7 /* Pods-iOSEngineerCodeCheck.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69BMRJXU5B;
@@ -819,7 +823,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7A2AFAA82462D157B6803175 /* Pods-iOSEngineerCodeCheckTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69BMRJXU5B;
@@ -841,7 +845,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0748046C9D430E2AADA43613 /* Pods-iOSEngineerCodeCheckTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69BMRJXU5B;
@@ -863,7 +867,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 13B4032742389BD8945E4EB9 /* Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69BMRJXU5B;
 				INFOPLIST_FILE = iOSEngineerCodeCheckUITests/Info.plist;
@@ -884,7 +888,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2E732FC83A728287EE145C00 /* Pods-iOSEngineerCodeCheck-iOSEngineerCodeCheckUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69BMRJXU5B;
 				INFOPLIST_FILE = iOSEngineerCodeCheckUITests/Info.plist;

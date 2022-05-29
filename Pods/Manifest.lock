@@ -2,9 +2,9 @@ PODS:
   - Alamofire (5.6.1)
   - AlamofireImage (4.2.0):
     - Alamofire (~> 5.4)
-  - Charts (4.0.2):
-    - Charts/Core (= 4.0.2)
-  - Charts/Core (4.0.2):
+  - Charts (4.0.3):
+    - Charts/Core (= 4.0.3)
+  - Charts/Core (4.0.3):
     - SwiftAlgorithms (~> 1.0)
   - JXMarqueeView (0.0.9)
   - LicensePlist (3.22.0)
@@ -35,7 +35,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 87bd8c952f9a4454320fce00d9cc3de57bcadaf5
   AlamofireImage: 34a2d90b0e5fe6a5605f85ae4b7b01e784c60192
-  Charts: cfa4e911e6dc289582c2fe011a0e87c03d96727f
+  Charts: d959d6723c8eedfdd0735dfc28cb0a71762ac4d9
   JXMarqueeView: 0058108f80f149b25ff3bc3705c1af348fe7be8f
   LicensePlist: be4f67fadceeba970ed2f13e198592a4f420d2be
   lottie-ios: 6ac74dcc09904798f59b18cb3075c089d76be9ae
