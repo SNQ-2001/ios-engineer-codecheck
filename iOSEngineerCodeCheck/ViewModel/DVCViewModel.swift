@@ -188,8 +188,8 @@ extension ViewModel {
     ///
     public func createLanguageColorArray(languagesArray: [String]) -> [UIColor] {
         var colors: [UIColor] = []
-        for i in languagesArray {
-            colors.append(UIColor(language: i))
+        for language in languagesArray {
+            colors.append(UIColor(language: language))
         }
 
         return colors
